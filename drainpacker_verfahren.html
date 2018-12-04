@@ -1,0 +1,473 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Trelleborg Calculator</title>
+<link href="style/style.css?v=000" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.9.1.min.js?v=000" type="text/javascript"></script>
+<script src="js/jquery-ui-min.js?v=000" type="text/javascript"></script>
+
+</head>
+<body id="calc_b">
+
+   	
+
+
+
+<div id="alert_fens"> <span id="alert_txt"></span> <a id="alert_btn">OK</a> </div>
+<a id="load_" class="loader_img">
+<div id="floatingCirclesG">
+	<div class="f_circleG" id="frotateG_01"></div>
+	<div class="f_circleG" id="frotateG_02"></div>
+	<div class="f_circleG" id="frotateG_03"></div>
+	<div class="f_circleG" id="frotateG_04"></div>
+	<div class="f_circleG" id="frotateG_05"></div>
+	<div class="f_circleG" id="frotateG_06"></div>
+	<div class="f_circleG" id="frotateG_07"></div>
+	<div class="f_circleG" id="frotateG_08"></div>
+</div>
+
+</a> 
+<!--eingaben -->
+<div id="header">
+	<div id="topbar_unters"> <a rel="home.html" id="home_c"><img src="images/logo2.png" width="auto" height="100%"></a> <a rel="calculator.html" id="calculator"><img src="images/icon/bendedleft.png"  width="auto" height="100%"></a>
+    <div id="zuruck_z_eingabe"><img src="images/icon/bendedleft.png"  width="auto" height="100%"></div>
+     </div>
+<h1>Harzmengenberechnung <span id="headline_txt">DrainPacker Verfahren <br> für Silikatharzsysteme</span> </h1>
+</div>
+<<<<<<< HEAD
+<div class="content" style="width:100%; overflow:hidden; height:1940px;">
+=======
+<div class="content" style="width:100%; overflow:hidden; height:800px;">
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+	<div class="werte_eingaben">
+
+    
+
+    
+		<div class="txt mth_liner_basic_calc">
+       
+        
+			<form name="dp_calc" action="" method="post">
+         
+            
+            
+<div class="auswahl" id="mth_einheiten">
+<span class="a_label">Einheit</span> <span id="a_wert">Metrisch</span>
+					<select id="sel" name="einheiten"  tabindex="1" disabled>
+						<option value="Metrisch">Metrisch</option>
+						<option value="imperial">Imperial</option>
+					</select>
+				</div>
+                
+	<div class="auswahl" id="harz_sys_fest"> <span class="a_label">Harzsystem</span> <a class="alert_" rel="Dieses Harzsystem ist vorgegeben."></a> <span id="a_wert_2_f">Type W01 / W1 / S</span> </div>
+				<div class="auswahl" id="harz_sys"> <span class="a_label">Harzsystem</span> <a class="alert_" rel="Wählen Sie hier das verwendete Harzsystem aus."></a> <span id="a_wert_2">Bitte wählen</span>
+					<select id="sel_5" name="harzsystem"  tabindex="1">
+						<option value="Bitte wählen">Bitte wählen</option>
+						<option value="1">W1</option>
+                        <option value="2">W01</option>
+                        <option value="3">S1</option>
+						<option value="4">L30E1</option>
+						<option value="5">L30E3</option>
+					</select>
+				</div>
+                                
+          
+<div class="auswahl" id="matte_ausw"> <span class="a_label">Glasfasergewebematte CRF</span> <a class="alert_" rel="Wählen Sie die verwendete Glasfasergewebematte."></a> <span id="matte_ausw_wert" class="a_wert_anz">Bitte wählen</span>
+					<select id="sel_1" name="matte_ausw"  tabindex="2">
+                    <option label="Bitte wählen" value="Bitte wählen">Bitte wählen</option>
+					<option value="1050 g/m²">1050 g/m²</option>
+					<option value="1400 g/m²">1400 g/m²</option>
+					</select>
+</div>
+                
+                
+  				<div class="eing dm_rohr">
+					<div class="e_label">Rohrdurchmesser <a class="alert_" rel="Bitte geben Sie den Durchmesser der zu reparierenden Abwasserleitung in mm ein. Der Durchmesser kann zwischen 100mm und 1400mm sein."></a> </div>
+					<div class="eing_dp">
+						<input id="durchmesser_rohr" type="text" tabindex="3">
+						<span  class="mass">mm</span></div>
+				</div> 
+                
+                
+       				<div class="eing reperatur_laenge" style="display:none;">
+					<div class="e_label">Reparaturlänge <a class="alert_" rel="Bitte geben Sie die Reparaturlänge der zu reparierenden Abwasserleitung in m ein."></a> </div>
+					<div class="eing_dp">
+						<input id="reperatur_l" type="text" tabindex="3" value="0">
+						<span  class="mass">m</span></div>
+				</div>                         
+                
+
+
+                
+              
+       <div class="auswahl hilight" id="zusatzlagen_anz" style="display:none;">
+       <a class="alert_ hil"  rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>">Schematische Ansicht</a>
+       <div id="zusatzl_erklaerung">Empfohlene Gesamtlagen 3 (davon min. 1 Zusatzlage)</div>
+<div id="unts_1">      
+ <span class="a_label">Zusatzlagen</span> <a class="alert_" rel="Wählen Sie die Anzahl der Zusatzlagen aus."></a> <span id="zusatzlagen_wert" class="a_wert_anz">1</span>
+   
+					<select id="sel_2" name="zusatzlagen" tabindex="4">
+						<option value="1">1</option>
+					</select>
+                    
+                    </div>
+				</div>
+                
+                
+            
+                
+              		<div class="eing zusatzlagen_laenge hilight" style="display:none;">
+                     <a class="alert_ hil"  rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>">Schematische Ansicht</a>
+					<div class="e_label"><span id="zusatzlagen_laenge_label">Länge der Zusatzlagen (Optional)</span> <a class="alert_" rel="Bitte geben Sie die Länge der Zusatzlagen in mm ein."></a> </div>
+					<div class="eing_dp">
+						<input id="zusatzlagen_l" type="text" tabindex="4" value="0">
+						<span  class="mass">mm</span></div>
+				</div>    
+                
+             
+
+                
+  		<img height="1" width="1" src='images/glasfaserlagen_1200.jpg'/>  
+			</form>
+		</div>
+		<div class="berechnen_btn" id="berechnen">Berechnen</div>
+        
+	</div>
+      <!--eingaben --> 
+   
+    
+	
+	<!--ergebnisse -->
+	<div class="werte_ergebnisse content">
+		<div class="txt" style="padding-top:20px;">
+    	
+    
+    <div id="eingaben_anz">
+				<h2>Ihre Eingaben:</h2>
+				<table id="eingaben_anz_tb" width="100%" border="0" cellspacing="0" cellpadding="0">
+				
+				</table>
+			</div>
+<<<<<<< HEAD
+            <div id="lagen_anz">
+=======
+            
+            	<div id="lagen_anz">
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+				<h2>Ihre Zuschnitte:</h2>
+				<table id="lagen_anz_tb" width="100%" border="0" cellspacing="0" cellpadding="0">
+				
+				</table>
+<<<<<<< HEAD
+               </div>
+                
+			
+=======
+			</div>
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+            
+            
+			<div id="harz_total">
+				<h2>Resultierendes Gesamtvolumen</h2>
+				<table id="res_gesamtvolumen" width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" width="50%" rowspan="2">Harzgemisch Total:</td>
+						<td align="right" valign="middle" width="50%" id=""><span id="liter">100</span> <span class="w30_vol">Liter</span></td>
+                        	</tr>
+                        
+                        <tr>
+   
+    <td id="" width="50%" valign="middle" align="right"><span id="gewicht">1.19</span> <span class="w30_gew">Kg</span></td>
+  </tr>
+                        
+				
+				</table>
+			</div>
+            
+            
+            
+			<div id="harz_volumen">
+				<h2>Volumen</h2>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" class="pr_">Härter</td>
+						<td align="left" valign="middle" >Komponente A <br>
+                        <span class="kompnente_a">Waterglass</span>
+                        </td>
+						<td align="right" valign="middle" id=""><span id="haerter_l">100</span> <span class="w30_vol">Liter</span></td>
+					</tr>
+					<tr>
+						<td align="left" valign="middle" class="pr_">Harz</td>
+						<td align="left" valign="middle"> Komponente B  <br>
+                        <span class="kompnente_b"></span>
+                        </td>
+						<td align="right" valign="middle" width="50%" id=""><span id="harz_l">100</span> <span class="w30_vol">Liter</span></td>
+					</tr>
+				</table>
+			</div>
+<<<<<<< HEAD
+            
+               <div id="zuschnitte_anz">  
+      <div class="berechnen_btn" id="komponenten_anfr">Komponenten anfragen</div>
+	<div id="zusch_d">
+            		<div id="harz_gewicht">
+=======
+            		<div id="harz_volumen">
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+				<h2>Gewicht</h2>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="left" valign="middle" class="pr_">Härter </td>
+						<td align="left" valign="middle" >Komponente A <br>
+                        <span class="kompnente_a">Waterglass</span>
+                        </td>
+						<td align="right" valign="middle" id=""><span id="haerter_gew">100</span> <span class="w30_gew">Kg</span></td>
+					</tr>
+					<tr>
+						<td align="left" valign="middle" class="pr_">Harz</td>
+						<td align="left" valign="middle"> Komponente B  <br>
+                        <span class="kompnente_b"></span>
+                        </td>
+						<td align="right" valign="middle" width="50%" id=""><span id="harz_gew">100</span> <span class="w30_gew">Kg</span></td>
+					</tr>
+				</table>
+			</div>
+            <div id="produkte_verwenden"></div>
+<<<<<<< HEAD
+                  <!--Bestellformular --> 
+    
+   
+     
+<div class="txt mth_liner_basic_calc dp_bestellform">
+     
+   
+     
+    <form name="dp_bestellform" action="" method="post">
+    
+      <h2>Bestellformular</h2>
+    
+    
+<!--input begin --> 
+    		<div class="eing v_name">
+			<div class="e_label">Vorname  <a class="alert_ e_error" rel="Bitte geben Sie ihren Vornamen ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+						<input name="v_name" id="" type="text" tabindex="5">
+			</div>
+			</div> 
+<!--input end --> 
+<!--input begin --> 
+    		<div class="eing n_name">
+			<div class="e_label">Nachname  <a class="alert_ e_error" rel="Bitte geben Sie ihren Nachnamen ein."></a></div> <div class="validation_ok"></div> 
+			<div class="eing_dp">
+						<input name="n_name" id="" type="text" tabindex="6">
+			</div>
+			</div> 
+<!--input end -->
+<!--input begin --> 
+    		<div class="eing firma">
+			<div class="e_label">Firma  </div>
+			<div class="eing_dp">
+						<input name="firma" id="" type="text" tabindex="7">
+			</div>
+			</div> 
+<!--input end -->
+
+
+
+<div id="kn_auswahl_platz">
+
+<div id="kn_auswahl" class="feedb_fr w50proz">
+			<div>Haben Sie eine Kundennummer?</div>
+			
+			<a class="feed f_active" rel="option_kundennummer" id="ja">Ja</a>
+			<a class="feed last" rel="option_kundennummer" id="nein">Nein</a>
+			
+			<div class="clr"></div>
+			</div><!--feedb_fr -->
+			<div id="p_s_eingabe" class="form_feld btop">
+			
+			<textarea name="vermisse_p_s" cols="" rows="">
+			</textarea>
+		</div>
+
+
+<div id="kundennummer_dp_bestellform">
+
+
+<!--input begin --> 
+    		<div class="eing knr">
+			<div class="e_label">Kundennummer <a class="alert_ e_error" rel="Bitte geben Sie ihre Kundennummer ein. "></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+						<input name="knr" id="" type="text" tabindex="8">
+			</div>
+			</div> 
+<!--input end -->
+
+</div><!--kundennummer_dp_bestellform -->
+
+
+
+
+<div id="adresse_dp_bestellform">
+
+
+<div class="f_table">
+<!--input begin --> 
+    		<div class="eing strasse">
+			<div class="e_label">Straße<a class="alert_ e_error" rel="Bitte geben Sie ihre Straße ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+                          <input name="strasse" id="" type="text" tabindex="9">
+						
+			</div>
+			</div> 
+<!--input end -->
+ <!--input begin --> 
+    		<div class="eing hnr">
+			<div class="e_label">Nr. <a class="alert_ e_error" rel="Bitte geben Sie ihre Hausnummer ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+                       
+						<input name="hnr" id="" type="text" tabindex="10">
+			</div>
+			</div> 
+<!--input end -->
+</div><!--f_table -->
+
+<div class="f_table">
+<!--input begin --> 
+    		<div class="eing plz">
+			<div class="e_label">PLZ<a class="alert_ e_error" rel="Bitte geben Sie ihre Postleitzahl ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+                          <input name="plz" id="" type="text" tabindex="11">
+						
+			</div>
+			</div> 
+<!--input end -->
+ <!--input begin --> 
+    		<div class="eing ort">
+			<div class="e_label">Ort <a class="alert_ e_error" rel="Bitte geben Sie ihren Wohnort ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+                       
+						<input name="ort" id="" type="text" tabindex="12">
+			</div>
+			</div> 
+<!--input end -->
+ </div><!--f_table -->
+
+ </div><!--adresse_dp_bestellform -->
+
+ </div><!--kn_auswahl_platz -->
+
+
+
+
+
+
+
+ 
+ 
+ <!--input begin --> 
+    		<div class="eing telefon">
+			<div class="e_label">Telefon  <a class="alert_ e_error" rel="Bitte geben Sie ihre Telefonnummer ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+						<input name="telefon" id="" type="text" tabindex="13">
+			</div>
+			</div> 
+<!--input end -->
+ 
+  <!--input begin --> 
+    		<div class="eing email">
+			<div class="e_label">E-Mail <a class="alert_ e_error" rel="Die E-Mailadresse enthält Fehler! Bitte geben Sie eine korrekte E-Mailadresse ein."></a></div> <div class="validation_ok"></div>
+			<div class="eing_dp">
+						<input name="email" id="" type="text" tabindex="14">
+			</div>
+			</div> 
+<!--input end -->
+ 
+ 
+ 
+   <!--input begin --> 
+    		<div class="eing txt_area nachricht">
+			<div class="e_label">Nachricht  </div>
+			<div class="eing_dp">
+						
+                        <textarea name="nachricht" tabindex="15"></textarea>
+			</div>
+			</div> 
+<!--input end -->
+ <button class="berechnen_btn" id=""  tabindex="16" type="submit" >Absenden</button>
+  
+    </form>
+    
+    </div>
+    
+    
+	<!--Bestellformular -->
+            </div>
+            </div>
+            
+            
+			<div class="berechnen_btn dp_z" id="zurueck">Zurück zur Eingabe</div>
+            
+            
+            
+            
+    
+      
+            
+            
+            
+            
+=======
+            
+            
+			<div class="berechnen_btn" id="zurueck">Zurück zur Eingabe</div>
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+		</div>
+	</div>
+	<!--ergebnisse --> 
+</div>
+<!--content --> 
+<script type="text/javascript">
+
+inp_focus=false;
+$( "input" ).focus(function() {
+
+//alert( "hallol input_focus" );
+inp_focus=true
+   $(this).parent('.eing_dp').addClass("input_focus");
+});	
+$( "input" ).blur(function() {
+
+
+inp_focus=false;
+
+	$( '.input_focus' ).removeClass( "input_focus" );
+
+});		
+$( "textarea" ).blur(function() {
+
+	$( '.input_focus' ).removeClass( "input_focus" );
+});		
+	
+$( "select" ).blur(function() {
+
+	$( '.input_focus' ).removeClass( "input_focus" );
+});	
+
+
+</script> 
+<<<<<<< HEAD
+<script src="js/scripts.js?v=000" type="text/javascript"></script>
+<script type="text/javascript" src="js/dp_flaechen.js?v=000"></script> 
+<script type="text/javascript" src="js/bestell_formular_script.js?v=000"></script> 
+=======
+<script src="js/scripts.js?v=2" type="text/javascript"></script>
+<script type="text/javascript" src="js/dp_flaechen.js?v=57"></script> 
+
+>>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
+
+
+
+</body>
+</html>
