@@ -38,7 +38,7 @@ hartz_systeme_mengen['L30E3'][0] = new Array();
 
 hartz_systeme_mengen['haerter'] = new Array();
 hartz_systeme_mengen['haerter'][0] = new Array();
-hartz_systeme_mengen['haerter'][0]['beschr']='Härter / Hardener | 16 kg';
+hartz_systeme_mengen['haerter'][0]['beschr']='Härter | 16 kg';
 hartz_systeme_mengen['haerter'][0]['gewicht']=16;
 hartz_systeme_mengen['haerter'][0]['art_nr']='116700';
 
@@ -51,14 +51,8 @@ calc=true;
 })
 
 
-<<<<<<< HEAD
 
 
-=======
-vtc='<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.';
-hartzsys = '';
-harz_sys_dichte=0;
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
 
 
 
@@ -154,7 +148,7 @@ dm_rohr_val = '';
 
 
 
-
+hauptlagen=0
 masssystem="Metrisch";
 reperatur_lange_val = 0;
 gfk_flaeche=0;
@@ -167,7 +161,7 @@ zusatzlagen_set_selection=false;
 zusatzl_erklaerung1400='Empfohlene Gesamtlagen 2 <br>(davon min. 0 Zusatzlagen)';
 zusatzl_erklaerung1050='Empfohlene Gesamtlagen 3 <br>(davon min. 0 Zusatzlagen)';
 zusatzl_erklaerung_td='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>2</td>';
- zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>2</td>';
+zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>2</td>';
 zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>3</td>';
 
 harzfaktor = 1.8;
@@ -253,9 +247,10 @@ zusatzl_erklaerung_td=zusatzl_erklaerung_td1400;
 	
 	if(zusatzlagen_val==1){
 	lagen=' Lage';
+		
 	}else{
 	lagen=' Lagen';	
-		
+			
 	}
 	reperatur_lange_valdurch_1000=reperatur_lange_val/1000;
 document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
@@ -273,16 +268,15 @@ document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
 					+'<tr>'
 					+'</tr>'
 					+'<tr id="te_td">'
-					+''+zusatzl_erklaerung_td+''
+					+'<td> Gesamtlagen <br>davon Zusatzlage/n</td><td>'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
 					+'</tr>';
-<<<<<<< HEAD
-gfk_flaeche=aufrunden((parseFloat(reperatur_lange_val)*2)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);	
-
-
+				
+/*------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------*/						
+gfk_flaeche=aufrunden((parseFloat(reperatur_lange_val)*hauptlagen)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);	
+/*------------------------------------------------------------------------------*/		
+/*------------------------------------------------------------------------------*/		
 mattenfaktor=0;				
-=======
-gfk_flaeche=aufrunden((parseFloat(reperatur_lange_val)*2)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);					
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
  if(gfk_matte=='1400'){			
 //gfk_flaeche=aufrunden((parseFloat(reperatur_lange_val)*2)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);
 harzfaktor = 1.8;
@@ -298,8 +292,12 @@ mattenfaktor=3;
  reperatur_lange_val_meter=reperatur_lange_val/1000;
  zusatzlagen_flaeche=aufrunden(parseFloat(reperatur_lange_val)*parseFloat(zusatzlagen_val)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);
  
- 
- 
+
+console.log('hauptlagen:'+hauptlagen); 
+console.log('#sel_2: '+$('#sel_2').val());
+console.log('zusatzlagen_val:'+zusatzlagen_val);
+/*
+
 console.log('reperatur_lange_val:'+(reperatur_lange_val_meter));
 //console.log('dm_rohr_val:'+(dm_rohr_val)); 
 console.log('dm_rohr_umfang:'+(dm_rohr_umfang));
@@ -308,28 +306,21 @@ console.log('gfk_flaeche:'+(gfk_flaeche));
 console.log('gfk_flaeche:'+(gfk_flaeche));
 console.log('zusatzlagen_flaeche:'+(zusatzlagen_flaeche));
 console.log('gesamtflaeche:'+(gesamtflaeche));
+*/
 reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
 
                     st_r1='<tr>'
-<<<<<<< HEAD
 					+'<td align="left">Zuschnittsgröße:</td>'
 					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
-=======
-					+'<td align="left">Cutting size:</td>'
-					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*2)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
 					+'</tr>'
 					+'<tr>';
 					st_r2='';
 					
 					if(parseFloat(zusatzlagen_val)>0){
-<<<<<<< HEAD
-					st_r2='<td align="left">Zuschnittsgröße <br>der Zusatzlage/n: </td>'
-=======
-					st_r2='<td align="left">Additional Layers <br>cutting size: </td>'
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
-					+'<td align="right"><nobr>'+(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
+					st_r2='<td align="left">Zuschnittsgröße <br>pro Zusatzlage: </td>';
+					
+					st_r2+='<td align="right"><nobr>'+(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
 					+'</tr>';
 					}
 					
@@ -350,8 +341,14 @@ reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 					
 					
 	        gesamtflaeche= gfk_flaeche+zusatzlagen_flaeche;
-
 			ges_liter=gesamtflaeche*harzfaktor;
+			
+			 //  gesamtflaeche = gfk_flaeche+(zusatzlagen_flaeche* parseFloat(zusatzlagen_val));
+			
+			console.log('nn gfk_flaeche: '+gfk_flaeche);
+			console.log('nn (zusatzlagen_flaeche* parseFloat(zusatzlagen_val): '+ (zusatzlagen_flaeche * parseFloat(zusatzlagen_val)) );
+			console.log('nn zusatzlagen_flaeche: '+zusatzlagen_flaeche);
+			console.log('nn gesamtflaeche: '+gesamtflaeche);
 	
 		
 			komp_b_liter = aufrunden(parseFloat(ges_liter/3),false).toFixed(2);
@@ -373,23 +370,14 @@ reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
 
 
 
 
 
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
 haerter_gew= komp_b_liter * 1.54;
 harz_gew=komp_a_liter*harz_sys_dichte;
 document.getElementById('haerter_gew').innerHTML=haerter_gew.toFixed(2);
@@ -683,11 +671,15 @@ zusatzlagen_l_val = zusatzlagen_l_val_tst;
 if(dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
 	
   alert_ausgeben('Der Durchmesser überschreitet 1400mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
-  document.getElementById('durchmesser_rohr').focus();	
+ // document.getElementById('durchmesser_rohr').focus();
+  document.getElementById('durchmesser_rohr').value='';	
+  
 }else if(dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
 	
 	 alert_ausgeben('Der Durchmesser ist kleiner als 100mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
-	   document.getElementById('durchmesser_rohr').focus();
+	  // document.getElementById('durchmesser_rohr').focus();
+	    document.getElementById('durchmesser_rohr').value='';
+		
 }
 
 
@@ -709,26 +701,32 @@ if(gfk_matte=='1400' && dm_rohr_val>=100 && dm_rohr_val<375){
 CheckAuswahl (0,'sel_2'); 	
 zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>2<br>0</td>';
 zusatzl_erklaerung1400='Empfohlene Gesamtlagen 2 <br>(davon min. 0 Zusatzlagen)';	
+hauptlagen=2;
 }else if(gfk_matte=='1400' && dm_rohr_val>=375 && dm_rohr_val<600){
  CheckAuswahl (1,'sel_2'); 	
-zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>3<br>1</td>';
-zusatzl_erklaerung1400='Empfohlene Gesamtlagen 3 <br>(davon min. 1 Zusatzlage)';	
+zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon Zusatzlage</td><td>3<br>1</td>';
+zusatzl_erklaerung1400='Empfohlene Gesamtlagen 3 <br>(davon min. 1 Zusatzlage)';
+hauptlagen=2;	
 }else if(gfk_matte=='1400' && dm_rohr_val>=600 && dm_rohr_val<750){
  CheckAuswahl (2,'sel_2');  	
-zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>4<br>2</td>';
-zusatzl_erklaerung1400='Empfohlene Gesamtlagen 4 <br>(davon min. 2 Zusatzlagen)';	
+zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon Zusatzlage</td><td>4<br>2</td>';
+zusatzl_erklaerung1400='Empfohlene Gesamtlagen 4 <br>(davon min. 2 Zusatzlagen)';
+hauptlagen=2;	
 }else if(gfk_matte=='1400' && dm_rohr_val>=750 && dm_rohr_val<800){
 CheckAuswahl (3,'sel_2');
 zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>5<br>3</td>';
-zusatzl_erklaerung1400='Empfohlene Gesamtlagen 5 <br>(davon min. 3 Zusatzlagen)';	
+zusatzl_erklaerung1400='Empfohlene Gesamtlagen 5 <br>(davon min. 3 Zusatzlagen)';
+hauptlagen=2;	
 }else if(gfk_matte=='1400' && dm_rohr_val>=800 && dm_rohr_val<1200){
 CheckAuswahl (4,'sel_2');
 zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>6<br>4</td>';
-zusatzl_erklaerung1400='Empfohlene Gesamtlagen 6 <br>(davon min. 4 Zusatzlagen)';	
+zusatzl_erklaerung1400='Empfohlene Gesamtlagen 6 <br>(davon min. 4 Zusatzlagen)';
+hauptlagen=2;	
 }else if(gfk_matte=='1400' && dm_rohr_val>=1200 && dm_rohr_val<1400){
 CheckAuswahl (5,'sel_2');
 zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>7<br>5</td>';
 zusatzl_erklaerung1400='Empfohlene Gesamtlagen 7 <br>(davon min. 5 Zusatzlagen)';	
+hauptlagen=2;
 }
 /*gfk_matte=='1050'*/
 
@@ -736,30 +734,31 @@ if(gfk_matte=='1050' && dm_rohr_val>=100 && dm_rohr_val<500){
 CheckAuswahl (0,'sel_2'); 	
 zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>3<br>0</td>';
 zusatzl_erklaerung1050='Empfohlene Gesamtlagen 3 <br>(davon min. 0 Zusatzlagen)';	
-
+hauptlagen=3;
 
 
 }else if(gfk_matte=='1050' && dm_rohr_val>=500 && dm_rohr_val<675){
  CheckAuswahl (1,'sel_2'); 	
 zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>4<br>1</td>';
 zusatzl_erklaerung1050='Empfohlene Gesamtlagen 4 <br>(davon min. 1 Zusatzlage)';
-
+hauptlagen=3;
 	
 }else if(gfk_matte=='1050' && dm_rohr_val>=675 && dm_rohr_val<800){
  CheckAuswahl (2,'sel_2');  	
-zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>5<br>2</td>';
+zusatzl_erklaerung_td1050='<td> Gesamtlagen <br>davon min. Zusatzlage</td><td>5<br>2</td>';
 zusatzl_erklaerung1050='Empfohlene Gesamtlagen 5 <br>(davon min. 2 Zusatzlagen)';
-	
+	hauptlagen=3;
 }else if(gfk_matte=='1050' && dm_rohr_val>=800 && dm_rohr_val<1200){
 CheckAuswahl (3,'sel_2');
 zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>6<br>3</td>';
 zusatzl_erklaerung1050='Empfohlene Gesamtlagen 6 <br>(davon min. 3 Zusatzlagen)';
-
+hauptlagen=3;
 	
 }else if(gfk_matte=='1050' && dm_rohr_val>=1200 && dm_rohr_val<1400){
 CheckAuswahl (5,'sel_2');
 zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. Zusatzlage</td><td>8<br>5</td>';
-zusatzl_erklaerung1050='Empfohlene Gesamtlagen 8 <br>(davon min. 5 Zusatzlagen)';	
+zusatzl_erklaerung1050='Empfohlene Gesamtlagen 8 <br>(davon min. 5 Zusatzlagen)';
+hauptlagen=3;	
 }
 
 

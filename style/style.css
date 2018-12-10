@@ -295,19 +295,11 @@ table {
 #produkte_verwenden td {
 	padding-bottom: 0;
 	
-<<<<<<< HEAD
 }
 #produkte_verwenden table + table  {
 	margin-top:9px;
 
 }
-=======
-}
-#produkte_verwenden table + table  {
-	margin-top:9px;
-
-}
->>>>>>> c7548660e17d5bd7ce6b3b4f0b05505753f2a6f3
 
 
 ::selection {

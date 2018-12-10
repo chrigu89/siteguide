@@ -224,19 +224,51 @@ feldpruefung(name_class);
 
 
 $( 'form[name="dp_bestellform"]' ).submit(function( event ) {
-	
+event.preventDefault();	
 		
 if($( 'form[name="dp_bestellform"] button[type="submit"]' ).hasClass('active')){
 	
-console.log('ist absendebereit');	
+console.log('ist absendebereit');
+eingabe_sendung=''
++'<div class="eingaben_user">'
++$( 'div#header h1' ).html()
++$( '#eingaben_anz' ).html()
++$( '#lagen_anz' ).html()
++$( '#harz_total' ).html()
++$( '#harz_volumen' ).html()
++$( '#harz_gewicht' ).html()
++$( '#produkte_verwenden' ).html()
++'</div>';
+
+
+$( 'input[name="eingabe_berechnung"]' ).val(eingabe_sendung);
+var form=$('form[name="dp_bestellform"]');
+		$.ajax({
+			type: 'POST',
+			url: form.prop('action'),
+			data : form.serialize(),
+			dataType: 'html',
+			encode: true
+		}).done(function(data) {
+			// Aktionen bei Erfolg
+			console.log('done: '+data);
+		}).fail(function(data) {
+			// Aktionen bei einem Fehler
+			console.log('fail: '+data);			
+		});
+	
+
+
+
+	
 	
 }
 
 	
 	
-console.log('hallo');
 
-event.preventDefault();
+
+
 });
 
 })
