@@ -25,8 +25,8 @@ if($_POST['en_de']== 'deutsch'){
 	$land_de_en = 'Englisch'; 
 }
 
-$empfaenger='christian.busse@apfel.gold'; 
-$empfaenger2='christian.busse@apfel.gold'; 
+// $empfaenger='christian.busse@apfel.gold'; 
+// $empfaenger2='christian.busse@apfel.gold'; 
 
 if(strlen($eingabe_berechnung)> 20){
 	
@@ -74,10 +74,6 @@ $header .= "From: <".$sender.">". "\n";
 
 
 
-/*
- $empfaenger='jm@design-busse.de'; 
-$empfaenger2='christian.busse@apfel.gold'; 
-*/ 
 $mailtext = '<small><em>Emppfänger: '.$empfaenger.', '.$empfaenger2.'</em></small><br />' .$mailtext;
   
  if(@mail($empfaenger, $betreff, $mailtext,$header)){
