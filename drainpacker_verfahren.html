@@ -223,9 +223,9 @@
      
 <div class="txt mth_liner_basic_calc dp_bestellform">
      
-   
-     
-    <form name="dp_bestellform" action="https://webentwicklungsserver.com/_app/ajax.php" method="post">
+   <div id="dp_bestellform_erfolg_meld" style="display:none;">Vielen Dank für Ihre Anfrage.<span style="display:block;">Wir werden uns schnellstmöglich bei Ihnen melden.</span></div>
+      <div id="dp_bestellform_fehler_meld" style="display:none;">Es ist ein Fehler aufgetreten. <span style="display:block;">Bitte versuchen Sie es später erneut.</span></div>  
+    <form name="dp_bestellform" action="https://apps.apfel.gold/siteguide20/send/request.php" method="post">
     
     
     <input name="en_de" id="" type="hidden" value="deutsch">
@@ -384,8 +384,9 @@
 			</div> 
 <!--input end -->
  <button class="berechnen_btn" id=""  tabindex="16" type="submit" >Absenden</button>
-  
+   <div id="erf_versendet" style="display:none; text-align:center;">Ihre Anfrage wurde erfolgreich versendet.</div>
     </form>
+    
     
     </div>
     

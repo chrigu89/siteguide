@@ -255,20 +255,20 @@ zusatzl_erklaerung_td=zusatzl_erklaerung_td1400;
 	reperatur_lange_valdurch_1000=reperatur_lange_val/1000;
 document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
 					+'<td>Glasfasergewebematte CRF:</td>'
-					+'<td id="aa1"><nobr>'+gfk_matte+' g/m²</nobr></td>'
+					+'<td align="right" id="aa1"><nobr>'+gfk_matte+' g/m²</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td>Rohrdurchmesser: </td>'
-					+'<td id="aa2"><nobr>'+dm_rohr_val+' mm</nobr></td>'
+					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val+' mm</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td>Reparaturlänge: </td>'
-					+'<td><nobr>'+reperatur_lange_valdurch_1000+' m</nobr></td>'
+					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000+' m</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'</tr>'
 					+'<tr id="te_td">'
-					+'<td> Gesamtlagen <br>davon Zusatzlage/n</td><td>'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
+					+'<td> Gesamtlagen <br>davon Zusatzlage/n</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
 					+'</tr>';
 				
 /*------------------------------------------------------------------------------*/
@@ -671,15 +671,11 @@ zusatzlagen_l_val = zusatzlagen_l_val_tst;
 if(dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
 	
   alert_ausgeben('Der Durchmesser überschreitet 1400mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
- // document.getElementById('durchmesser_rohr').focus();
-  document.getElementById('durchmesser_rohr').value='';	
-  
+  document.getElementById('durchmesser_rohr').focus();	
 }else if(dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
 	
 	 alert_ausgeben('Der Durchmesser ist kleiner als 100mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
-	  // document.getElementById('durchmesser_rohr').focus();
-	    document.getElementById('durchmesser_rohr').value='';
-		
+	   document.getElementById('durchmesser_rohr').focus();
 }
 
 

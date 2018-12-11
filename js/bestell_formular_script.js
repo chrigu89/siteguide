@@ -223,6 +223,34 @@ feldpruefung(name_class);
 
 
 
+function form_alert(id){
+	$( '#load_' ).addClass( "overlay" );
+	$( '#load_' ).addClass( "alr" );
+	
+	 $( "#alert_txt" ).html( $( "#"+id ).html());
+
+	
+	 toprt=xHeight/2;
+	 toprt=toprt-($( "#alert_fens" ).height()/2);
+	 $( "#alert_fens" ).css({'top':toprt+'px'});
+	
+	 $( "#load_" ).fadeIn( 170, 'easeInQuart', function() {
+
+});
+	
+		 $( "#alert_fens" ).delay(70).fadeIn( 170, 'easeInQuart', function() {
+
+});	
+	}
+
+
+
+
+
+
+
+
+
 $( 'form[name="dp_bestellform"]' ).submit(function( event ) {
 event.preventDefault();	
 		
@@ -243,17 +271,35 @@ eingabe_sendung=''
 
 $( 'input[name="eingabe_berechnung"]' ).val(eingabe_sendung);
 var form=$('form[name="dp_bestellform"]');
+ 
+    $('#load_').addClass("overlay");
+	 $( "#load_" ).fadeIn( 170, 'easeInQuart', function() {
+
+});
 		$.ajax({
 			type: 'POST',
 			url: form.prop('action'),
 			data : form.serialize(),
+			crossDomain: true,
+    cache: false,
 			dataType: 'html',
 			encode: true
 		}).done(function(data) {
 			// Aktionen bei Erfolg
-			console.log('done: '+data);
+			
+			console.log(data);
+			if(data.indexOf('erfolg')>=0){
+			$( 'form[name="dp_bestellform"] button[type="submit"]' ).hide();
+			$( '#erf_versendet' ).show();
+			form_alert("dp_bestellform_erfolg_meld");
+			}else{
+			form_alert("dp_bestellform_fehler_meld");	
+			}
+			
+			
 		}).fail(function(data) {
 			// Aktionen bei einem Fehler
+				form_alert("dp_bestellform_fehler_meld");
 			console.log('fail: '+data);			
 		});
 	
