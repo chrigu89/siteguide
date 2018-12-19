@@ -38,7 +38,7 @@ hartz_systeme_mengen['L30E3'][0] = new Array();
 
 hartz_systeme_mengen['haerter'] = new Array();
 hartz_systeme_mengen['haerter'][0] = new Array();
-hartz_systeme_mengen['haerter'][0]['beschr']='Harder | 16 kg';
+hartz_systeme_mengen['haerter'][0]['beschr']='Härter | 16 kg';
 hartz_systeme_mengen['haerter'][0]['gewicht']=16;
 hartz_systeme_mengen['haerter'][0]['art_nr']='116700';
 
@@ -55,8 +55,8 @@ calc=true;
 
 
 
-
 vtc='<br> This is not a valid value! <br> Please enter a valid number.';
+
 hartzsys = '';
 harz_sys_dichte=0;
 
@@ -138,23 +138,18 @@ function CheckAuswahl (nr_,id_) {
 
 
 
-dm_dm_rohr_mass = document.getElementsByClassName('dm_rohr')[0].getElementsByClassName('mass')[0];
 
-
-dm_reperatur_laenge_mass = document.getElementsByClassName('reperatur_laenge')[0].getElementsByClassName('mass')[0];
 
 
 masse=document.getElementById('sel').value;
 matte=document.getElementById('sel_1').value;
 gfk_matte=''
 dm_rohr_val = '';
-dm_rohr_val_v=0;
 
-imp1400=1400;
-imp100=100;
+
+
 hauptlagen=0
-masssystem="metric";
-masse="metric";
+masssystem="Metrisch";
 reperatur_lange_val = 0;
 gfk_flaeche=0;
 zusatzlagen_val='1';
@@ -163,11 +158,11 @@ zusatzlagen_flaeche=0;
 z_lagen_flaeche=0;
 gesamtflaeche=0;
 zusatzlagen_set_selection=false;
-zusatzl_erklaerung1400='Empfohlene Gesamtlagen 2 <br>(davon min. 0 Zusatzlagen)';
-zusatzl_erklaerung1050='Empfohlene Gesamtlagen 3 <br>(davon min. 0 Zusatzlagen)';
-zusatzl_erklaerung_td='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>2</td>';
-zusatzl_erklaerung_td1400='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>2</td>';
-zusatzl_erklaerung_td1050='<td>Empfohlene Gesamtlagen <br>davon min. 0 Zusatzlagen</td><td>3</td>';
+zusatzl_erklaerung1400='Recommended total positions 2 <br> (of which at least 0 additional layers)';
+zusatzl_erklaerung1050='Recommended total positions 3 <br>(of which at least 0 additional layers)';
+zusatzl_erklaerung_td='<td>Recommended total positions <br>of which at least 0 additional layers</td><td>2</td>';
+zusatzl_erklaerung_td1400='<td>Recommended total positions <br>of which at least 0 additional layers</td><td>2</td>';
+zusatzl_erklaerung_td1050='<td>Recommended total positions <br>of which at least 0 additional layers</td><td>3</td>';
 
 harzfaktor = 1.8;
 
@@ -251,54 +246,33 @@ zusatzl_erklaerung_td=zusatzl_erklaerung_td1400;
 	
 	
 	if(zusatzlagen_val==1){
-	lagen=' layer';
+	lagen=' Lage';
 		
 	}else{
-	lagen=' layers';	
+	lagen=' Lagen';	
 			
 	}
-		reperatur_lange_valdurch_1000=reperatur_lange_val/1000;
-		  if(masse=="metric"){
+	reperatur_lange_valdurch_1000=reperatur_lange_val/1000;
 	document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
 						+'<td>CRF Fibre glass mat types:</td>'
 					+'<td align="right" id="aa1"><nobr>'+gfk_matte+' g/m²</nobr></td>'
 					+'</tr>'
 					+'<tr>'
-					+'<td>Rohrdurchmesser: </td>'
+					+'<td>Pipe diameter: </td>'
 					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val+' mm</nobr></td>'
 					+'</tr>'
 					+'<tr>'
-					+'<td>Reparaturlänge: </td>'
+					+'<td>Repair length: </td>'
 					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000+' m</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'</tr>'
 					+'<tr id="te_td">'
-					+'<td> Gesamtlagen <br>davon Zusatzlage/n</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
+					+'<td> Required layers (total) <br>included layers</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
 					+'</tr>';
-				 }else if(masse=="imperial"){
- 	$(".w30_vol").css({"width":'48px'});	
-	
-		document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
-						+'<td>CRF Fibre glass mat types:</td>'
-					+'<td id="aa1"><nobr>'+gfk_matte+' g/m²</nobr></td>'
-					+'</tr>'
-					+'<tr>'
-					+'<td>Rohrdurchmesser: </td>'
-					+'<td id="aa2"><nobr>'+masse_umrechnen.mm_zu_in(dm_rohr_val).toFixed(2)+' in</nobr></td>'
-					+'</tr>'
-					+'<tr>'
-					+'<td>Reparaturlänge: </td>'
-					+'<td><nobr>'+masse_umrechnen.m_zu_ft(reperatur_lange_valdurch_1000).toFixed(2)+' ft</nobr></td>'
-					+'</tr>'
-					+'<tr>'
-					+'</tr>'
-					+'<tr id="te_td">'
-					+'<td> Required layers (total) <br>included layers</td><td>'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
-					+'</tr>';
-	
-
-				 }
+				
+				
+				
 /*------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------*/						
 gfk_flaeche=aufrunden((parseFloat(reperatur_lange_val)*hauptlagen)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);	
@@ -339,15 +313,15 @@ reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
 
                     st_r1='<tr>'
-					+'<td align="left">Zuschnittsgröße:</td>'
+					+'<td align="left">Cutting size:</td>'
 					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
 					+'</tr>'
 					+'<tr>';
 					st_r2='';
 					
 					if(parseFloat(zusatzlagen_val)>0){
-					st_r2='<td align="left">Zuschnittsgröße <br>pro Zusatzlage: </td>';
-					
+			
+					st_r2='<td align="left">Blank size <br> per additional layer: </td>';
 					st_r2+='<td align="right"><nobr>'+(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
 					+'</tr>';
 					}
@@ -419,6 +393,8 @@ document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);
 ausw_menge_hartz=Math.ceil(harz_gew/hartz_systeme_mengen[resign_type][0]['gewicht']);
 ausw_menge_haerter=Math.ceil(haerter_gew/hartz_systeme_mengen['haerter'][0]['gewicht']);
 
+
+
 document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
                     +'<tr>'
 					+'<td align="left" >'+ausw_menge_hartz+' x Resin</td>'
@@ -439,8 +415,6 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><tabl
 					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['art_nr']+'</nobr></td>'
 					+'</tr>'
                     +'</table>';
-
-
 /*	
 console.log('ausw_menge_hartz: '+ausw_menge_hartz);		  	
 console.log('ausw_menge_haerter: '+ausw_menge_haerter);	
@@ -627,22 +601,7 @@ if(harz_sys!=harz_sys_tst){
 
 	
 }
-masse_tst=document.getElementById('sel').value;
-if(masse!=masse_tst){
-	
-masse=masse_tst;
-document.getElementById('a_wert').innerHTML=masse_tst;
 
-if(masse=="metric"){
-dm_dm_rohr_mass.innerHTML = 'mm';
-dm_reperatur_laenge_mass.innerHTML = 'm';
-}else if(masse=="imperial"){
-dm_dm_rohr_mass.innerHTML = 'in';
-dm_reperatur_laenge_mass.innerHTML = 'ft';
-	
-}
-
-}
 
 matte_tst=document.getElementById('sel_1').value;
 if(matte!=matte_tst){	
@@ -684,9 +643,6 @@ zusatzlagen_set_selection=true;
 dm_rohr_val = dm_rohr_val_tst;
 
 
-if(masse=="metric"){
-	imp1400=1400;
-		imp100=100;
 if((dm_rohr_val_tst>=100 && dm_rohr_val_tst<=1400)){
 onoff_rd=true;	
 nutzl_schild();
@@ -694,19 +650,6 @@ nutzl_schild();
 if((dm_rohr_val_tst<100||dm_rohr_val_tst>1400) ){
 onoff_rd=false;		
 nutzl_schild();
-}
-}else if(masse=="imperial"){
-	imp1400=1422.4;
-		imp100=101.6;
-if((dm_rohr_val_tst>=4 && dm_rohr_val_tst<=56)){
-onoff_rd=true;	
-nutzl_schild();
-}
-if((dm_rohr_val_tst<4||dm_rohr_val_tst>56) ){
-onoff_rd=false;		
-nutzl_schild();
-}	
-	
 }
 	
 
@@ -727,31 +670,18 @@ if(zusatzlagen_l_val!=zusatzlagen_l_val_tst){
 zusatzlagen_l_val = zusatzlagen_l_val_tst;
 }
 //id="zusatzlagen_laenge_label">Länge der Zusatzlagen (Optional)
-if(masse=="metric" && dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
-	alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (56in).' );
-
-  document.getElementById('durchmesser_rohr').focus();	
-}else if(masse=="metric" && dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
+if(dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
 	
-alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (56in).' );
-	   document.getElementById('durchmesser_rohr').focus();
-}else if(masse=="imperial" && dm_rohr_val>56 && !inp_focus && dm_rohr_val!=0){
-alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (56in).' );
-
+  alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm and 1400mm.' );
   document.getElementById('durchmesser_rohr').focus();	
-}else if(masse=="imperial" && dm_rohr_val<4 && !inp_focus && dm_rohr_val!=0){
+}else if(dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
 	
-alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (56in).' );
+	 alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm and 1400mm.' );
 	   document.getElementById('durchmesser_rohr').focus();
 }
 
 
-/* Fuer if abfragen*/
-if(masse=="metric"){
-dm_rohr_val_v=dm_rohr_val;
-}else if(masse=="imperial"){
-dm_rohr_val_v= masse_umrechnen.in_zu_mm(dm_rohr_val);
-}
+
 
 
 //zusatzlagen
@@ -765,61 +695,69 @@ duchm_dm_hinzufuegen (4,'sel_2');
 duchm_dm_hinzufuegen (5,'sel_2');
 
 /*gfk_matte=='1400'*/
-if(gfk_matte=='1400' && dm_rohr_val_v>=imp100 && dm_rohr_val_v<375){
+if(gfk_matte=='1400' && dm_rohr_val>=100 && dm_rohr_val<375){
 CheckAuswahl (0,'sel_2'); 	
+
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>2<br>0</td>';
 zusatzl_erklaerung1400='Required layers (total) 2 <br>0 included additional layers)';	
-}else if(gfk_matte=='1400' && dm_rohr_val_v>=375 && dm_rohr_val_v<600){
+hauptlagen=2;
+}else if(gfk_matte=='1400' && dm_rohr_val>=375 && dm_rohr_val<600){
  CheckAuswahl (1,'sel_2'); 	
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>3<br>1</td>';
-zusatzl_erklaerung1400='Required layers (total) 3 <br>1 Zusatzlage)';	
-}else if(gfk_matte=='1400' && dm_rohr_val_v>=600 && dm_rohr_val_v<750){
+zusatzl_erklaerung1400='Required layers (total) 3 <br>1 Zusatzlage)';
+hauptlagen=2;	
+}else if(gfk_matte=='1400' && dm_rohr_val>=600 && dm_rohr_val<750){
  CheckAuswahl (2,'sel_2');  	
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>4<br>2</td>';
-zusatzl_erklaerung1400='Required layers (total) 4 <br>2 included additional layers)';	
-}else if(gfk_matte=='1400' && dm_rohr_val_v>=750 && dm_rohr_val_v<800){
+zusatzl_erklaerung1400='Required layers (total) 4 <br>2 included additional layers)';
+hauptlagen=2;	
+}else if(gfk_matte=='1400' && dm_rohr_val>=750 && dm_rohr_val<800){
 CheckAuswahl (3,'sel_2');
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>5<br>3</td>';
-zusatzl_erklaerung1400='Required layers (total) 5 <br>3 included additional layers)';	
-}else if(gfk_matte=='1400' && dm_rohr_val_v>=800 && dm_rohr_val_v<1200){
+zusatzl_erklaerung1400='Required layers (total) 5 <br>3 included additional layers)';
+hauptlagen=2;	
+}else if(gfk_matte=='1400' && dm_rohr_val>=800 && dm_rohr_val<1200){
 CheckAuswahl (4,'sel_2');
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>6<br>4</td>';
 zusatzl_erklaerung1400='Required layers (total) 6 <br>4 included additional layers)';	
-}else if(gfk_matte=='1400' && dm_rohr_val_v>=1200 && dm_rohr_val_v<imp1400){
+hauptlagen=2;	
+}else if(gfk_matte=='1400' && dm_rohr_val>=1200 && dm_rohr_val<1400){
 CheckAuswahl (5,'sel_2');
 zusatzl_erklaerung_td1400='<td>Required layers (total) <br>included additional layers </td><td>7<br>5</td>';
-zusatzl_erklaerung1400='Required layers (total) 7 <br>5 included additional layers)';	
+zusatzl_erklaerung1400='Required layers (total) 7 <br>5 included additional layers)';		
+hauptlagen=2;
 }
 /*gfk_matte=='1050'*/
 
-if(gfk_matte=='1050' && dm_rohr_val_v>=imp100 && dm_rohr_val_v<500){
+if(gfk_matte=='1050' && dm_rohr_val>=100 && dm_rohr_val<500){
 CheckAuswahl (0,'sel_2'); 	
 zusatzl_erklaerung_td1050='<td>Required layers (total) <br>included additional layers </td><td>3<br>0</td>';
 zusatzl_erklaerung1050='Required layers (total) 3 <br>0 included additional layers)';	
+hauptlagen=3;
 
 
-
-}else if(gfk_matte=='1050' && dm_rohr_val_v>=500 && dm_rohr_val_v<675){
+}else if(gfk_matte=='1050' && dm_rohr_val>=500 && dm_rohr_val<675){
  CheckAuswahl (1,'sel_2'); 	
 zusatzl_erklaerung_td1050='<td>Required layers (total) <br>included additional layers </td><td>4<br>1</td>';
 zusatzl_erklaerung1050='Required layers (total) 4 <br>1 included additional layers)';
-
+hauptlagen=3;
 	
-}else if(gfk_matte=='1050' && dm_rohr_val_v>=675 && dm_rohr_val_v<800){
+}else if(gfk_matte=='1050' && dm_rohr_val>=675 && dm_rohr_val<800){
  CheckAuswahl (2,'sel_2');  	
 zusatzl_erklaerung_td1050='<td>Required layers (total) <br>included additional layers </td><td>5<br>2</td>';
 zusatzl_erklaerung1050='Required layers (total) 5 <br>2 included additional layers)';
-	
-}else if(gfk_matte=='1050' && dm_rohr_val_v>=800 && dm_rohr_val_v<1200){
+	hauptlagen=3;
+}else if(gfk_matte=='1050' && dm_rohr_val>=800 && dm_rohr_val<1200){
 CheckAuswahl (3,'sel_2');
 zusatzl_erklaerung_td1050='<td>Required layers (total) <br>included additional layers </td><td>6<br>3</td>';
 zusatzl_erklaerung1050='Required layers (total) 6 <br>3 included additional layers)';
-
+hauptlagen=3;
 	
-}else if(gfk_matte=='1050' && dm_rohr_val_v>=1200 && dm_rohr_val_v<imp1400){
+}else if(gfk_matte=='1050' && dm_rohr_val>=1200 && dm_rohr_val<1400){
 CheckAuswahl (5,'sel_2');
 zusatzl_erklaerung_td1050='<td>Required layers (total) <br>included additional layers </td><td>8<br>5</td>';
-zusatzl_erklaerung1050='Required layers (total) 8 <br>5 included additional layers)';	
+zusatzl_erklaerung1050='Required layers (total) 8 <br>5 included additional layers)';
+hauptlagen=3;	
 }
 
 
@@ -860,10 +798,10 @@ document.getElementById('zusatzlagen_wert').innerHTML=zusatzlagen_val_tst;
 
 
 
-if (harz_sys != 'Please Select'){
+if (harz_sys != 'Bitte wählen'){
 
-
-    if ( (gfk_matte=='1050' && dm_rohr_val_v >= imp100  && dm_rohr_val_v <= imp1400 && reperatur_lange_val>0  )||  (gfk_matte== '1400' && dm_rohr_val_v >= imp100  && dm_rohr_val_v <= imp1400 && reperatur_lange_val>0)) {  
+  if ( (gfk_matte=='1050' && dm_rohr_val >= 100  && dm_rohr_val <= 1400 && reperatur_lange_val>0  )||  (gfk_matte== '1400' && dm_rohr_val >= 100  && dm_rohr_val <= 1400 && reperatur_lange_val>0  )) {
+    
 		
 	
 		   berechnen_go = true;
@@ -885,52 +823,9 @@ if (harz_sys != 'Please Select'){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 aktiv=window.setTimeout("selekt_change()", 100);
 
 }//selekt_change
 
 
 selekt_change();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
