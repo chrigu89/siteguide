@@ -20,7 +20,7 @@ if($_POST['en_de']== 'deutsch'){
 	$land_de_en = 'Deutsch'; 
 }else if($_POST['en_de']== 'englisch'){
 
-	$empfaenger='melanie.beckmann@treleborg.com'; 
+	$empfaenger='melanie.beckmann@trelleborg.com'; 
 	$empfaenger2='regine.becker@trelleborg.com';   
 	$land_de_en = 'Englisch'; 
 }
@@ -34,9 +34,9 @@ $sender=$_POST['email'];
 $mailtext = '<style>table{width:570px;} .eingaben_user{font-size:20px; font-weight:bold;} h2{font-size:18px; margin-bottom:0;} td{vertical-align:top;}</style>';
 $mailtext .= '<div style="width:570px;">';
 $mailtext .= '<small><em>Gesendet in '.$land_de_en.' am '.date("d.m.Y").' um '.date("H:i:s").'.</em></small>';
-$mailtext .= '<div class="eingaben_user" style="margin-bottom:12px;">Komponenten anfrage DrainPacker Verfahren von:</div>'; 
-
+$mailtext .= '<div class="eingaben_user" style="margin-bottom:12px;">Komponenten anfrage DrainPacker Verfahren von:</div>';
 $mailtext .= '<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:1px solid #aaa;margin-bottom:10px;">';
+$mailtext .= '<tr><td>Land: </td><td>'.$_POST['land'].'</td></tr>';
 $mailtext .= '<tr><td>Vorname: </td><td>'.$_POST['v_name'].'</td></tr>';
 $mailtext .= '<tr><td style="padding-bottom:7px;">Nachname: </td><td>'.$_POST['n_name'].'</td></tr>';
 $mailtext .= '<tr><td>Firma: </td><td>'.$_POST['firma'].'</td></tr>';
@@ -74,7 +74,7 @@ $header .= "From: <".$sender.">". "\n";
 
 
 
-$mailtext = '<small><em>Emppfänger: '.$empfaenger.', '.$empfaenger2.'</em></small><br />' .$mailtext;
+$mailtext = '<small><em>Empfänger: '.$empfaenger.', '.$empfaenger2.'</em></small><br />' .$mailtext;
   
  if(@mail($empfaenger, $betreff, $mailtext,$header)){
 

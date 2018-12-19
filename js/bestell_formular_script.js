@@ -86,11 +86,11 @@ $(document).ready(function() {
 f_change=false;
 
 
-validation_kn_ja = 'v_name,n_name,knr,telefon,email';
-validation_kn_ja_nr_vorgabe=5;
+validation_kn_ja = 'land,v_name,n_name,knr,telefon,email';
+validation_kn_ja_nr_vorgabe=6;
 validation_kn_ja_nr=0;
-validation_kn_nein = 'v_name,n_name,telefon,email,strasse,hnr,plz,ort';
-validation_kn_nein_nr_vorgabe=8;
+validation_kn_nein = 'land,v_name,n_name,telefon,email,strasse,hnr,plz,ort';
+validation_kn_nein_nr_vorgabe=9;
 validation_kn_nein_nr=0;
 
 
@@ -155,7 +155,7 @@ kn_auswahl=	$( '#kn_auswahl .feed.f_active' ).attr('id')
 		
 	}
 	
-		if(name=='n_name' || name=='v_name'  || name=='telefon'){
+		if(name=='n_name' || name=='v_name'  || name=='telefon' || name=='land'){
 
 	
 			error_act(name,ValidateStr_length( $( 'form[name="dp_bestellform"] input[name="'+name+'"]' ).val() ));
