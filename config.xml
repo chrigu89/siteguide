@@ -6,20 +6,16 @@
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
 		version   = "2.0.1"
-		android-versionCode = "20040"
+		android-versionCode = "20041"
 		ios-CFBundleVersion = "2.0.1">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>20010</string>
+		<string>20041</string>
 	</edit-config>
 
 		
 	<name>Trelleborg SiteGuide</name>
 	<description>Trelleborg Pipeseals SiteGuide</description>
 	<author href="https://apfel.gold" email="christian.busse@apfel.gold">Christian Busse</author>
-
-	<gap:config-file platform="ios" parent="CFBundleShortVersionString">
-		<string>22</string>
-	</gap:config-file>
 
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
