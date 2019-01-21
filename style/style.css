@@ -37,10 +37,11 @@ a, button {
  -moz-user-select: None;
  -webkit-user-select: None;
 } 
+
 input, textarea {
- -ms-user-select:unset;
- -moz-user-select: unset;
- -webkit-user-select: unset;
+ -ms-user-select:all !important;
+ -moz-user-select: all !important;
+ -webkit-user-select: all !important;
 } 
 html {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
