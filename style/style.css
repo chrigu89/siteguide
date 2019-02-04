@@ -890,6 +890,10 @@ input[type="submit"].input_focus {
 	color: #000;
 	text-decoration: none;
 }
+.mobile_nr a {
+	color: #000;
+	text-decoration: none;
+}
 .amail {
 	background-image: url(../images/icon/mail.png);
 	background-repeat: no-repeat;
@@ -899,6 +903,15 @@ input[type="submit"].input_focus {
 }
 .tel_nr {
 	background-image: url(../images/icon/phone.png);
+	background-repeat: no-repeat;
+	background-size: 25px auto;
+	padding-left: 29px;
+	background-position: left center;
+	padding-bottom: 4px;
+	padding-top: 2px;
+}
+.mobile_nr {
+	background-image: url(../images/icon/mobile.png);
 	background-repeat: no-repeat;
 	background-size: 25px auto;
 	padding-left: 29px;
