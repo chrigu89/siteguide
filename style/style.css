@@ -454,6 +454,7 @@ a {
 #calc_b #header {
 	color: #fff;
 	background-color: #242424;
+	height: auto;
 }
 .werte_eingaben {
 	position: absolute;

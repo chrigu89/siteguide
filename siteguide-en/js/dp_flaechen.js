@@ -268,7 +268,7 @@ zusatzl_erklaerung_td=zusatzl_erklaerung_td1400;
 					+'<tr>'
 					+'</tr>'
 					+'<tr id="te_td">'
-					+'<td> Required layers (total) <br>included layers</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
+					+'<td> Required layers (total): <br>included layers:</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
 					+'</tr>';
 				
 				
@@ -313,7 +313,7 @@ reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
 
                     st_r1='<tr>'
-					+'<td align="left">Cutting size:</td>'
+					+'<td align="left">Cutting size <br>Fiber Glass Mat:</td>'
 					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
 					+'</tr>'
 					+'<tr>';

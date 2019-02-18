@@ -268,7 +268,7 @@ document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
 					+'<tr>'
 					+'</tr>'
 					+'<tr id="te_td">'
-					+'<td> Gesamtlagen <br>davon Zusatzlage/n</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
+					+'<td> Gesamtlagen: <br>davon Zusatzlage/n:</td><td align="right">'+(hauptlagen+zusatzlagen_val)+'<br>'+zusatzlagen_val+'</td>'
 					+'</tr>';
 				
 /*------------------------------------------------------------------------------*/
