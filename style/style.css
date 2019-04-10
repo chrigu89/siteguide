@@ -14,9 +14,62 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale
 }
+
+@font-face {
+    font-family: 'libre_franklinbold';
+    src: url('../fonts/libre_franklin/librefranklin-bold-webfont.woff2') format('woff2'),
+         url('../fonts/libre_franklin/librefranklin-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'libre_franklin_lightregular';
+    src: url('../fonts/libre_franklin/librefranklin-light-webfont.woff2') format('woff2'),
+         url('../fonts/libre_franklin/librefranklin-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'libre_franklin_mediumregular';
+    src: url('../fonts/libre_franklin/librefranklin-medium-webfont.woff2') format('woff2'),
+         url('../fonts/libre_franklin/librefranklin-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'libre_franklinregular';
+    src: url('../fonts/libre_franklin/librefranklin-regular-webfont.woff2') format('woff2'),
+         url('../fonts/libre_franklin/librefranklin-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'libre_franklin_thinregular';
+    src: url('../fonts/libre_franklin/librefranklin-thin-webfont.woff2') format('woff2'),
+         url('../fonts/libre_franklin/librefranklin-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
+
+
+
 body {
 	margin: 0px;
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	background-color: rgba(244,243,243,1);
 	width: 100%;
 	overflow-x: hidden;
@@ -341,7 +394,7 @@ h1 {
 	line-height: 19px !important;
 }
 html body div#header h1 {
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	font-size: 18px;
 }
 h1 span {
@@ -377,6 +430,7 @@ a {
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 8px;
+	padding: 0 10px;
 }
 .calc_ausw_end {
 	margin-bottom: 12px;
@@ -455,6 +509,7 @@ a {
 	color: #fff;
 	background-color: #242424;
 	height: auto;
+	min-height: 140px;
 }
 .werte_eingaben {
 	position: absolute;
@@ -490,7 +545,7 @@ a {
 	padding-right: 33px;
 	height: 36px;
 	outline: none;
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	font-size: 21px;
 	border-radius: none;
 }
@@ -663,6 +718,10 @@ button.berechnen_btn {
 	padding-top: 7px;
 	padding-bottom: 7px;
 }
+#harz_gewicht .pr_,
+#harz_volumen .pr_{
+	width:200px;
+}
 #mth_1_wichtig {
 	margin-top: 30px;
 	text-align: center;
@@ -774,7 +833,7 @@ form {
 	padding-bottom: 1px;
 	padding-left: 6px;
 	padding-right: 6px;
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	font-size: 17px;
 }
 #zip_input_id {
@@ -996,7 +1055,7 @@ input[type="submit"].input_focus {
 	cursor: default;
 }
 .menu {
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
@@ -1587,7 +1646,7 @@ right: 0;
 	padding: 4px 10px;
 	height: 100%;
 	outline: none;
-	font-family: "Franklin Gothic Book", Arial;
+	font-family: "libre_franklinregular", Arial;
 	font-size: 21px;
 	border-radius: none;
 	resize: none;
@@ -1674,10 +1733,14 @@ form[name="dp_bestellform"] button[type="submit"].active{
 
 
 
+ @media (max-width: 434px) {
+.calc_ausw {
 
+	font-size: 14px;
 
+}
 
-
+ }
 
 
 

@@ -83,6 +83,7 @@ console.log( kn_auswahl+ " validation_kn_ja_nr: " + validation_kn_ja_nr );
 
 
 $(document).ready(function() {
+	lt_setup();
 f_change=false;
 
 
@@ -318,3 +319,4 @@ var form=$('form[name="dp_bestellform"]');
 });
 
 })
+	

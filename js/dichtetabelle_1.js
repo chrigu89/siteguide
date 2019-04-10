@@ -3,29 +3,29 @@
 dichtetabelle = new Array();
 
 
-dichtetabelle['FC15'] = new Array();
-dichtetabelle['FC15']['dichte_a']=1.15;
-dichtetabelle['FC15']['dichte_b']=1.1;
-dichtetabelle['FC15']['dichte_gem']=1.137174721;
-dichtetabelle['FC15']['anteil_a_gew']=100;
-dichtetabelle['FC15']['anteil_b_gew']=33;
-dichtetabelle['FC15']['anteil_ges']=133;
+dichtetabelle['Trelleborg Epoxy FC15'] = new Array();
+dichtetabelle['Trelleborg Epoxy FC15']['dichte_a']=1.15;
+dichtetabelle['Trelleborg Epoxy FC15']['dichte_b']=1.1;
+dichtetabelle['Trelleborg Epoxy FC15']['dichte_gem']=1.137174721;
+dichtetabelle['Trelleborg Epoxy FC15']['anteil_a_gew']=100;
+dichtetabelle['Trelleborg Epoxy FC15']['anteil_b_gew']=33;
+dichtetabelle['Trelleborg Epoxy FC15']['anteil_ges']=133;
 
-dichtetabelle['FC30'] = new Array();
-dichtetabelle['FC30']['dichte_a']=1.15;
-dichtetabelle['FC30']['dichte_b']=1.1;
-dichtetabelle['FC30']['dichte_gem']=1.137174721;
-dichtetabelle['FC30']['anteil_a_gew']=100;
-dichtetabelle['FC30']['anteil_b_gew']=33;
-dichtetabelle['FC30']['anteil_ges']=133;
+dichtetabelle['Trelleborg Epoxy FC30'] = new Array();
+dichtetabelle['Trelleborg Epoxy FC30']['dichte_a']=1.15;
+dichtetabelle['Trelleborg Epoxy FC30']['dichte_b']=1.1;
+dichtetabelle['Trelleborg Epoxy FC30']['dichte_gem']=1.137174721;
+dichtetabelle['Trelleborg Epoxy FC30']['anteil_a_gew']=100;
+dichtetabelle['Trelleborg Epoxy FC30']['anteil_b_gew']=33;
+dichtetabelle['Trelleborg Epoxy FC30']['anteil_ges']=133;
 
-dichtetabelle['HC60'] = new Array();
-dichtetabelle['HC60']['dichte_a']=1.16;
-dichtetabelle['HC60']['dichte_b']=0.95;
-dichtetabelle['HC60']['dichte_gem']=1.099684874;
-dichtetabelle['HC60']['anteil_a_gew']=100;
-dichtetabelle['HC60']['anteil_b_gew']=33;
-dichtetabelle['HC60']['anteil_ges']=133;
+dichtetabelle['Trelleborg Epoxy HC60'] = new Array();
+dichtetabelle['Trelleborg Epoxy HC60']['dichte_a']=1.16;
+dichtetabelle['Trelleborg Epoxy HC60']['dichte_b']=0.95;
+dichtetabelle['Trelleborg Epoxy HC60']['dichte_gem']=1.099684874;
+dichtetabelle['Trelleborg Epoxy HC60']['anteil_a_gew']=100;
+dichtetabelle['Trelleborg Epoxy HC60']['anteil_b_gew']=33;
+dichtetabelle['Trelleborg Epoxy HC60']['anteil_ges']=133;
 
 dichtetabelle['HC120'] = new Array();
 dichtetabelle['HC120']['dichte_a']=1.15;
@@ -35,21 +35,21 @@ dichtetabelle['HC120']['anteil_a_gew']=100;
 dichtetabelle['HC120']['anteil_b_gew']=33;
 dichtetabelle['HC120']['anteil_ges']=133;
 
-dichtetabelle['HC120+'] = new Array();
-dichtetabelle['HC120+']['dichte_a']=1.23;
-dichtetabelle['HC120+']['dichte_b']=0.98;
-dichtetabelle['HC120+']['dichte_gem']=1.1616160119;
-dichtetabelle['HC120+']['anteil_a_gew']=100;
-dichtetabelle['HC120+']['anteil_b_gew']=30;
-dichtetabelle['HC120+']['anteil_ges']=130;
+dichtetabelle['Trelleborg Epoxy HC120/120+'] = new Array();
+dichtetabelle['Trelleborg Epoxy HC120/120+']['dichte_a']=1.23;
+dichtetabelle['Trelleborg Epoxy HC120/120+']['dichte_b']=0.98;
+dichtetabelle['Trelleborg Epoxy HC120/120+']['dichte_gem']=1.1616160119;
+dichtetabelle['Trelleborg Epoxy HC120/120+']['anteil_a_gew']=100;
+dichtetabelle['Trelleborg Epoxy HC120/120+']['anteil_b_gew']=30;
+dichtetabelle['Trelleborg Epoxy HC120/120+']['anteil_ges']=130;
 
-dichtetabelle['HC2640'] = new Array();
-dichtetabelle['HC2640']['dichte_a']=1.15;
-dichtetabelle['HC2640']['dichte_b']=0.97;
-dichtetabelle['HC2640']['dichte_gem']=1.130921659;
-dichtetabelle['HC2640']['anteil_a_gew']=100;
-dichtetabelle['HC2640']['anteil_b_gew']=10;
-dichtetabelle['HC2640']['anteil_ges']=110;
+dichtetabelle['Trelleborg Epoxy HC2640'] = new Array();
+dichtetabelle['Trelleborg Epoxy HC2640']['dichte_a']=1.15;
+dichtetabelle['Trelleborg Epoxy HC2640']['dichte_b']=0.97;
+dichtetabelle['Trelleborg Epoxy HC2640']['dichte_gem']=1.130921659;
+dichtetabelle['Trelleborg Epoxy HC2640']['anteil_a_gew']=100;
+dichtetabelle['Trelleborg Epoxy HC2640']['anteil_b_gew']=10;
+dichtetabelle['Trelleborg Epoxy HC2640']['anteil_ges']=110;
 
  //Dichtetabelle-------------------------------------------------------
  

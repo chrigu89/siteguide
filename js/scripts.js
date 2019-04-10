@@ -138,7 +138,7 @@ $( '#load_' ).removeClass( "loader_img" );
 
 
 
-var onReady = function(){
+
 
 /**
 			$('#content').animate({
@@ -195,17 +195,7 @@ $( "#ergebnisse" ).html('<br><div class="kont_links"><p class="mt0"><span class=
 	}
 	
 	
-	
-	
-	xWidth = null;
-		if(xWidth == null) {
-			if(window.innerWidth != null)
-			  xWidth = window.innerWidth;
 
-		}
-
-		xHeight = window.innerHeight;
-		$(".content").css({"min-height":xHeight+20});
 
 
 
@@ -213,55 +203,10 @@ function men_display(nb){
 
 	$(".menu").css({'display': nb });	
 }
-	
-$( 'input' ).focus(function() {
-	
-
-
-	if(calc){
-		
-			$( this ).parent( ".eing_mth" ).addClass( "input_focus" );
-		
-		
-		}else{men_display('none');
-		$( this ).addClass( "input_focus" );
-	}
-
-
-
-});		
-		
-$( "textarea" ).focus(function() {
-	men_display('none');
-	$( this ).addClass( "input_focus" );
-
-	
-});	
-$( "select" ).focus(function() {
-men_display('none');
-
-
-
-});	
-
+		var onReady = function(){
 	
 	
-$( "input" ).blur(function() {
-	men_display('block');
-
-	$( '.input_focus' ).removeClass( "input_focus" );
-
-});		
-$( "textarea" ).blur(function() {
-	men_display('block');
-	$( '.input_focus' ).removeClass( "input_focus" );
-});		
-	
-$( "select" ).blur(function() {
-	men_display('block');
-	$( '.input_focus' ).removeClass( "input_focus" );
-});		
-	
+}
 	
 
 	
@@ -299,13 +244,14 @@ feedback_fragen = new Object();
 
 	elements : ['a'],
 	setup : function(){
+		
 	for(j=0;j<LinkToutch.elements.length+1;j++){	
 	
 	
 	for(i=0;i<document.getElementsByTagName(LinkToutch.elements[j]).length;i++){
 	
 	var el = document.getElementsByTagName(LinkToutch.elements[j])[i];
-	
+	//console.log('setup '+el);
 	if(navigator.userAgent.indexOf("Firefox") != -1){
 	el.onmousedown = LinkToutch.touchstart;
 	el.onmouseup = LinkToutch.touchend; 
@@ -468,7 +414,13 @@ $( '#load_' ).removeClass( "overlay" );
 zip_btn_akt();
 	}else if(this.className.indexOf('alert_')>=0){
 	//id muss  alert_ sein rel ist der alert text
-	LinkToutch.alert_ausgeben(this.rel);
+
+	if(en){
+	LinkToutch.alert_ausgeben(this.getAttribute("data-en"));
+	}else{
+	LinkToutch.alert_ausgeben(this.rel)	
+		
+	}
 	} else{
 //window.location.href=this.id;
 
@@ -491,8 +443,7 @@ if(this.id!='load_'&&this.id!='alert_btn'&&this.href==''){
 	}
 	}
 	}
-	LinkToutch.setup();
-	
+
 	
 /*	
 
@@ -527,14 +478,83 @@ Seiten aufrufen in selben iframe ohne übergang
 	
 	
 		
+function lt_setup(){
+	
+	
+	LinkToutch.setup();
+	
+	
+	xWidth = null;
+		if(xWidth == null) {
+			if(window.innerWidth != null)
+			  xWidth = window.innerWidth;
+
+		}
+
+		xHeight = window.innerHeight;
+		$(".content").css({"min-height":xHeight+20});
+$( 'input' ).focus(function() {
+	
+
+
+	if(calc){
+		
+			$( this ).parent( ".eing_mth" ).addClass( "input_focus" );
+		
+		
+		}else{men_display('none');
+		$( this ).addClass( "input_focus" );
+	}
 
 
 
-}
+});		
+		
+$( "textarea" ).focus(function() {
+	men_display('none');
+	$( this ).addClass( "input_focus" );
 
+	
+});	
+$( "select" ).focus(function() {
+men_display('none');
+
+
+
+});	
+
+	
+	
+$( "input" ).blur(function() {
+	men_display('block');
+
+	$( '.input_focus' ).removeClass( "input_focus" );
+
+});		
+$( "textarea" ).blur(function() {
+	men_display('block');
+	$( '.input_focus' ).removeClass( "input_focus" );
+});		
+	
+$( "select" ).blur(function() {
+	men_display('block');
+	$( '.input_focus' ).removeClass( "input_focus" );
+});		
+	
+	}
+
+
+
+
+
+
+	
 $(document).ready(onReady);
 
+	$(document).ready(function() {
+	lt_setup();
 
+});
 
 		 function alert_ausgeben(alert_txt){
 
