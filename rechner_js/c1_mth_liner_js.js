@@ -19,8 +19,8 @@ dichte_b = 0;
 dichte_gem = 0;
 anteil_a_gew = 0;
 anteil_b_gew = 0;
-harzsystem_name = 'HC120';
-masssystem = "Metrisch";
+harzsystem_name = 'Trelleborg Epoxy HC120';
+masssystem=lang_einh_metrisch;
 
 function ergebnisse_berechnen(e) {
     if (berechnen_go) {
@@ -121,44 +121,7 @@ $(".kompnente_b").html(harzsystem_name+ ' B');
 
 
 
-
-    $('#load_').addClass("loader_img");
-    $('#load_').addClass("overlay");
-    $("#load_").fadeIn(300, 'easeInQuart', function () {
-
-        document.getElementById("calculator").style.display = 'none';
-        document.getElementById("zuruck_z_eingabe").style.display = 'block';
-
-    });
-    $('.werte_eingaben').delay(300).animate({
-
-        left: '-100%'
-
-    }, 1400, 'swing', function () {
-
-
-    });
-    $('.werte_ergebnisse').delay(300).animate({
-
-        left: '0'
-
-    }, 1400, 'swing', function () {
-        $("#load_").fadeOut(300, 'easeInQuart', function () {
-            $('#load_').removeClass("loader_img");
-            $('#load_').removeClass("overlay");
-        });
-        //NachOben ();
-
-    });
-
-    $('html,body').delay(300).animate({
-        scrollTop: 0
-    }, 1400, 'swing', function () {
-
-        NachOben();
-
-    });
-
+berechnen_animation();
 
 
 }
@@ -166,66 +129,14 @@ $(".kompnente_b").html(harzsystem_name+ ' B');
 
 
 
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById('berechnen').onmousedown = ergebnisse_berechnen;
-} else {
-    document.getElementById('berechnen').ontouchstart = ergebnisse_berechnen;
-}
 
 
-function zurueck_eing(e) {
-    berechnen_go = false;
-    $('#load_').addClass("loader_img");
-    $('#load_').addClass("overlay");
-    $("#load_").fadeIn(300, 'easeInQuart', function () {
-
-    });
-    $('.werte_eingaben').animate({
-
-        left: '0'
-
-    }, 1000, 'swing', function () {
-
-        document.getElementById("calculator").style.display = 'block';
-        document.getElementById("zuruck_z_eingabe").style.display = 'none';
-    });
-    $('.werte_ergebnisse').animate({
-
-        left: '100%'
-
-    }, 1000, 'swing', function () {
-
-        $("#load_").fadeOut(300, 'easeInQuart', function () {
-            $('#load_').removeClass("loader_img");
-            $('#load_').removeClass("overlay");
-        });
-
-
-    });
-
-    $('html,body').animate({
-        scrollTop: 0
-    }, 1000, 'swing', function () {
-
-        NachOben();
-
-    });
-
-}
-
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById('zurueck').onmousedown = zurueck_eing;
-    document.getElementById('zuruck_z_eingabe').onmousedown = zurueck_eing;
-} else {
-    document.getElementById('zurueck').ontouchstart = zurueck_eing;
-    document.getElementById('zuruck_z_eingabe').ontouchstart = zurueck_eing;
-}
 
 function neue_masse_ausgewaehlt(val) {
 
     if (val == "Metrisch") {
 
-        document.getElementById('a_wert').innerHTML = "Metrisch";
+        document.getElementById('a_wert').innerHTML = lang_einh_metrisch;
 
         dm_hk_mass.innerHTML = 'mm';
         dm_sa_mass.innerHTML = 'mm';
@@ -235,7 +146,7 @@ function neue_masse_ausgewaehlt(val) {
         });
 
     } else if (val == "imperial") {
-        document.getElementById('a_wert').innerHTML = "Imperial";
+        document.getElementById('a_wert').innerHTML = lang_einh_imperial;
         dm_hk_mass.innerHTML = 'in';
         dm_sa_mass.innerHTML = 'in';
         snl_sa_mass.innerHTML = 'ft';
@@ -367,7 +278,7 @@ harzsystem_name = hartz_sys
 
 	
 	
-vtc='<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.';
+vtc=innerHTML_lang('<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.');
 	
 if(!elaubte_nr(document.mth_liner_basic_calc.durchmesser_hauptkanal.value)){
   utz=document.mth_liner_basic_calc.durchmesser_hauptkanal.value;

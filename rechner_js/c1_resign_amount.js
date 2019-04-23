@@ -1,12 +1,46 @@
 $(window).load(function() {
 calc=true;
 
-
-
-
-
-
 })
+var hartz_systeme_mengen = new Array();
+hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]] = new Array();
+hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0] = new Array();
+hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
+hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['gewicht']=13;
+hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['art_nr']='234504';
+
+
+
+hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]] = new Array();
+hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0] = new Array();
+hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
+hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['gewicht']=13;
+hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['art_nr']='234504';
+
+
+hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]] = new Array();
+hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0] = new Array();
+hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
+hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['gewicht']=13;
+hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['art_nr']='234504';
+
+
+hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]] = new Array();
+hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0] = new Array();
+hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
+hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['gewicht']=13;
+hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['art_nr']='234504';
+
+
+
+
+
+
+
+
+
+
+
 
 
 //parent.seite_aktivieren('menu_weg');
@@ -100,8 +134,10 @@ ges_volumen=pi*(masse_umrechnen.in_zu_mm(dm_hk_val)/1000)*masse_umrechnen.in_zu_
 
 ges_volumen=pi*(dm_hk_val/1000)*dm_sa_val*snl_sa_val*harzfaktor[liner];	
 
-}
-;
+};
+
+
+
 ges_gewicht=ges_volumen*dichtetabelle[hartzsys]['dichte_gem'];
 
 gew_harz=ges_gewicht/(dichtetabelle[hartzsys]['anteil_a_gew']+dichtetabelle[hartzsys]['anteil_b_gew'])*dichtetabelle[hartzsys]['anteil_a_gew'];
@@ -154,44 +190,9 @@ document.getElementsByClassName('kompnente_b')[1].innerHTML=hartzsys+' B';
 }
 
 
+berechnen_animation();
 
 
-$( '#load_' ).addClass( "loader_img" );
-$( '#load_' ).addClass( "overlay" );
-
- $( "#load_" ).fadeIn( 300, 'easeInQuart', function() {
-
-	 document.getElementById("calculator").style.display='none';
-	  document.getElementById("zuruck_z_eingabe").style.display='block';
-});
-		$('.werte_eingaben').delay(300).animate({
-			
-			left:'-100%'
-
-		}, 1400, 'swing', function() {
-	 
-	
-});	
-		$('.werte_ergebnisse').delay(300).animate({
-			
-			left:'0'
-
-		}, 1400, 'swing', function() {
- $( "#load_" ).fadeOut( 300, 'easeInQuart', function() {
-$( '#load_' ).removeClass( "loader_img" );
-$( '#load_' ).removeClass( "overlay" );
-});
-			//NachOben ();
-		
-		});
-		
-			$('html,body').delay(300).animate({
-          scrollTop:0
-        }, 1400, 'swing', function() {
-
-			NachOben ();
-		
-		});
 		
 	
 	
@@ -206,22 +207,20 @@ $( '#load_' ).removeClass( "overlay" );
 
 
 
-if(navigator.userAgent.indexOf("Firefox") != -1){
-document.getElementById('berechnen').onmousedown=ergebnisse_berechnen;
-}else{
-	document.getElementById('berechnen').ontouchstart=ergebnisse_berechnen;
-}
 
 
 
 
-if(navigator.userAgent.indexOf("Firefox") != -1){
-	document.getElementById('zurueck').onmousedown=zurueck_eing;
-	document.getElementById('zuruck_z_eingabe').onmousedown=zurueck_eing;
-}else{
-document.getElementById('zurueck').ontouchstart=zurueck_eing;
-	document.getElementById('zuruck_z_eingabe').ontouchstart=zurueck_eing;
-}
+
+
+
+
+
+
+
+
+
+
 
 masssystem=lang_einh_metrisch;
 function neue_masse_ausgewaehlt(val){
@@ -297,15 +296,15 @@ dichte_b=0.96;
 dichte_gem=1.09968487;
 anteil_a_gew=100;
 anteil_b_gew=33;	
-}else if(val=="HC120"){
-		document.getElementById('a_wert_h').innerHTML="HC120";	
+}else if(val=="Trelleborg Epoxy HC120"){
+		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC120";	
 dichte_a=1.15;
 dichte_b=0.96;
 dichte_gem=1.09617021;
 anteil_a_gew=100;
 anteil_b_gew=33;	
-}else if(val=="Trelleborg Epoxy HC120/120+"){
-		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC120/120+";	
+}else if(val=="Trelleborg Epoxy HC120+"){
+		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC120+";	
         dichte_a = 1.23;
         dichte_b = 0.98;
         dichte_gem = 1.1616160119;
@@ -335,10 +334,10 @@ function DPL_2_0_alert(){
 hartzsys='120+';
 
 if(en){
-alert_ausgeben('Trelleborg UltraFlex Liner can only be used with the Trelleborg Epoxy HC120/120+ and a wall thickness of 4.5mm!');
+alert_ausgeben('Trelleborg UltraFlex Liner can only be used with the Trelleborg Epoxy HC120+ and a wall thickness of 4.5mm!');
 } else {
 	//deutsch
-alert_ausgeben('Trelleborg UltraFlex Liner kann nur mit dem Trelleborg Epoxy HC120/120+ und einer Wandstärke von 4,5mm verwendet werden!');
+alert_ausgeben('Trelleborg UltraFlex Liner kann nur mit dem Trelleborg Epoxy HC120+ und einer Wandstärke von 4,5mm verwendet werden!');
 }	
 }
 function Hinzufuegen (neu_str) {
@@ -357,7 +356,10 @@ if (x.length>0){
   
 		}
 }
-
+function CheckAuswahl (nr_,id_) {
+  if (document.getElementById(id_).selectedIndex != nr_)
+    document.getElementById(id_).selectedIndex = nr_;
+}
 ////////////////////////////////////////////////////////////
 //listener-------------------------------------------------
 ////////////////////////////////////////////////////////////
@@ -418,18 +420,20 @@ if(liner_tst=="Trelleborg MultiFlex Liner"){
 
 if(en){
 Hinzufuegen ('Please Select');
+document.getElementById('a_wert_h').innerHTML='Please Select';
 } else {
 	//deutsch
 Hinzufuegen ('Bitte wählen');
+document.getElementById('a_wert_h').innerHTML='Bitte wählen';
 }
 Hinzufuegen ('Trelleborg Epoxy FC15');
 Hinzufuegen ('Trelleborg Epoxy FC30');
 Hinzufuegen ('Trelleborg Epoxy HC60');
-//Hinzufuegen ('HC120');
-Hinzufuegen ('Trelleborg Epoxy HC120/120+');
+Hinzufuegen ('Trelleborg Epoxy HC120')
+Hinzufuegen ('Trelleborg Epoxy HC120+');
 Hinzufuegen ('Trelleborg Epoxy HC2640');
 
-
+CheckAuswahl (0,'sel1');
 	   
 	
 }else{
@@ -437,19 +441,44 @@ Hinzufuegen ('Trelleborg Epoxy HC2640');
 
 if(en){
 Hinzufuegen ('Please Select');
+document.getElementById('a_wert_h').innerHTML='Please Select';
 } else {
 	//deutsch
 Hinzufuegen ('Bitte wählen');
+document.getElementById('a_wert_h').innerHTML='Bitte wählen';
 }
 Hinzufuegen ('Trelleborg Epoxy FC15');
 Hinzufuegen ('Trelleborg Epoxy FC30');
 Hinzufuegen ('Trelleborg Epoxy HC60');
-//Hinzufuegen ('HC120');
-Hinzufuegen ('Trelleborg Epoxy HC120/120+');
+Hinzufuegen ('Trelleborg Epoxy HC120')
+Hinzufuegen ('Trelleborg Epoxy HC120+');
 Hinzufuegen ('Trelleborg Epoxy HC2640');
-
+CheckAuswahl (0,'sel1');
 }
 	
+
+if(liner_tst=='Trelleborg ProLiner'){
+	
+CheckAuswahl (0,'sel1');	
+if(en){
+document.getElementById('sel1').value='Please Select';
+hartzsys='Please Select';
+//hartzsys_tst='Please Select';
+document.getElementById('a_wert_h').innerHTML='Please Select';
+} else {
+	//deutsch
+document.getElementById('sel1').value='Bitte wählen';
+hartzsys='Bitte wählen';
+//hartzsys_tst='Bitte wählen';
+document.getElementById('a_wert_h').innerHTML='Bitte wählen';
+}
+
+
+c1_console_log('Trelleborg ProLiner');	
+c1_console_log(hartzsys)	
+	
+}
+
 }  	    
 hartzsys_tst=document.getElementById('sel1').value;
 
@@ -458,6 +487,8 @@ hartzsys_tst=document.getElementById('sel1').value;
 if(hartzsys!=hartzsys_tst){
 	
 if(liner_tst=="Trelleborg UltraFlex Liner"){
+	
+	
 	DPL_2_0_alert();
 }
 
@@ -483,13 +514,13 @@ if(liner_tst=="Trelleborg UltraFlex Liner"){
 		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
 }	
 	document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
-	if(hartzsys_tst!='Trelleborg Epoxy HC120/120+'){
+	if(hartzsys_tst!='Trelleborg Epoxy HC120+'){
 		
-				hartzsys_tst='Trelleborg Epoxy HC120/120+';
+				hartzsys_tst='Trelleborg Epoxy HC120+';
 		harz_sys_val=hartzsys_tst;
 		document.getElementById('a_wert_li').innerHTML=liner_tst;
 	
-		document.getElementById("sel1").selectedIndex = "4";
+		document.getElementById("sel1").selectedIndex = "5";
 		neues_harzsystem(hartzsys_tst);	
 
 		
@@ -520,12 +551,9 @@ dm_sa_val=document.mth_liner_basic_calc.durchmesser_seitenanschluss.value;
 snl_sa_val=document.mth_liner_basic_calc.sanierungslaenge_seitenanschluss.value;
 
 
-if(en){
-vtc='<br>This is not a valid value! <br>Please enter a valid number.';	
-} else {
-	//deutsch
-vtc='<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.';
-}	
+vtc=innerHTML_lang('<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.');
+
+	
 if(!elaubte_nr(document.mth_liner_basic_calc.durchmesser_hauptkanal.value)){
   utz=document.mth_liner_basic_calc.durchmesser_hauptkanal.value;
 	alert_ausgeben(utz+vtc );
@@ -631,46 +659,7 @@ $( this ).parent( ".eing_mth" ).removeClass( "input_focus" );
 
 
 
-function zurueck_eing(e){
-	berechnen_go=false;
-	$( '#load_' ).addClass( "loader_img" );
-$( '#load_' ).addClass( "overlay" );
- $( "#load_" ).fadeIn( 300, 'easeInQuart', function() {
 
-});
-		$('.werte_eingaben').animate({
-			
-			left:'0'
-
-		}, 1000, 'swing', function() {
-
-  	 document.getElementById("calculator").style.display='block';
-	  document.getElementById("zuruck_z_eingabe").style.display='none';
-});	
-		$('.werte_ergebnisse').animate({
-			
-			left:'100%'
-
-		}, 1000, 'swing', function() {
-				
-		 $( "#load_" ).fadeOut( 300, 'easeInQuart', function() {
-$( '#load_' ).removeClass( "loader_img" );
-$( '#load_' ).removeClass( "overlay" );
-});
-		
-	
-});	
-
-			$('html,body').animate({
-          scrollTop:0
-        }, 1000, 'swing', function() {
-
-			NachOben ();
-		
-		});	
-	
-}
- 
 
 $(document).ready(function(e) {
 

@@ -63,7 +63,8 @@
 
 
 
-
+::-moz-selection { background: #91793f; color::#fff; }
+::selection { background: #91793f;color::#fff; }
 
 
 
@@ -1730,8 +1731,107 @@ form[name="dp_bestellform"] button[type="submit"].active{
 	position:static !important;
 	margin-top: 27px;
 }
+.c1_verlauf{
+	margin:0;
+	padding:0;
+	margin-bottom: 20px;
+	
+}
+.c1_verlauf li{
+	list-style:none;
+	
+	
+}
+.c1_verlauf li a {
+	display: block;
+	background-image: url(../images/icon/datum_icon.png);
+	background-repeat: no-repeat;
+	background-size: 25px auto;
+	padding-left: 36px;
+	background-position: left 6px;
+	line-height: 21px;
+	border-bottom: 1px solid #ccc;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 16px;
+}
+.c1_verlauf li:last-child a {
+		border-bottom: none;
+	
+}
+
+.c1_verlauf li a strong{
+	font-size: 16px;
+	display:block;
+	font-weight:normal;
+}
+.c1_verlauf li a span {
+	padding-top:2px;
+	display:block;
+	font-size: 14px;
+}
+.c1_verlauf li a span br {
+	display:none;
+	
+}	
+#verlauf_info {
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	z-index: 33;
+}
+#verlauf_info span {
+	display: inline-block;
+	padding-right: 15px;
+	color:#fff;
+}
+#verlauf_info a {
+	display: inline-block;
+	color: #8C0000;
+	font-size: 17px;
+	line-height: 20px;
+	padding: 5px;
+	font-weight: bold !important;
+}
+#verlauf_info a.a_hover {
+	
+	color: #f00 !important;
+}
+
+.feebback_b{
+	
+	
+}
+
+.feebback_b #meldung{
+	display:none;
+	
+	
+}
 
 
+
+
+
+
+ @media (max-width: 900px) {
+.lcr_b #eingaben_anz_tb td {
+	vertical-align: top !important;
+}
+	 
+.lcr_b #eingaben_anz_tb #aa2{
+		
+		
+	}
+.lcr_b #eingaben_anz_tb #reh_l_a{
+			white-space: nowrap;
+		
+	}
+.lcr_b #eingaben_anz_tb #aa2 nobr{
+		
+		white-space: pre-wrap;
+	}	 
+ }
 
  @media (max-width: 434px) {
 .calc_ausw {
@@ -1741,10 +1841,15 @@ form[name="dp_bestellform"] button[type="submit"].active{
 }
 
  }
+ @media (max-width: 400px) {
+#calc_b .werte_ergebnisse table td {
+	
+	font-size: 12px;
+}
 
 
 
-
+ }
 
 
 

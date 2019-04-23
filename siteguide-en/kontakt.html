@@ -10,7 +10,7 @@
 <script src="../js/swipe.js" type="text/javascript"></script>
 <script src="../cordova.js" type="text/javascript"></script>
 </head>
-<body>
+<body class="kontakt">
 <a id="logo" href="index.html"></a>
 <div id="content"> 
 	<div id="sl_frame"><script src="_slider.js" type="text/javascript"></script></div>
@@ -163,6 +163,9 @@ function selekt_change() {
     land_tst = document.getElementById('sel').value;
 	document.getElementById('a_wert').innerHTML = land_tst;
     if (land != land_tst) {
+men_display('block');
+		$( "select" ).blur();
+
 
         land = land_tst;
 		

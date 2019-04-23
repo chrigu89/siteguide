@@ -22,6 +22,7 @@
 					
 		
 					$( "#meldung" ).html( data );
+					$( "#meldung" ).show();
 					$( "#form_txt" ).html( '<br><br><br>' );
 				}
 			});
@@ -32,7 +33,7 @@
 	<script src="../cordova.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body class="feebback_b">
 <a id="logo" href="index.html"></a>
 <a id="load_" class="loader_img"></a>
 <div id="content">
@@ -79,8 +80,7 @@
 			</div><!--feedb_fr -->
 			<div id="p_s_eingabe" class="form_feld btop">
 			
-			<textarea name="vermisse_p_s" cols="" rows="">
-			</textarea>
+			<textarea name="vermisse_p_s" ></textarea>
 		</div>
 		
 		
@@ -105,8 +105,7 @@
 		
 		<div id="verbesser_eing" class="form_feld btop">
 			
-			<textarea name="verbesserungsvorschlaege" cols="" rows="">
-			</textarea>
+			<textarea name="verbesserungsvorschlaege" ></textarea>
 		</div>
 		
 		<div class="feedb_fr">
@@ -122,8 +121,7 @@
 	
 		<div class="form_feld btop mt20">
 			<div>I particularly liked:</div>
-			<textarea name="good_gefallen" cols="" rows="">
-			</textarea>
+			<textarea name="good_gefallen" ></textarea>
 		</div>
 	
 		<div class="form_feld">

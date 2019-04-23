@@ -1,9 +1,53 @@
 kn_auswahl=	'ja';
 
+var kd =  window.localStorage.getItem('kontaktdaten_json_str');
+//c1_console_log('kontaktdaten_json_str: ' + kd);
+
+function kontaktdaten_speichern(){
+	
+
+var kd_obj=
+  {
+date: d.getDate()+"."+(d.getMonth()+1)+"."+d.getFullYear(),
+id: "",
+name: "Formulardaten",
+kn_auswahl: "",
+wert_1: "",
+wert_2: "",
+wert_3: "",
+wert_4: "",
+wert_5: "",
+wert_6: "",
+wert_7: "",
+wert_8: "",
+wert_9: "",
+wert_10: "",
+wert_11: "",
+wert_12: "",
+wert_13: "",
+wert_14: "",
+wert_15: ""
+
+};
+$( 'form[name="dp_bestellform"] input, form[name="dp_bestellform"] select' ).each(function( index ) {
+	
+	kd_obj['wert_'+(index+1)] = $( this ).val();	
+
+	
+	});
+	
+kd_obj['kn_auswahl']=kn_auswahl;
+		 	var new_kd_json = JSON.stringify(kd_obj);
+			//c1_console_log('new_kd_json: ' + new_kd_json);
+	 window.localStorage.setItem('kontaktdaten_json_str',new_kd_json) 
+}
 
 
 
-	function gesamtpruefung(){
+
+
+
+function gesamtpruefung(){
 		validation_kn_ja_nr=0;
 		validation_kn_nein_nr=0;
 	$( 'form[name="dp_bestellform"] input' ).each(function( index ) {
@@ -11,7 +55,7 @@ kn_auswahl=	'ja';
  data_id=$( this ).attr('data-id');
  name_i=$( this ).attr('name');
   
-  // console.log( name_i + " : " + data_id );
+  // c1_console_log( name_i + " : " + data_id );
    
    if(kn_auswahl=='ja'){
 	   
@@ -40,12 +84,12 @@ kn_auswahl=	'ja';
 
 
 
-	  if(kn_auswahl=='nein'){
+if(kn_auswahl=='nein'){
 
 
 
 	  if(validation_kn_nein_nr == validation_kn_nein_nr_vorgabe){
-
+kontaktdaten_speichern();
 $( 'form[name="dp_bestellform"] button[type="submit"]' ).addClass('active');
 	  }else{
 		$( 'form[name="dp_bestellform"] button[type="submit"]' ).removeClass('active');  
@@ -58,26 +102,16 @@ $( 'form[name="dp_bestellform"] button[type="submit"]' ).addClass('active');
 
 
 	  if(validation_kn_ja_nr == validation_kn_ja_nr_vorgabe){
-
+kontaktdaten_speichern();
 $( 'form[name="dp_bestellform"] button[type="submit"]' ).addClass('active');
 	  }else{
 		$( 'form[name="dp_bestellform"] button[type="submit"]' ).removeClass('active');  
 		  
 	  }
 	
-	
  }
-console.log( kn_auswahl+ " validation_kn_nein_nr: " + validation_kn_nein_nr );
-console.log( kn_auswahl+ " validation_kn_ja_nr: " + validation_kn_ja_nr );	
 	
 }
-
-
-
-
-
-
-
 
 
 
@@ -143,11 +177,11 @@ kn_auswahl=	$( '#kn_auswahl .feed.f_active' ).attr('id')
 	
 	
 	 
-	//console.log( $( '#kn_auswahl .feed.f_active' ).attr('id') );
+	//c1_console_log( $( '#kn_auswahl .feed.f_active' ).attr('id') );
 	
 	
 	if(name=='email'){
-		  console.log("email")
+		//  c1_console_log("email")
 	error_act(name,ValidateEmail( $( 'form[name="dp_bestellform"] input[name="'+name+'"]' ).val() ));
 		
 	}
@@ -228,7 +262,7 @@ function form_alert(id){
 	$( '#load_' ).addClass( "overlay" );
 	$( '#load_' ).addClass( "alr" );
 	
-	 $( "#alert_txt" ).html( $( "#"+id ).html());
+	 $( "#alert_txt" ).html( id);
 
 	
 	 toprt=xHeight/2;
@@ -257,7 +291,7 @@ event.preventDefault();
 		
 if($( 'form[name="dp_bestellform"] button[type="submit"]' ).hasClass('active')){
 	
-console.log('ist absendebereit');
+//c1_console_log('ist absendebereit');
 eingabe_sendung=''
 +'<div class="eingaben_user">'
 +$( 'div#header h1' ).html()
@@ -288,20 +322,20 @@ var form=$('form[name="dp_bestellform"]');
 		}).done(function(data) {
 			// Aktionen bei Erfolg
 			
-			console.log(data);
+			//c1_console_log(data);
 			if(data.indexOf('erfolg')>=0){
 			$( 'form[name="dp_bestellform"] button[type="submit"]' ).hide();
 			$( '#erf_versendet' ).show();
-			form_alert("dp_bestellform_erfolg_meld");
+			form_alert(innerHTML_lang('Vielen Dank für Ihre Anfrage.<span style="display:block;">Wir werden uns schnellstmöglich bei Ihnen melden.</span>'));
 			}else{
-			form_alert("dp_bestellform_fehler_meld");	
+				form_alert(innerHTML_lang('Es ist ein Fehler aufgetreten.<span style="display:block;"> Bitte versuchen Sie es später erneut.</span>'));	
 			}
 			
 			
 		}).fail(function(data) {
 			// Aktionen bei einem Fehler
-				form_alert("dp_bestellform_fehler_meld");
-			console.log('fail: '+data);			
+				form_alert(innerHTML_lang('Es ist ein Fehler aufgetreten.<span style="display:block;"> Bitte versuchen Sie es später erneut.</span>'));
+			//c1_console_log('fail: '+data);			
 		});
 	
 
@@ -318,5 +352,41 @@ var form=$('form[name="dp_bestellform"]');
 
 });
 
-})
+
+
+if(kd != null){
+	 var kd_obj = JSON.parse( kd );	
+	 
+	 		kn_auswahl=kd_obj['kn_auswahl'];
+	
+		
+if(kn_auswahl == 'nein'){
+			
+			 $( 'form[name="dp_bestellform"] .feed#ja' ).removeClass('f_active');
+			 $( 'form[name="dp_bestellform"] .feed#nein' ).addClass('f_active');
+			 $( '#kundennummer_dp_bestellform' ).slideUp( 300, 'easeInQuart', function() {
+		 $( '#adresse_dp_bestellform' ).slideDown( 300, 'easeInQuart', function() {});
+});
+	
+ }
+	 
+
+	 $( 'form[name="dp_bestellform"] input, form[name="dp_bestellform"] select' ).each(function( index ) {
+	 
+	 $( this ).val(kd_obj['wert_'+(index+1)])
+name_class=$( this ).attr('name');
+feldpruefung(name_class);
+		});
+		
+		
+
+ 
+	
+}
+
+
+	});
+
+
+
 	

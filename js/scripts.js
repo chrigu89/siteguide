@@ -19,9 +19,16 @@ function koma_ers(wert) {
 	
 	return wert;
 }
-
+	function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
  
 function external(url) {	
+	console.log('onclick_external');
     var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
 }
 
@@ -38,6 +45,20 @@ function pdf(url) {
 	
 }
 
+
+function verlaufStorage_getItem(name_) {
+	
+var t= window.sessionStorage.getItem(name_);
+	console.log(name_+' / '+ t)
+return t;	
+}
+function verlaufStorage_setItem(name_, val ) {
+	console.log(name_+' / '+ val)
+	window.sessionStorage.getItem(name_, val);
+	var t= window.sessionStorage.getItem(name_);
+	console.log(name_+' /get/ '+ t)
+	
+}
 /*Wenn die DropDowns Beim Firefox nicht funktionieren muss dieser Code deaktiviert werden
 function disableselect(e){
     return false
@@ -428,10 +449,29 @@ if(this.id!='load_'&&this.id!='alert_btn'&&this.href==''){
 	//parent.link_aufrufen(this.id,this.rel);
 	//window.location.href=this.rel;
 		if (this.className.indexOf('onclick_external') >= 0 ){
+
                        external(this.rel);
 		} else if (this.className.indexOf('onclick_pdf') >= 0 ){
                        pdf(this.rel);
+		} else if (this.rel.indexOf('history_back') >= 0 ){
+		this.getAttribute('data-alternativlink');
+		if(window.sessionStorage.getItem('letzte_seite')!=null){
+			  neu_seite(window.sessionStorage.getItem('letzte_seite'));
+			 
+			}else if(this.getAttribute('data-alternativlink')!=null){
+				neu_seite(this.getAttribute('data-alternativlink'));
+			}else {
+			if(en){
+	neu_seite('index.html');
+} else {
+	//deutsch
+	neu_seite('home.html');
+}	
+			
+			}
+                 
 		} else {
+			window.sessionStorage.setItem('letzte_seite',window.location.href)
 		neu_seite(this.rel);
 		}
 }else{
@@ -499,8 +539,7 @@ $( 'input' ).focus(function() {
 
 	if(calc){
 		
-			$( this ).parent( ".eing_mth" ).addClass( "input_focus" );
-		
+		$( this ).parent( ".eing_mth" ).addClass( "input_focus" );
 		
 		}else{men_display('none');
 		$( this ).addClass( "input_focus" );
@@ -510,13 +549,18 @@ $( 'input' ).focus(function() {
 
 });		
 		
-$( "textarea" ).focus(function() {
+$( "textarea, input" ).focus(function() {
 	men_display('none');
 	$( this ).addClass( "input_focus" );
 
 	
 });	
+
+	
+
+
 $( "select" ).focus(function() {
+
 men_display('none');
 
 

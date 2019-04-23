@@ -10,7 +10,7 @@
 <script src="js/swipe.js" type="text/javascript"></script>
 <script src="cordova.js" type="text/javascript"></script>
 </head>
-<body>
+<body class="kontakt">
 <a id="logo" href="home.html"></a>
 <div id="content">
 	<div id="sl_frame"><script src="_slider.js" type="text/javascript"></script></div>
@@ -63,6 +63,22 @@ $(window).load(function() {
 pls_suche=false;
 calc=false;
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function kontakt_land_aus(rel){
 	$( "#ergebnisse" ).html('<br><br><br><br><br><br>');
 
@@ -106,6 +122,8 @@ function selekt_change() {
         land = land_tst;
 		
         kontakt_land_aus(land_tst);
+		men_display('block');
+		$( "select" ).blur();
     }	
 	
 	
@@ -181,7 +199,7 @@ if(ausgabe_html.length!=''){
 document.getElementById('ergebnisse').innerHTML=ausgabe_html;
 onReady();
 }else{
-	document.getElementById('ergebnisse').innerHTML='0 Treffer <br>'+ausgabe_str('frank_grygowski');
+	document.getElementById('ergebnisse').innerHTML='0 Treffer <br>'+ausgabe_str('melanie_beckmann');
 				$('html,body').animate({
           scrollTop:200
         }, 1000, 'swing', function() {

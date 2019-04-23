@@ -357,19 +357,19 @@ mattenfaktor=3;
  zusatzlagen_flaeche=aufrunden(parseFloat(reperatur_lange_val)*parseFloat(zusatzlagen_val)*(parseFloat(dm_rohr_val)*3.5)/1000000,true);
  
 /*
-console.log('hauptlagen:'+hauptlagen); 
-console.log('#sel_2: '+$('#sel_2').val());
-console.log('zusatzlagen_val:'+zusatzlagen_val);
+c1_console_log('hauptlagen:'+hauptlagen); 
+c1_console_log('#sel_2: '+$('#sel_2').val());
+c1_console_log('zusatzlagen_val:'+zusatzlagen_val);
 
 
-console.log('reperatur_lange_val:'+(reperatur_lange_val_meter));
-//console.log('dm_rohr_val:'+(dm_rohr_val)); 
-console.log('dm_rohr_umfang:'+(dm_rohr_umfang));
-console.log('gfk_flaeche:'+(gfk_flaeche));
+c1_console_log('reperatur_lange_val:'+(reperatur_lange_val_meter));
+//c1_console_log('dm_rohr_val:'+(dm_rohr_val)); 
+c1_console_log('dm_rohr_umfang:'+(dm_rohr_umfang));
+c1_console_log('gfk_flaeche:'+(gfk_flaeche));
 
-console.log('gfk_flaeche:'+(gfk_flaeche));
-console.log('zusatzlagen_flaeche:'+(zusatzlagen_flaeche));
-console.log('gesamtflaeche:'+(gesamtflaeche));
+c1_console_log('gfk_flaeche:'+(gfk_flaeche));
+c1_console_log('zusatzlagen_flaeche:'+(zusatzlagen_flaeche));
+c1_console_log('gesamtflaeche:'+(gesamtflaeche));
 */
 reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
@@ -444,10 +444,10 @@ if(en){
 			
 			 //  gesamtflaeche = gfk_flaeche+(zusatzlagen_flaeche* parseFloat(zusatzlagen_val));
 			
-			console.log('nn gfk_flaeche: '+gfk_flaeche);
-			console.log('nn (zusatzlagen_flaeche* parseFloat(zusatzlagen_val): '+ (zusatzlagen_flaeche * parseFloat(zusatzlagen_val)) );
-			console.log('nn zusatzlagen_flaeche: '+zusatzlagen_flaeche);
-			console.log('nn gesamtflaeche: '+gesamtflaeche);
+			c1_console_log('nn gfk_flaeche: '+gfk_flaeche);
+			c1_console_log('nn (zusatzlagen_flaeche* parseFloat(zusatzlagen_val): '+ (zusatzlagen_flaeche * parseFloat(zusatzlagen_val)) );
+			c1_console_log('nn zusatzlagen_flaeche: '+zusatzlagen_flaeche);
+			c1_console_log('nn gesamtflaeche: '+gesamtflaeche);
 	
 		
 			komp_b_liter = aufrunden(parseFloat(ges_liter/3),false).toFixed(2);
@@ -462,7 +462,7 @@ if(en){
 		
 		
 		resign_type=$("#sel_5 option:selected").text();
-	console.log('resign_type '+resign_type);
+	c1_console_log('resign_type '+resign_type);
 		//$(".kompnente_a").html($("#sel_5 option:selected").text());  
 		$(".kompnente_b").html(resign_type); 
 
@@ -537,20 +537,20 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><tabl
 
 }
 /*	
-console.log('ausw_menge_hartz: '+ausw_menge_hartz);		  	
-console.log('ausw_menge_haerter: '+ausw_menge_haerter);	
+c1_console_log('ausw_menge_hartz: '+ausw_menge_hartz);		  	
+c1_console_log('ausw_menge_haerter: '+ausw_menge_haerter);	
 */ 
 }
 
 /*
-console.log('gfk_flaeche:'+(gfk_flaeche/1000000));
-console.log('z_lagen_flaeche:'+(zusatzlagen_flaeche/1000000));				
-console.log('gesamtflaeche:'+gesamtflaeche);		
+c1_console_log('gfk_flaeche:'+(gfk_flaeche/1000000));
+c1_console_log('z_lagen_flaeche:'+(zusatzlagen_flaeche/1000000));				
+c1_console_log('gesamtflaeche:'+gesamtflaeche);		
 */	
 
 		
 		
-        erg_berechnet();
+      berechnen_animation();
 
    
 }, 400);
@@ -558,123 +558,13 @@ console.log('gesamtflaeche:'+gesamtflaeche);
 }
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById('berechnen').onmousedown = ergebnisse_berechnen;
-} else {
-    document.getElementById('berechnen').ontouchstart = ergebnisse_berechnen;
-}
-
-function erg_berechnet() {
-	
-
-
-
-
- 
-    $('.werte_eingaben').delay(300).animate({
-
-        left: '-100%'
-
-    }, 1400, 'swing', function () {
-
-
-    });
-    $('.werte_ergebnisse').delay(300).animate({
-
-        left: '0'
-
-    }, 1400, 'swing', function () {
-        $("#load_").fadeOut(300, 'easeInQuart', function () {
-            $('#load_').removeClass("loader_img");
-            $('#load_').removeClass("overlay");
-        });
-        //NachOben ();
-
-    });
-
-    $('html,body').delay(300).animate({
-        scrollTop: 0
-    }, 1400, 'swing', function () {
-
-        NachOben();
-
-    });
-	
-}
-
-
-
-
-function zurueck_eing(e) {
-    berechnen_go = false;
-    $('#load_').addClass("loader_img");
-    $('#load_').addClass("overlay");
-    $("#load_").fadeIn(300, 'easeInQuart', function () {
-
-    });
-    $('.werte_eingaben').animate({
-
-        left: '0'
-
-    }, 1000, 'swing', function () {
-
-        document.getElementById("calculator").style.display = 'block';
-        document.getElementById("zuruck_z_eingabe").style.display = 'none';
-    });
-    $('.werte_ergebnisse').animate({
-
-        left: '100%'
-
-    }, 1000, 'swing', function () {
-
-        $("#load_").fadeOut(300, 'easeInQuart', function () {
-            $('#load_').removeClass("loader_img");
-            $('#load_').removeClass("overlay");
-		
-			$("#komponenten_anfr,#zusch_d").removeAttr('style');
-        });
-
-
-    });
-
-    $('html,body').animate({
-        scrollTop: 0
-    }, 1000, 'swing', function () {
-
-        NachOben();
-
-    });
-
-}
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById('zurueck').onmousedown = zurueck_eing;
-    document.getElementById('zuruck_z_eingabe').onmousedown = zurueck_eing;
-} else {
-    document.getElementById('zurueck').ontouchstart = zurueck_eing;
-    document.getElementById('zuruck_z_eingabe').ontouchstart = zurueck_eing;
-}
-
-
-function komponenten_anfr(e) {
-	
-	 $("#komponenten_anfr").fadeOut(160, 'easeInQuart', function () {
-      $("#zusch_d").slideDown(380, 'easeInQuart', function () {});
-		  
-		});
-	
-}
 
 
 
 
 
-if (navigator.userAgent.indexOf("Firefox") != -1) {
-    document.getElementById('komponenten_anfr').onmousedown = komponenten_anfr;
 
-} else {
-    document.getElementById('komponenten_anfr').ontouchstart = komponenten_anfr;
-   
-}
+
 
 
 

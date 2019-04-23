@@ -6,12 +6,12 @@ en=true;
 url_beg='';	
 }
 
+dp_harze_index=0;
 
 /*
 C1_drainpacker_verfahren.html
 -------------------------------------------------------------------------
 */
-dp_harze_index=0;
 
 var dp_harze = {
 	W1:['Trelleborg Harz Typ W','Trelleborg Resin Type W' ],
@@ -23,18 +23,30 @@ var dp_harze = {
 	
 	
 };
-
-
-       
-
-
-
   
 /*
 -------------------------------------------------------------------------
 */
 
+/*
+c1_resign_amount.html
+-------------------------------------------------------------------------
+*/
 
+var ra_harze = {
+	FC15:['Trelleborg Epoxy FC15','Trelleborg Epoxy FC15' ],
+	FC30:['Trelleborg Epoxy FC30','Trelleborg Epoxy FC30' ],
+	HC60:['Trelleborg Epoxy HC60','Trelleborg Epoxy HC60' ],
+	HC120p:['Trelleborg Epoxy HC120/120+', 'Trelleborg Epoxy HC120/120+'],
+	HC2640:['Trelleborg Epoxy HC2640', 'Trelleborg Epoxy HC2640'],
+	
+
+	
+};
+  
+/*
+-------------------------------------------------------------------------
+*/
 
 
 
@@ -50,15 +62,14 @@ lang_einh_metrisch='Metrisch';
 lang_einh_imperial='Imperial';
 z_inc_bestellformular= 'z_inc_bestellformular.html';
 
-//Test wert-----------
-//en=true;
-//-----------------------
+Bitte_wählen_str="Bitte wählen";
+
 if(en){
 dp_harze_index=1;	
 lang_einh_metrisch='metric';
 lang_einh_imperial='imperial';
 z_inc_bestellformular= '../z_inc_bestellformular.html';	
-
+Bitte_wählen_str="Please Select";
 }
 //var en_EN = new Array();
 var sprache_global = {
@@ -106,6 +117,40 @@ var sprache_global = {
 	
 	'Rohrdurchmesser':'Pipe diameter',
 	'Reparaturlänge':'Repair length ',
+	'Hutmanschette / Reparaturlänge':'hatprofile / rehabilitation length',
+	'Hauptkanal':'Main pipe',
+	'Hauptrohr':'Main pipe',
+	'für LCR-B / LCR-S Hutmanschetten und Liner (Vakuum)':'LCR Lateral Connection <span>for LCR-B, LCR-S and LCR vacuum',
+	
+	'Durchmesser Seitenanschluss':'Diameter lateral pipe',
+	'Sanierungsl&auml;nge Seitenanschluss':'Rehabilitation length lateral pipe',
+	'Durchmesser Hauptkanal':'Diameter main pipe',
+	'DN Hauptkanal':'Diameter Main Pipe',
+	'DN Seitenanschluss':'Diameter Lateral connection pipe',
+	'Sanierungsl. Seitenanschluss':'Rehabilitation length LCP',
+	'Bitte beachten Sie das Datenblatt des verwendeten MtH-Liners sowie des verwendeten Harzsystems!':'Please read the technical data sheets for the MtH-liner and resin systems in use!',
+	'<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.':'<br>This is not a valid value! <br>Please enter a valid number.',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
+	'':'',
 	'':'',
 	'':'',
 	'':'',
@@ -131,6 +176,8 @@ var sprache_global = {
 	'Wir werden uns schnellstmöglich bei Ihnen melden.':'We will contact you as soon as possible.',
 	'Es ist ein Fehler aufgetreten.':'An error has occurred.',
 	'Bitte versuchen Sie es später erneut.':'Please try again later.',
+	'Wählen Sie den Durchmesser des Seitenanschluss aus.':'Select the Lateral Pipe diameter.',
+	'Wählen Sie den Durchmesser der Hausanschlussleitung aus.':'Select the Main Pipe diameter.',
 	'':'',
 	'':'',
 	'':'',
@@ -154,11 +201,11 @@ var sprache_global = {
 	'':'',
 	'':'',
 	'':'',
-	'':'',
-	'':'',
-	'':'',
-	'':''
+	'Vielen Dank für Ihre Anfrage.<span style="display:block;">Wir werden uns schnellstmöglich bei Ihnen melden.</span>':'Thank you for your Request. <span style="display:block;">We will contact you as soon as possible.</span>',
+	'Es ist ein Fehler aufgetreten.<span style="display:block;"> Bitte versuchen Sie es später erneut.</span>':'An error has occurred. <span style="display:block;"> Please try again later. </span>'
 };
+
+   
 
 //console.log(sprache_global['Harzmengenberechnung'])
 
@@ -167,16 +214,41 @@ var sprache_global = {
 function uebersetzen(str){
 	
 	ubers=sprache_global[str];
+	if(ubers != undefined){
 	return ubers;
+	}else{
+	return str;	
+		
+	}
 };
+function innerHTML_lang(str){
+	/*
+		console.log(str);
+	console.log(sprache_global[str]);
+	*/
+	if(en){
+	
+	ubers=sprache_global[str];
 
+	if(ubers != undefined){
+	return ubers;
+	}else{
+	return str;	
+		
+	}
+	} else {
+	//deutsch
+return str;	
+}
+	
+}
 
 
 $(document).ready(function(e) {
 if(en){
-	console.log(z_inc_bestellformular);
+	//console.log(z_inc_bestellformular);
   $.ajax({url: z_inc_bestellformular,type: 'POST',dataType: 'html',async: false, success: function(result){
-  console.log(result);
+  //console.log(result);
    $('.dp_bestellform').html(result);
 	$('#bst_script').html('<script type="text/javascript" src="../js/bestell_formular_script.js?v='+random_nr+'"></script>');
 	

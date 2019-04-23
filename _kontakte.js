@@ -4,18 +4,18 @@ zustaendig_plz = new Object();
 //plz_='03, 10 - 33, 38 - 53, 57 - 59';
 
 
-name_='frank_grygowski';
+name_='melanie_beckmann';
 zustaendig_plz[name_]= new Array(03,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,57,58,59);
 
 deutschland_plz[name_] = new Object();
 deutschland_plz[name_]['plz_land']='D-';
 deutschland_plz[name_]['ort']='47228 Duisburg';
-deutschland_plz[name_]['name']='Frank Grygowski';
+deutschland_plz[name_]['name']='Melanie Beckmann – Innendienst';
 deutschland_plz[name_]['str']='Dr.-Alfred Herrhausen-Allee 36';
-deutschland_plz[name_]['fon']='<a href="tel:017610037380">+49(0)176 100 37380</a>';
+deutschland_plz[name_]['fon']='<a href="tel:02065999200">+49(0)2065 999-200</a>';
 deutschland_plz[name_]['fax']='';
-deutschland_plz[name_]['email']='<a href="mailto:frank.grygowski@trelleborg.com">frank.grygowski@<span class="orange_txt">trelleborg.com</span></a>';
-deutschland_plz[name_]['bild']='images/kontakt/de/FG_4c-web_6x8.jpg';
+deutschland_plz[name_]['email']='<a href="mailto:melanie@beckmann@trelleborg.com">melanie@beckmann@<span class="orange_txt">trelleborg.com</span></a>';
+deutschland_plz[name_]['bild']='images/kontakt/de/melanie_beckmann.jpg';
 
 
 
@@ -72,7 +72,7 @@ deutschland_plz[name_]['bild']='images/kontakt/no_img.jpg';
 
 
 /*
-<img src="images/frank_grygowski.jpg">
+<img src="images/melanie_beckmann.jpg">
 <p class="mt0"><span class="orange_txt">Frank Grygowski </span><br>
 Dr.-Alfred Herrhausen-Allee 36 <br>
 D-47228 Duisburg
