@@ -21,7 +21,7 @@ $('#sel_2 option[value="4"]').html(dp_harze['FC15A'][dp_harze_index]);
 $('#sel_2 option[value="5"]').html(dp_harze['FC30A'][dp_harze_index]);
 if(en){
 $('#sel_1 option[value="LCR-S (Hutmanschetten)"]').html("LCR-S (hat profiles)");
-$('#sel_1 option[value="LCR-B (Hutmanschetten)"]').html("LCR-S (hat profiles)");
+$('#sel_1 option[value="LCR-B (Hutmanschetten)"]').html("LCR-B (hat profiles)");
 $('#sel_1 option[value="LCR-Liner (für LCR-S und LCR-B)"]').html("LCR-Liner (for LCR-S and LCR-B)");
 $('#sel_1 option[value="LCR-S (Hutmanschetten)"]').attr('value','LCR-S (hat profiles)')
 $('#sel_1 option[value="LCR-B (Hutmanschetten)"]').attr('value','LCR-B (hat profiles)')
@@ -205,7 +205,10 @@ index_dm_arr*=25;
 
 if(liner_typ=='LCR-B (Hutmanschetten)'||liner_typ=='LCR-S (Hutmanschetten)'||liner_typ=='LCR-B (hat profiles)'||liner_typ=='LCR-S (hat profiles)'){
 
-
+if(index_dm_arr== 75){
+	
+	index_dm_arr=70;
+}
 
 
 if(liner_typ=='LCR-B (Hutmanschetten)'||liner_typ=='LCR-B (hat profiles)'){
@@ -265,10 +268,10 @@ document.getElementById('harz_haerter_txt_b').innerHTML=' ('+innerHTML_lang('Hä
 }
 }
 
+console.log('index_dm_arr / '+index_dm_arr);
 
 
-
-
+console.log('index_dm_arr / '+index_dm_arr+' / liter / '+LCR_harz_array[index_dm_arr]['Harzsystem_Liter'+ms_us].toFixed(2));
 document.getElementById('liter').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'+ms_us].toFixed(2);
 //document.getElementById('gewicht').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];
 
@@ -281,7 +284,7 @@ document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Kom
 hartzsys=document.getElementById('a_wert_2').innerHTML;
 
 
-$(".kompnente_b").html(hartzsys);
+$(".kompnente_a").html(hartzsys);
 
 if('FC15A'==resign_type||'FC30A'==resign_type){
 	
@@ -650,6 +653,7 @@ if(val=="Metrisch" || val=="metric"){
 	
 	document.getElementById('a_wert').innerHTML=lang_einh_metrisch;
 	
+     
 $("w30_vol").css({'width': 33 });	
 
  ClearOptions('sel_4'); 
@@ -682,6 +686,7 @@ $("w30_vol").css({'width': 33 });
 
 	
 	
+         
 		document.getElementById('a_wert').innerHTML=lang_einh_imperial;	
 
 
@@ -1017,7 +1022,7 @@ neue_masse_ausgewaehlt(masse_tst);
 }
 liner_typ_tst=document.getElementById('sel_1').value;
 if(liner_typ!=liner_typ_tst){
-		if(liner_typ_tst=="LCR-B (Hutmanschetten)"){
+		if(liner_typ_tst=="LCR-B (Hutmanschetten)" || liner_typ_tst=="LCR-B (hat profiles)"){
 		
 	 ClearOptions('sel_rl');
 	duchm_dm_hinzufuegen (Bitte_wählen_str,'sel_rl');
@@ -1025,7 +1030,7 @@ if(liner_typ!=liner_typ_tst){
 	 duchm_dm_hinzufuegen ('1200 mm / 3,94 feet','sel_rl'); 
 	  CheckAuswahl(0,'sel_rl');	
 	}
-	 if(liner_typ_tst=="LCR-S (Hutmanschetten)"){
+	 if(liner_typ_tst=="LCR-S (Hutmanschetten)" || liner_typ_tst=="LCR-S (hat profiles)"){
 		 	
 		  ClearOptions('sel_rl');
 				duchm_dm_hinzufuegen (Bitte_wählen_str,'sel_rl');

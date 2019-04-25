@@ -483,7 +483,7 @@ Hinzufuegen ('Trelleborg Epoxy FC30');
 Hinzufuegen ('Trelleborg Epoxy HC60');
 Hinzufuegen ('Trelleborg Epoxy HC120')
 Hinzufuegen ('Trelleborg Epoxy HC120+');
-Hinzufuegen ('Trelleborg Epoxy HC2640');
+//Hinzufuegen ('Trelleborg Epoxy HC2640');
 
 CheckAuswahl (0,'sel1');
 	   
@@ -504,7 +504,7 @@ Hinzufuegen ('Trelleborg Epoxy FC30');
 Hinzufuegen ('Trelleborg Epoxy HC60');
 Hinzufuegen ('Trelleborg Epoxy HC120')
 Hinzufuegen ('Trelleborg Epoxy HC120+');
-Hinzufuegen ('Trelleborg Epoxy HC2640');
+//Hinzufuegen ('Trelleborg Epoxy HC2640');
 CheckAuswahl (0,'sel1');
 }
 	

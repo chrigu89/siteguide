@@ -81,7 +81,7 @@ var dp_harze = {
 var hartz_systeme_mengen = new Array();
 hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]] = new Array();
 hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['beschr']=article_lang('Trelleborg Harz Typ W | 13kg','Trelleborg Resin Type W |13kg');
+hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['beschr']=article_lang('Trelleborg Harz Typ W | 13kg','Trelleborg Resin Type W | 13kg');
 hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['gewicht']=13;
 hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['art_nr']='234504';
 
