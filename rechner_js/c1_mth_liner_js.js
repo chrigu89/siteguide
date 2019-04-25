@@ -2,6 +2,8 @@ $(window).load(function () {
     calc = true;
 })
 masse = 'Metrisch';
+resign_type='HC120A';
+hardener_type='HC120B';
 
 //parent.seite_aktivieren('menu_weg');
 dm_hk_mass = document.getElementsByClassName('dm_hk')[0].getElementsByClassName('mass')[0];
@@ -120,6 +122,68 @@ $(".kompnente_b").html(harzsystem_name+ ' B');
     //alert('dm_hk_val1000 '+dm_hk_val1000+' dm_sa_val1000 '+dm_sa_val1000+' snl_sa_val '+snl_sa_val);
 
 
+c1_console_log(dp_harze['FC15A'][dp_harze_index]);
+
+c1_console_log('resign_type: '+ resign_type +' / hardener_type: '+hardener_type+ ' / '+hartz_systeme_mengen[dp_harze['FC15A'][dp_harze_index]][0]['beschr']);
+
+ausw_menge_hartz=Math.ceil(gew_harz/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
+ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0]['gewicht']);
+drum='';
+if(gew_harz >= 200 || gew_haerter >= 200){	
+
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+	
+}
+if(en){
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Resin:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Harder:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>'
+					+'</table>'+drum;
+} else {
+	//deutsch
+
+
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Harz:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Härter:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>'
+					+'</table>'+drum;
+
+}
+
 
 berechnen_animation();
 
@@ -180,6 +244,8 @@ function neues_harzsystem(val) {
 
 
     if (val == "FC15") {
+			resign_type='FC15A';
+	hardener_type='FC15B';
         document.getElementById('a_wert_h').innerHTML = "FC15";
 		harzsystem_name = "FC15";
         dichte_a = 1.15;
@@ -188,6 +254,8 @@ function neues_harzsystem(val) {
         anteil_a_gew = 100;
         anteil_b_gew = 33;
     } else if (val == "FC30") {
+		resign_type='FC30A';
+	hardener_type='FC30B';
         document.getElementById('a_wert_h').innerHTML = "FC30";
 		harzsystem_name = "FC30";
         dichte_a = 1.15;
@@ -196,6 +264,8 @@ function neues_harzsystem(val) {
         anteil_a_gew = 100;
         anteil_b_gew = 33;
     } else if (val == "HC60") {
+			resign_type='HC60A';
+	hardener_type='HC60B';
         document.getElementById('a_wert_h').innerHTML = "HC60";
 		harzsystem_name = "HC60";
         dichte_a = 1.16;
@@ -204,6 +274,8 @@ function neues_harzsystem(val) {
         anteil_a_gew = 100;
         anteil_b_gew = 33;
     } else if (val == "HC120") {
+		resign_type='HC120A';
+	hardener_type='HC120B';
         document.getElementById('a_wert_h').innerHTML = "HC120";
 		harzsystem_name = "HC120";
         dichte_a = 1.15;
@@ -212,6 +284,8 @@ function neues_harzsystem(val) {
         anteil_a_gew = 100;
         anteil_b_gew = 33;
     } else if (val == "HC120+") {
+		resign_type='HC120Ap';
+	hardener_type='HC120Bp';
         document.getElementById('a_wert_h').innerHTML = "HC120+";
 		harzsystem_name = "HC120+";
         dichte_a = 1.23;
@@ -220,6 +294,8 @@ function neues_harzsystem(val) {
         anteil_a_gew = 100;
         anteil_b_gew = 30;
     }else if (val == "HC2640") {
+		resign_type='HC2640A';
+	hardener_type='HC2640B';
         document.getElementById('a_wert_h').innerHTML = "HC2640";
 		harzsystem_name=  "HC2640";
         dichte_a = 1.15;

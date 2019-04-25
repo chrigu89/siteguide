@@ -6,47 +6,6 @@ en=true;
 url_beg='';	
 }
 
-dp_harze_index=0;
-
-/*
-C1_drainpacker_verfahren.html
--------------------------------------------------------------------------
-*/
-
-var dp_harze = {
-	W1:['Trelleborg Harz Typ W','Trelleborg Resin Type W' ],
-	S1:['Trelleborg Harz Typ S','Trelleborg Resin Type S' ],
-	W01:['Trelleborg Harz Beschleuniger','Trelleborg Resin Accelerator' ],
-	L30E1:['Trelleborg Harz Typ L30E1', 'Trelleborg Resin L30E1'],
-	L30E3:['Trelleborg Harz Typ L30E3', 'Trelelborg Resin L30E3'],
-	
-	
-	
-};
-  
-/*
--------------------------------------------------------------------------
-*/
-
-/*
-c1_resign_amount.html
--------------------------------------------------------------------------
-*/
-
-var ra_harze = {
-	FC15:['Trelleborg Epoxy FC15','Trelleborg Epoxy FC15' ],
-	FC30:['Trelleborg Epoxy FC30','Trelleborg Epoxy FC30' ],
-	HC60:['Trelleborg Epoxy HC60','Trelleborg Epoxy HC60' ],
-	HC120p:['Trelleborg Epoxy HC120/120+', 'Trelleborg Epoxy HC120/120+'],
-	HC2640:['Trelleborg Epoxy HC2640', 'Trelleborg Epoxy HC2640'],
-	
-
-	
-};
-  
-/*
--------------------------------------------------------------------------
-*/
 
 
 
@@ -200,7 +159,7 @@ var sprache_global = {
 	'':'',
 	'':'',
 	'':'',
-	'':'',
+	'Bei Abnahme über 200kg ist auch Fassware erhältich.':'For orders over 200kg please ask for Drum.',
 	'Vielen Dank für Ihre Anfrage.<span style="display:block;">Wir werden uns schnellstmöglich bei Ihnen melden.</span>':'Thank you for your Request. <span style="display:block;">We will contact you as soon as possible.</span>',
 	'Es ist ein Fehler aufgetreten.<span style="display:block;"> Bitte versuchen Sie es später erneut.</span>':'An error has occurred. <span style="display:block;"> Please try again later. </span>'
 };

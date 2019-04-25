@@ -51,7 +51,40 @@ dichtetabelle['Trelleborg Epoxy HC2640']['anteil_a_gew']=100;
 dichtetabelle['Trelleborg Epoxy HC2640']['anteil_b_gew']=10;
 dichtetabelle['Trelleborg Epoxy HC2640']['anteil_ges']=110;
 
+
+/* LCR 24.4.2019-----------------------------------------------*/
+dichtetabelle['Trelleborg Harz Typ W'] = new Array();
+dichtetabelle['Trelleborg Harz Typ W']['dichte_a']=1.25;
+dichtetabelle['Trelleborg Harz Typ W']['dichte_b']=1.54;
+dichtetabelle['Trelleborg Harz Typ W']['dichte_gem']=0;
+dichtetabelle['Trelleborg Harz Typ W']['anteil_a_gew']=0;
+dichtetabelle['Trelleborg Harz Typ W']['anteil_b_gew']=0;
+dichtetabelle['Trelleborg Harz Typ W']['anteil_ges']=0;
+
+dichtetabelle['Trelleborg Harz Typ S'] = new Array();
+dichtetabelle['Trelleborg Harz Typ S']['dichte_a']=1.25;
+dichtetabelle['Trelleborg Harz Typ S']['dichte_b']=1.54;
+dichtetabelle['Trelleborg Harz Typ S']['dichte_gem']=0;
+dichtetabelle['Trelleborg Harz Typ S']['anteil_a_gew']=0;
+dichtetabelle['Trelleborg Harz Typ S']['anteil_b_gew']=0;
+dichtetabelle['Trelleborg Harz Typ S']['anteil_ges']=0;
+
+dichtetabelle['Trelleborg Harz Beschleuniger'] = new Array();
+dichtetabelle['Trelleborg Harz Beschleuniger']['dichte_a']=1.2;
+dichtetabelle['Trelleborg Harz Beschleuniger']['dichte_b']=1.54;
+dichtetabelle['Trelleborg Harz Beschleuniger']['dichte_gem']=0;
+dichtetabelle['Trelleborg Harz Beschleuniger']['anteil_a_gew']=0;
+dichtetabelle['Trelleborg Harz Beschleuniger']['anteil_b_gew']=0;
+dichtetabelle['Trelleborg Harz Beschleuniger']['anteil_ges']=0;
+
+
+
  //Dichtetabelle-------------------------------------------------------
+ 
+ 
+ 
+ harz_sys_dichte=1.25;
+ 
  
  
  var elaubte_nr_arr = new Array('0','1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ',', ' '  );

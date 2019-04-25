@@ -2,44 +2,11 @@ $(window).load(function() {
 calc=true;
 
 })
-var hartz_systeme_mengen = new Array();
-hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
-hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[ra_harze['FC15'][dp_harze_index]][0]['art_nr']='234504';
 
 
 
-hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
-hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[ra_harze['FC30'][dp_harze_index]][0]['art_nr']='234504';
-
-
-hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
-hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[ra_harze['HC120p'][dp_harze_index]][0]['art_nr']='234504';
-
-
-hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
-hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[ra_harze['HC60'][dp_harze_index]][0]['art_nr']='234504';
-
-
-
-
-
-
-
-
-
-
+resign_type ='';
+hardener_type='';
 
 
 
@@ -189,6 +156,79 @@ document.getElementsByClassName('kompnente_b')[1].innerHTML=hartzsys+' B';
 	
 }
 
+c1_console_log(dp_harze['FC15A'][dp_harze_index]);
+
+c1_console_log('resign_type: '+ resign_type +' / hardener_type: '+hardener_type+ ' / '+hartz_systeme_mengen[dp_harze['FC15A'][dp_harze_index]][0]['beschr']);
+
+ausw_menge_hartz=Math.ceil(gew_harz/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
+ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0]['gewicht']);
+drum='';
+if(gew_harz >= 200 || gew_haerter >= 200){	
+
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+	
+}
+
+if(en){
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Resin:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Harder:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>'
+					+'</table>'+drum;
+} else {
+	//deutsch
+
+
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Harz:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Härter:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>'
+					+'</table>'+drum;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 berechnen_animation();
 
@@ -276,6 +316,8 @@ function neues_harzsystem(val){
 
 	
 if(val=="Trelleborg Epoxy FC15"){
+	resign_type='FC15A';
+	hardener_type='FC15B';
 	document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy FC15";
 dichte_a=1.15;
 dichte_b=1.1;
@@ -283,6 +325,8 @@ dichte_gem=1.13717472;
 anteil_a_gew=100;
 anteil_b_gew=33;	
 }else if(val=="Trelleborg Epoxy FC30"){
+		resign_type='FC30A';
+	hardener_type='FC30B';
 		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy FC30";	
 dichte_a=1.15;
 dichte_b=1.1;
@@ -290,6 +334,8 @@ dichte_gem=1.13717472;
 anteil_a_gew=100;
 anteil_b_gew=33;	
 }else if(val=="Trelleborg Epoxy HC60"){
+		resign_type='HC60A';
+	hardener_type='HC60B';
 		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC60";	
 dichte_a=1.16;
 dichte_b=0.96;
@@ -297,6 +343,8 @@ dichte_gem=1.09968487;
 anteil_a_gew=100;
 anteil_b_gew=33;	
 }else if(val=="Trelleborg Epoxy HC120"){
+	resign_type='HC120A';
+	hardener_type='HC120B';
 		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC120";	
 dichte_a=1.15;
 dichte_b=0.96;
@@ -304,6 +352,8 @@ dichte_gem=1.09617021;
 anteil_a_gew=100;
 anteil_b_gew=33;	
 }else if(val=="Trelleborg Epoxy HC120+"){
+	resign_type='HC120Ap';
+	hardener_type='HC120Bp';
 		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC120+";	
         dichte_a = 1.23;
         dichte_b = 0.98;
@@ -311,6 +361,8 @@ anteil_b_gew=33;
         anteil_a_gew = 100;
         anteil_b_gew = 30;
 }else if(val=="Trelleborg Epoxy HC2640"){
+	resign_type='HC2640A';
+	hardener_type='HC2640B';
 		document.getElementById('a_wert_h').innerHTML="Trelleborg Epoxy HC2640";	
 		dichte_a=1.15;
 dichte_b=0.97;
@@ -319,7 +371,7 @@ anteil_a_gew=100;
 anteil_b_gew=10;	
 }
 
-
+c1_console_log('resign_type: '+ resign_type +' / hardener_type: '+hardener_type);
 
 }
 function neue_linertyp_ausgewaehlt(val){

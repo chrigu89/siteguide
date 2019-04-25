@@ -9,6 +9,42 @@ calc=true;
 
 
 })
+resign_type ='';
+hardener_type='';
+
+function options_dp(){
+	
+$('#sel_2 option[value="1"]').html(dp_harze['W01'][dp_harze_index]);
+$('#sel_2 option[value="2"]').html(dp_harze['W1'][dp_harze_index]);
+$('#sel_2 option[value="3"]').html(dp_harze['S1'][dp_harze_index]);
+$('#sel_2 option[value="4"]').html(dp_harze['FC15A'][dp_harze_index]);
+$('#sel_2 option[value="5"]').html(dp_harze['FC30A'][dp_harze_index]);
+if(en){
+$('#sel_1 option[value="LCR-S (Hutmanschetten)"]').html("LCR-S (hat profiles)");
+$('#sel_1 option[value="LCR-B (Hutmanschetten)"]').html("LCR-S (hat profiles)");
+$('#sel_1 option[value="LCR-Liner (für LCR-S und LCR-B)"]').html("LCR-Liner (for LCR-S and LCR-B)");
+$('#sel_1 option[value="LCR-S (Hutmanschetten)"]').attr('value','LCR-S (hat profiles)')
+$('#sel_1 option[value="LCR-B (Hutmanschetten)"]').attr('value','LCR-B (hat profiles)')
+$('#sel_1 option[value="LCR-Liner (für LCR-S und LCR-B)"]').attr('value','LCR-Liner (for LCR-S and LCR-B)')
+
+}
+}
+
+$(document).ready(function() {
+options_dp();
+
+
+
+
+});
+
+
+
+
+
+
+
+
 //masse='Metrisch';
 masse=document.getElementById('sel').value;
 liner_typ=document.getElementById('sel_1').value;
@@ -167,14 +203,14 @@ index_dm_arr*=25;
 
 
 
-if(liner_typ=='LCR-B (Hutmanschetten)'||liner_typ=='LCR-S (Hutmanschetten)'){
+if(liner_typ=='LCR-B (Hutmanschetten)'||liner_typ=='LCR-S (Hutmanschetten)'||liner_typ=='LCR-B (hat profiles)'||liner_typ=='LCR-S (hat profiles)'){
 
 
 
 
-if(liner_typ=='LCR-B (Hutmanschetten)'){
+if(liner_typ=='LCR-B (Hutmanschetten)'||liner_typ=='LCR-B (hat profiles)'){
 	
-if(harz_sys=='1'){
+if(harz_sys=='1' || harz_sys=='2' || harz_sys=='3'){
 
 	if(reha_length_tst=='1200 mm / 3,94 feet') { 
 	LCR_harz_array=silicateresin_array_1200.copy();
@@ -186,7 +222,7 @@ if(harz_sys=='1'){
 
 	
 		
-}else if(harz_sys=='2'){
+}else if(harz_sys=='4' || harz_sys=='5'){
 	
 	
 
@@ -200,9 +236,9 @@ if(harz_sys=='1'){
 }
 }
 
-if(liner_typ=='LCR-S (Hutmanschetten)'){
+if(liner_typ=='LCR-S (Hutmanschetten)' || liner_typ=='LCR-S (hat profiles)'){
 	
-if(harz_sys=='2'){
+if(harz_sys=='4' || harz_sys=='5'){
 	
 	
 		if(reha_length_tst=='600 mm / 1,97 feet') { 
@@ -213,9 +249,9 @@ if(harz_sys=='2'){
 	}
 	
 		
-document.getElementById('harz_haerter_txt_a').innerHTML=' (Härter)';
-document.getElementById('harz_haerter_txt_b').innerHTML=' (Harz)';	
-}else if(harz_sys=='1'){
+document.getElementById('harz_haerter_txt_a').innerHTML=' ('+innerHTML_lang('Härter')+')';
+document.getElementById('harz_haerter_txt_b').innerHTML=' ('+innerHTML_lang('Harz')+')';	
+}else if(harz_sys=='1' || harz_sys=='2' || harz_sys=='3'){
 	
 		if(reha_length_tst=='600 mm / 1,97 feet') { 
 	LCR_harz_array=silicateresin_s_array_600.copy();
@@ -224,8 +260,8 @@ document.getElementById('harz_haerter_txt_b').innerHTML=' (Harz)';
 	
 	}
 
-		document.getElementById('harz_haerter_txt_a').innerHTML=' (Harz)';
-document.getElementById('harz_haerter_txt_b').innerHTML=' (Härter)';
+		document.getElementById('harz_haerter_txt_a').innerHTML=' ('+innerHTML_lang('Harz')+')';
+document.getElementById('harz_haerter_txt_b').innerHTML=' ('+innerHTML_lang('Härter')+')';
 }
 }
 
@@ -242,6 +278,117 @@ document.getElementById('harz_l').innerHTML=LCR_harz_array[index_dm_arr]['Kompon
 
 document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2);
 //document.getElementById('haerter_gew').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];	
+hartzsys=document.getElementById('a_wert_2').innerHTML;
+
+
+$(".kompnente_b").html(hartzsys);
+
+if('FC15A'==resign_type||'FC30A'==resign_type){
+	
+	
+	
+
+
+ges_volumen=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'].toFixed(2);
+
+ges_gewicht=(ges_volumen*dichtetabelle[hartzsys]['dichte_gem']).toFixed(2);
+gew_harz=(ges_gewicht/(dichtetabelle[hartzsys]['anteil_a_gew']+dichtetabelle[hartzsys]['anteil_b_gew'])*dichtetabelle[hartzsys]['anteil_a_gew']).toFixed(2);;
+gew_haerter=(ges_gewicht/(dichtetabelle[hartzsys]['anteil_a_gew']+dichtetabelle[hartzsys]['anteil_b_gew'])*dichtetabelle[hartzsys]['anteil_b_gew']).toFixed(2);;
+
+
+document.getElementById('gewicht').innerHTML = ges_gewicht;
+
+document.getElementById('harz_gew').innerHTML=  gew_harz;
+
+document.getElementById('haerter_gew').innerHTML=gew_haerter;	
+
+ausw_menge_hartz=Math.ceil(gew_harz/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
+ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0]['gewicht']);
+
+	
+	
+
+
+
+}else{
+
+
+komp_a_liter= LCR_harz_array[index_dm_arr]['Komponente_A_Liter'];
+komp_b_liter=LCR_harz_array[index_dm_arr]['Komponente_B_Liter'];
+
+haerter_gew= komp_b_liter * 1.54;
+harz_gew=komp_a_liter*harz_sys_dichte;
+document.getElementById('haerter_gew').innerHTML=haerter_gew.toFixed(2);
+document.getElementById('harz_gew').innerHTML=  harz_gew.toFixed(2);
+
+document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
+	
+
+ausw_menge_hartz=Math.ceil(harz_gew/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
+ausw_menge_haerter=Math.ceil(haerter_gew/hartz_systeme_mengen['haerter'][0]['gewicht']);
+}
+
+
+
+
+
+
+
+
+
+
+if(en){
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Resin:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Harder:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Item No.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>';
+} else {
+	//deutsch
+
+
+document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
+                    +'<tr>'
+					+'<td align="left" >'+ausw_menge_hartz+' x Harz:</td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+					+'</table>'
+					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
+					+'</tr>'
+					+'<td align="left">'+ausw_menge_haerter+' x Härter:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['beschr']+'</nobr></td>'
+					+'</tr>'
+					+'<tr>'
+					+'<td align="left">Art. Nr.:</td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen[hardener_type][0]['art_nr']+'</nobr></td>'
+					+'</tr>'
+                    +'</table>';
+
+}
+
+
+
+
+
 
 
 /*
@@ -255,7 +402,9 @@ document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Kom
 	document.getElementById('aa3').innerHTML='<nobr>'+LCR_harz_array[index_dm_arr]['DN_'+ms_us]+' '+dk_mass+'</nobr>';	
 }else if("LCR-Liner (für LCR-S und LCR-B)"){
 
-	harz_sys_f='Trelleborg Harz Beschleuniger / Trelleborg Harz Typ W / Trelleborg Harz Typ S';
+	//harz_sys_f='Trelleborg Harz Beschleuniger / Trelleborg Harz Typ W / Trelleborg Harz Typ S';
+	harz_sys_f=document.getElementById('a_wert_2').innerHTML;
+	
 	
 	document.getElementById('hasl_anz').style.visibility='visible';
 
@@ -497,9 +646,9 @@ liner_hausanschlussleitung_dn100_array[100]['Komponente_B_Liter_us']=30.75;
 
 function neue_masse_ausgewaehlt(val){
 	
-if(val=="Metrisch"){
+if(val=="Metrisch" || val=="metric"){
 	
-	document.getElementById('a_wert').innerHTML="Metrisch";
+	document.getElementById('a_wert').innerHTML=lang_einh_metrisch;
 	
 $("w30_vol").css({'width': 33 });	
 
@@ -528,7 +677,7 @@ $("w30_vol").css({'width': 33 });
 
 		
 		
-}else if(val=="imperial"){
+}else if(val=="imperial" || val=="Imperial"){
 	
 
 	
@@ -616,7 +765,7 @@ if(hausanschll_dmt!=hausanschll_dmt_tst){
 	
 	
 				
-if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
+if(liner_typ_tst=="LCR-Liner (for LCR-S and LCR-B)" || liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
 	
 				ClearOptions('sel_3');
 	duchm_dm_hinzufuegen (Bitte_wählen_str,'sel_3');
@@ -886,7 +1035,7 @@ if(liner_typ!=liner_typ_tst){
 	
 	}
 	
-	if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
+	if(liner_typ_tst=="LCR-Liner (for LCR-S and LCR-B)" || liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
 		  ClearOptions('sel_rl');
 				duchm_dm_hinzufuegen (Bitte_wählen_str,'sel_rl');
 	duchm_dm_hinzufuegen ('300 mm / 0,98 feet','sel_rl');  
@@ -895,7 +1044,7 @@ if(liner_typ!=liner_typ_tst){
 	}
 	
 	
-	if(liner_typ_tst=="LCR-B (Hutmanschetten)"){
+	if(liner_typ_tst=="LCR-B (Hutmanschetten)"||liner_typ_tst=="LCR-B (hat profiles)"){
 	
 		
 		
@@ -905,21 +1054,26 @@ document.getElementById('duchm_dm').getElementsByClassName('a_label').item(0).in
 document.getElementById('s_a_u_b').innerHTML=innerHTML_lang('Seitenanschluss DN')+':';
 
 			alert_sel_3_modus="DrainLCR-B_S";
-		document.getElementById('harz_sys').style.display='block';
-				document.getElementById('harz_sys_fest').style.display='none';
+		$( '#harz_sys option[value="4"], #harz_sys option[value="5"]' ).show();
+		CheckAuswahl (0,'sel_2');
+				//document.getElementById('harz_sys').style.display='block';
+					//document.getElementById('harz_sys_fest').style.display='none';
 		 $('#hausleitung_durchm').slideUp(300, 'easeInQuart', function () {});
 auw_LCR_B();
-	}else if(liner_typ_tst=="LCR-S (Hutmanschetten)"){
+	}else if(liner_typ_tst=="LCR-S (Hutmanschetten)"||liner_typ_tst=="LCR-S (hat profiles)"){
 	
 		document.getElementById('alert_sel_3').setAttribute("rel",innerHTML_lang('Wählen Sie den Durchmesser des Seitenanschluss aus.'));
 		document.getElementById('duchm_dm').getElementsByClassName('a_label').item(0).innerHTML=innerHTML_lang('Seitenanschluss DN');
 		document.getElementById('s_a_u_b').innerHTML=innerHTML_lang('Seitenanschluss DN')+':';
 			alert_sel_3_modus="DrainLCR-B_S";
-				document.getElementById('harz_sys').style.display='block';
-					document.getElementById('harz_sys_fest').style.display='none';
+			
+			$( '#harz_sys option[value="4"], #harz_sys option[value="5"]' ).show();
+			CheckAuswahl (0,'sel_2');
+				//document.getElementById('harz_sys').style.display='block';
+					//document.getElementById('harz_sys_fest').style.display='none';
 				 $('#hausleitung_durchm').slideUp(300, 'easeInQuart', function () {});
 	auw_LCR_S();	
-	} else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
+	} else if(liner_typ_tst=="LCR-Liner (for LCR-S and LCR-B)" || liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
 				
 			  document.getElementById('alert_sel_3').setAttribute("rel", 'Wählen Sie den Durchmesser der Hausanschlussleitung aus.');
 			  document.getElementById('duchm_dm').getElementsByClassName('a_label').item(0).innerHTML=innerHTML_lang('Hauptrohr');
@@ -927,8 +1081,12 @@ auw_LCR_B();
 			  
 			  
 			alert_sel_3_modus="LCR-Liner";
-		document.getElementById('harz_sys').style.display='none';
-		document.getElementById('harz_sys_fest').style.display='block';
+			CheckAuswahl (0,'sel_2');
+			
+			$( '#harz_sys option[value="4"], #harz_sys option[value="5"]' ).hide();
+			
+		//document.getElementById('harz_sys').style.display='none';
+		//document.getElementById('harz_sys_fest').style.display='block';
 		
 			 $('#hausleitung_durchm').slideDown(300, 'easeInQuart', function () {});
 		
@@ -937,19 +1095,37 @@ auw_LCR_B();
 	document.getElementById('a_wert_1').innerHTML=liner_typ_tst;
 }
 harz_sys_tst=document.getElementById('sel_2').value;
+var sel_2_e = document.getElementById("sel_2");
 if(harz_sys!=harz_sys_tst){
 
 	harz_sys=harz_sys_tst;
 	if(harz_sys==1){
-		document.getElementById('a_wert_2').innerHTML='Trelleborg Harz Beschleuniger / Trelleborg Harz Typ W / Trelleborg Harz Typ S';
 		
+	resign_type='W01';
+	hardener_type='haerter';
 	}else if(harz_sys==2){
-		document.getElementById('a_wert_2').innerHTML='Trelleborg Epoxy FC15 / Trelleborg Epoxy FC30';
 		
+			resign_type='W1';
+	hardener_type='haerter';
+	}else if(harz_sys==3){
+	
+			resign_type='S1';
+	hardener_type='haerter';
+	}else if(harz_sys==4){
+		
+			resign_type='FC15A';
+	hardener_type='FC15B';
+	}else if(harz_sys==5){
+	
+			resign_type='FC30A';
+	hardener_type='FC30B';
 	}else if(harz_sys=="Bitte wählen"){
-		document.getElementById('a_wert_2').innerHTML="Bitte wählen";
+		
 		
 	}
+	document.getElementById('a_wert_2').innerHTML=sel_2_e.options[sel_2_e.selectedIndex].innerHTML;
+		harz_sys_f=document.getElementById('a_wert_2').innerHTML;
+		
 }
 duchm_dm_tst=document.getElementById('sel_3').value;
 if(duchm_dm!=duchm_dm_tst){
@@ -974,7 +1150,7 @@ i=i+1;
 	
 
 
-if(liner_typ_tst=="LCR-B (Hutmanschetten)"||liner_typ_tst=="LCR-S (Hutmanschetten)"){
+if(liner_typ_tst=="LCR-B (Hutmanschetten)"||liner_typ_tst=="LCR-S (Hutmanschetten)" || liner_typ_tst=="LCR-B (hat profiles)"||liner_typ_tst=="LCR-S (hat profiles)"){
 
 if(harz_sys_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen" && reha_length!="Bitte wählen"){
 	berechnen_go=true;
@@ -985,9 +1161,9 @@ if(harz_sys_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_t
 	$("#berechnen").css({"color":'#999999'});
 }
 
-}else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
+}else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)" || liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
 	
-	if(hausanschll_dmt_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen"){
+	if(hausanschll_dmt_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen" && harz_sys_tst!="Bitte wählen" ){
 	berechnen_go=true;
 	$("#berechnen").css({"color":'#ffffff'});	
 }else{

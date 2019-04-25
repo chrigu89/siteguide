@@ -94,7 +94,7 @@ verlauf_name='Trelleborg Kurzliner Verfahren<span class="sma">Kurzliner Reparatu
             <input id="reperatur_l" name="reperatur_l" type="text" tabindex="3" value="0">
             <span  class="mass">m</span></div>
         </div>
-        <div class="auswahl hilight" id="zusatzlagen_anz" style="display:none;"> <a class="alert_ hil"  rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>">
+        <div class="auswahl hilight" id="zusatzlagen_anz" style="display:none;"> <a class="alert_ hil" rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>" data-en="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>">
           <bdo>Schematische Ansicht</bdo>
           </a>
           <div id="zusatzl_erklaerung">
@@ -108,7 +108,7 @@ verlauf_name='Trelleborg Kurzliner Verfahren<span class="sma">Kurzliner Reparatu
             </select>
           </div>
         </div>
-        <div class="eing zusatzlagen_laenge hilight" style="display:none;"> <a class="alert_ hil"  rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>">
+        <div class="eing zusatzlagen_laenge hilight" style="display:none;"> <a class="alert_ hil"  rel="<img class='gf_unterl' src='images/glasfaserlagen_1200.jpg'/>" data-en="<img class='gf_unterl' src='../images/glasfaserlagen_1200.jpg'/>">
           <bdo>Schematische Ansicht</bdo>
           </a>
           <div class="e_label"><span id="zusatzlagen_laenge_label">
@@ -257,6 +257,7 @@ $( "select" ).blur(function() {
 });	
 
 document.write(include( 'script', url_beg+'js/scripts.js?v='+random_nr));
+document.write(include( 'script', url_beg+'rechner_js/c1_articles.js?v='+random_nr));
 document.write(include( 'script', url_beg+'rechner_js/c1_dp_flaechen.js?v='+random_nr));
 document.write(include( 'script', url_beg+'rechner_js/c1_script.js?v='+random_nr));
 

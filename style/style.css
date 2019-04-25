@@ -1357,8 +1357,10 @@ span.yt_icon {
 }
 img.gf_unterl {
 	width: 100%;
+	max-width: 340px;
 	height: auto;
 	display: block;
+	margin:0 auto;
 }
 .mth_liner_basic_calc .eing.hilight .e_label {
 	position: relative;
@@ -1809,7 +1811,10 @@ form[name="dp_bestellform"] button[type="submit"].active{
 	
 }
 
-
+#produkte_verwenden div{
+	padding-top: 4px;
+	text-align:center;
+}
 
 
 

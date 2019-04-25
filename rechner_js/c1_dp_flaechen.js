@@ -1,46 +1,3 @@
-var hartz_systeme_mengen = new Array();
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['beschr']='Type W1 | 13 kg';
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[dp_harze['W1'][dp_harze_index]][0]['art_nr']='234504';
-
-
-hartz_systeme_mengen[dp_harze['W01'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[dp_harze['W01'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['W01'][dp_harze_index]][0]['beschr']='Type W01 | 13 kg';
-hartz_systeme_mengen[dp_harze['W01'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[dp_harze['W01'][dp_harze_index]][0]['art_nr']='234505';
-
-
-hartz_systeme_mengen[dp_harze['S1'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[dp_harze['S1'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['S1'][dp_harze_index]][0]['beschr']='Type S1 | 13 kg';
-hartz_systeme_mengen[dp_harze['S1'][dp_harze_index]][0]['gewicht']=13;
-hartz_systeme_mengen[dp_harze['S1'][dp_harze_index]][0]['art_nr']='234506';
-
-
-
-hartz_systeme_mengen[dp_harze['L30E1'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[dp_harze['L30E1'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['L30E1'][dp_harze_index]][0]['beschr']='Type L30E1 | 26 kg';
-hartz_systeme_mengen[dp_harze['L30E1'][dp_harze_index]][0]['gewicht']=26;
-hartz_systeme_mengen[dp_harze['L30E1'][dp_harze_index]][0]['art_nr']='116904';
-
-hartz_systeme_mengen[dp_harze['L30E3'][dp_harze_index]] = new Array();
-hartz_systeme_mengen[dp_harze['L30E3'][dp_harze_index]][0] = new Array();
-
-
-
-
-
-
-
-hartz_systeme_mengen['haerter'] = new Array();
-hartz_systeme_mengen['haerter'][0] = new Array();
-hartz_systeme_mengen['haerter'][0]['beschr']='Härter | 16 kg';
-hartz_systeme_mengen['haerter'][0]['gewicht']=16;
-hartz_systeme_mengen['haerter'][0]['art_nr']='116700';
 
 
 
@@ -481,6 +438,13 @@ haerter_gew= komp_b_liter * 1.54;
 harz_gew=komp_a_liter*harz_sys_dichte;
 document.getElementById('haerter_gew').innerHTML=haerter_gew.toFixed(2);
 document.getElementById('harz_gew').innerHTML=  harz_gew.toFixed(2);
+drum='';
+if(harz_gew >= 200 || haerter_gew >= 200){	
+
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+	
+}
+
 
 document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
 		
@@ -509,7 +473,8 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><tabl
 					+'<td align="left">Item No. </td>'
 					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['art_nr']+'</nobr></td>'
 					+'</tr>'
-                    +'</table>';
+                    +'</table>'+drum;
+					
 } else {
 	//deutsch
 
@@ -533,7 +498,8 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><tabl
 					+'<td align="left">Art. Nr. </td>'
 					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['art_nr']+'</nobr></td>'
 					+'</tr>'
-                    +'</table>';
+                    +'</table>'+drum;
+					
 
 }
 /*	

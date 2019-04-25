@@ -84,8 +84,11 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
           </span> <a class="alert_" rel="Wählen Sie hier das verwendete Harzsystem aus."  data-en="Here you can select the resin system used." ></a> <span id="a_wert_2" class="wert_select">Bitte wählen</span>
           <select id="sel_2" name="harzsystem"  tabindex="1">
             <option value="Bitte wählen">Bitte wählen</option>
-            <option value="1">Trelleborg Harz Beschleuniger / Trelleborg Harz Typ W / Trelleborg Harz Typ S</option>
-            <option value="2">Trelleborg Epoxy FC15 / Trelleborg Epoxy FC30</option>
+            <option value="1">Trelleborg Harz Beschleuniger</option>
+            <option value="2">Trelleborg Harz Typ W</option>
+            <option value="3">Trelleborg Harz Typ S</option>
+            <option value="4">Trelleborg Epoxy FC15</option>
+            <option value="5">Trelleborg Epoxy FC30</option>
           </select>
         </div>
         <div class="auswahl" id="hausleitung_durchm"> <span class="a_label">
@@ -150,7 +153,7 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
           <tr  id="hasl_anz">
             <td ><bdo>Seitenanschluss DN</bdo>
               : </td>
-            <td  id="aa2_h"><span class="w30">100</span></td>
+            <td  id="aa2_h"><span class="w30"></span></td>
           </tr>
           <tr>
             <td id="s_a_u_b"><bdo>Seitenanschluss DN</bdo>
@@ -167,7 +170,10 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
           <tr>
             <td align="left" valign="middle" width="50%" rowspan="2"><bdo>Harzgemisch Total</bdo>
               :</td>
-            <td align="right" valign="middle" width="50%" id=""><span id="liter">100</span> <span class="w30_vol">Liter</span></td>
+            <td align="right" valign="middle" width="50%" id=""><span id="liter"></span> <span class="w30_vol">Liter</span></td>
+          </tr>
+            <tr>
+            <td id="" width="50%" valign="middle" align="right"><span id="gewicht"></span> <span class="w30_gew">Kg</span></td>
           </tr>
         </table>
       </div>
@@ -180,13 +186,13 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
             <td align="left" valign="middle" class="pr_"><bdo>Komponente</bdo>
               A <span id="harz_haerter_txt_a"></span>: </td>
             <td align="left" valign="middle" ></td>
-            <td align="right" valign="middle" id=""><span id="harz_l">100</span> <span class="w30_vol">Liter</span></td>
+            <td align="right" valign="middle" id=""><span id="harz_l"></span> <span class="w30_vol">Liter</span></td>
           </tr>
           <tr>
             <td align="left" valign="middle" class="pr_"><bdo>Komponente</bdo>
               B<span id="harz_haerter_txt_b"></span>: </td>
             <td align="left" valign="middle"></td>
-            <td align="right" valign="middle" width="50%" id=""><span id="haerter_l">100</span> <span class="w30_vol">Liter</span></td>
+            <td align="right" valign="middle" width="50%" id=""><span id="haerter_l"></span> <span class="w30_vol">Liter</span></td>
           </tr>
         </table>
       </div>
@@ -195,7 +201,7 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
           <bdo>Komponenten anfragen</bdo>
         </div>
         <div id="zusch_d"> 
-          <!--         		<div id="harz_gewicht">
+                 		<div id="harz_gewicht">
 				<h2><bdo>Gewicht</bdo></h2>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
@@ -203,17 +209,17 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
 						<td align="left" valign="middle" ><bdo>Komponente</bdo> A <br>
                         <span class="kompnente_a"><bdo>Wasserglas</bdo></span>
                         </td>
-						<td align="right" valign="middle" id=""><span id="haerter_gew">100</span> <span class="w30_gew">Kg</span></td>
+						<td align="right" valign="middle" id=""><span id="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
 					</tr>
 					<tr>
 						<td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
 						<td align="left" valign="middle"> <bdo>Komponente</bdo> B <br>
                         <span class="kompnente_b"></span>
                         </td>
-						<td align="right" valign="middle" width="50%" id=""><span id="harz_gew">100</span> <span class="w30_gew">Kg</span></td>
+						<td align="right" valign="middle" width="50%" id=""><span id="harz_gew"></span> <span class="w30_gew">Kg</span></td>
 					</tr>
 				</table>
-			</div> -->
+			</div>
           <div id="produkte_verwenden"></div>
           <!--Bestellformular -->
           
@@ -235,6 +241,7 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
 <script type="text/javascript" src="js/LCR_Daten.js"></script> 
 <script type="text/javascript" src="js/LCR_Daten_1.js"></script> 
 <script type="text/javascript">
+document.write(include( 'script', url_beg+'rechner_js/c1_articles.js?v='+random_nr));
 document.write(include( 'script', url_beg+'rechner_js/c1_lcr.js?v='+random_nr));
 document.write(include( 'script', url_beg+'js/scripts.js?v='+random_nr));
 document.write(include( 'script', url_beg+'rechner_js/c1_script.js?v='+random_nr));	
