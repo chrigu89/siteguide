@@ -347,6 +347,7 @@ EPROPOX_FC15_FC30_array_1200[70]['Komponente_A_Liter_us']=25.70;
 EPROPOX_FC15_FC30_array_1200[70]['Komponente_B_Liter']=0.27;
 EPROPOX_FC15_FC30_array_1200[70]['Komponente_B_Liter_us']=9.00;
 
+
 EPROPOX_FC15_FC30_array_1200[100] = new Array();
 EPROPOX_FC15_FC30_array_1200[100]['DN_']=100;
 EPROPOX_FC15_FC30_array_1200[100]['DN__us']=4;

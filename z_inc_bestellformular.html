@@ -3,10 +3,10 @@
   <span style="display:block;">
   <bdo>Bitte versuchen Sie es später erneut.</bdo>
   </span></div>
-<form name="dp_bestellform" action="https://webentwicklungsserver.com/_app/ajax.php" data-action="https://apps.apfel.gold/siteguide20/send/request.php" method="post">
+<form name="dp_bestellform" action="https://apps.apfel.gold/siteguide20/send/request.php" method="post">
   <input name="en_de" id="" type="hidden" value="deutsch">
   <input name="eingabe_berechnung" id="" type="hidden" value="deutsch">
-  <h2>
+  <h2 class="nur_calc_display" style="display:none;">
     <bdo>Bestellformular</bdo>
   </h2>
   
@@ -171,7 +171,7 @@
   <!--input end --> 
   
   <!--input begin -->
-  <div class="eing txt_area nachricht">
+  <div class="eing txt_area nachricht nur_calc_display"  style="display:none;">
     <div class="e_label">
       <bdo>Nachricht</bdo>
     </div>
@@ -180,7 +180,7 @@
     </div>
   </div>
   <!--input end -->
-  <button class="berechnen_btn" id=""  tabindex="16" type="submit" >
+  <button class="berechnen_btn nur_calc_display"  tabindex="16" type="submit" style="display:none;">
   <bdo>Absenden</bdo>
   </button>
   <div id="erf_versendet" style="display:none; text-align:center;">

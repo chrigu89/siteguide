@@ -65,12 +65,17 @@ function erg_berechnet(){
 harzfaktor = new Array();
 harzfaktor['DrainLiner PVC'] =1;
 harzfaktor['Trelleborg MultiFlex Liner'] =1;
-harzfaktor['Trelleborg ProLiner'] =1.05;
-harzfaktor['DrainSteamLiner PP'] =1;
 
+
+harzfaktor['Trelleborg ProLiner'] =1.05;
+harzfaktor['Trelleborg MainLiner'] =1.05;
+
+
+harzfaktor['DrainSteamLiner PP'] =1;
 harzfaktor['DrainPlusLiner DPL 2.0'] =1;
 harzfaktor['Trelleborg UltraFlex Liner'] =1;
 
+harzfaktor['Trelleborg HybridLiner'] =0.92;
 
 
 
@@ -78,8 +83,11 @@ harzfaktor['Trelleborg UltraFlex Liner'] =1;
 
 
 
-
-
+/*
+dm_hk_val ist durchmesser_hauptkanal
+dm_sa_val ist durchmesser_seitenanschluss
+snl_sa_val ist sanierungslaenge_seitenanschluss
+*/
 
 dm_hk_val=koma_ers(dm_hk_val);
 
@@ -433,31 +441,14 @@ neue_masse_ausgewaehlt(masse_tst);
 }
 liner_tst=document.getElementById('sel_l').value;  
 if(liner!=liner_tst){
-	
 
-	
-	
 if(liner_tst=="Trelleborg UltraFlex Liner"){
-	
-	
-
-	
 	DPL_2_0_alert();
-
-	
-
-					if(document.getElementById('sel').value=="Metrisch" || document.getElementById('sel').value=="metric"){
-	document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
-}else if(document.getElementById('sel').value=="imperial" || document.getElementById('sel').value=="imperial"){
-	
-
-		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
-
-}	
-	
-	
-	
-	
+		if(document.getElementById('sel').value=="Metrisch" || document.getElementById('sel').value=="metric"){
+			document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+		}else if(document.getElementById('sel').value=="imperial" || document.getElementById('sel').value=="imperial"){
+			document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
+		}		
 }else{
 	
 }
@@ -509,7 +500,7 @@ CheckAuswahl (0,'sel1');
 }
 	
 
-if(liner_tst=='Trelleborg ProLiner'){
+if(liner_tst=='Trelleborg ProLiner' || liner_tst=='Trelleborg MainLiner'){
 	
 CheckAuswahl (0,'sel1');	
 if(en){
@@ -526,7 +517,7 @@ document.getElementById('a_wert_h').innerHTML='Bitte wählen';
 }
 
 
-c1_console_log('Trelleborg ProLiner');	
+c1_console_log('Trelleborg ProLiner / MainLiner');	
 c1_console_log(hartzsys)	
 	
 }
@@ -539,36 +530,34 @@ hartzsys_tst=document.getElementById('sel1').value;
 if(hartzsys!=hartzsys_tst){
 	
 if(liner_tst=="Trelleborg UltraFlex Liner"){
-	
-	
 	DPL_2_0_alert();
 }
 
-
-	hartzsys=hartzsys_tst;
-	harz_sys_val=hartzsys_tst;
+hartzsys=hartzsys_tst;
+harz_sys_val=hartzsys_tst;
 neues_harzsystem(hartzsys_tst);	
 }
 
 
 if(liner_tst=="Trelleborg MultiFlex Liner"){
-				if(document.getElementById('sel').value=="Metrisch"||document.getElementById('sel').value=="metric"){
-	document.getElementsByName('durchmesser_seitenanschluss')[0].value='3';
-}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
+	if(document.getElementById('sel').value=="Metrisch"||document.getElementById('sel').value=="metric"){
+		document.getElementsByName('durchmesser_seitenanschluss')[0].value='3';
+	}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
 		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(3);
-}
+	}
 }	
 
 if(liner_tst=="Trelleborg UltraFlex Liner"){
-					if(document.getElementById('sel').value=="Metrisch"||document.getElementById('sel').value=="metric"){
-	document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
-}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
+	if(document.getElementById('sel').value=="Metrisch"||document.getElementById('sel').value=="metric"){
+		document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+	}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
 		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
-}	
-	document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
-	if(hartzsys_tst!='Trelleborg Epoxy HC120+'){
+	}	
+		document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
 		
-				hartzsys_tst='Trelleborg Epoxy HC120+';
+if(hartzsys_tst!='Trelleborg Epoxy HC120+'){
+		
+        hartzsys_tst='Trelleborg Epoxy HC120+';
 		harz_sys_val=hartzsys_tst;
 		document.getElementById('a_wert_li').innerHTML=liner_tst;
 	

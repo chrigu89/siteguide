@@ -20,9 +20,9 @@ deutschland_plz[name_]['bild']='images/kontakt/de/melanie_beckmann.jpg';
 
 
 
-//plz_='34 - 37, 54 - 56, 60 - 79, 88, 89';
+//plz_='34 - 37';
 name_='peter_malmer';
-zustaendig_plz[name_]= new Array(34,35,36,37,54,55,56,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,77,78,79,88,89);
+zustaendig_plz[name_]= new Array(34,35,36,37);
 deutschland_plz[name_] = new Object();
 deutschland_plz[name_]['plz_land']='D-';
 deutschland_plz[name_]['ort']='47228 Duisburg';
@@ -52,6 +52,19 @@ deutschland_plz[name_]['bild']='images/kontakt/de/JG_6x8_4c-web.jpg';
 
 
 
+//plz_=' 54 - 56, 60 - 79, 88, 89';
+name_='thomas_leschik';
+zustaendig_plz[name_]= new Array(54,55,56,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,88,89);
+
+deutschland_plz[name_] = new Object();
+deutschland_plz[name_]['plz_land']='D-';
+deutschland_plz[name_]['ort']='47228 Duisburg';
+deutschland_plz[name_]['name']='Thomas Leschik <br><span style="color: #000 !important; ">Zertifizierter Kanalsanierungsberater</span> ';
+deutschland_plz[name_]['str']='Dr.-Alfred Herrhausen-Allee 36';
+deutschland_plz[name_]['fon']='<a href="tel:017610014290">+49(0)176 1001 4290</a> <style>.tel_nr {background-position: left 0px !important;}</style>';
+deutschland_plz[name_]['fax']='';
+deutschland_plz[name_]['email']='<a href="mailto:thomas.leschik@trelleborg.com">thomas.leschik@<span class="orange_txt">trelleborg.com</span></a>';
+deutschland_plz[name_]['bild']='images/kontakt/de/thomas_leschik.jpg';
 
 
 

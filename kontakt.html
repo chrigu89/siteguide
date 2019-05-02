@@ -8,6 +8,7 @@
 <script src="js/jquery-ui-min.js" type="text/javascript"></script>
 <link href="style/swipe.css" rel="stylesheet" type="text/css">
 <script src="js/swipe.js" type="text/javascript"></script>
+  <script src="js/jeasyui.js" type="text/javascript"></script>
 <script src="cordova.js" type="text/javascript"></script>
 </head>
 <body class="kontakt">
@@ -17,7 +18,7 @@
 	<div id="sl_frame"><script src="_slider.js" type="text/javascript"></script></div>
 </div>
 <script src="_kontakte.js" type="text/javascript"></script>
-<div class="txt">
+<div class="txt" id="kontakt_sc">
 	<h4>Kontakt</h4>
 	<p style="margin-top:0;">Hier finden Sie Ihren persönlichen Ansprechpartner für Rückfragen.</p>
 	<div id="anspr">
@@ -38,17 +39,151 @@
 			<a id="zip_btn">OK</a></div>
 	</div>
 	<br>
-	<div id="ergebnisse"> <br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+<section id="ergebnisse_out">	
+<div id="ergebnisse" class="ergebnisse_kontakt"> 	
 	</div>
+    </section>
 </div>
 </div>
 
+<section class="feebback_b">
 
+<div id="content_2">
+ 
+
+    <div id="meldung" class="txt" ></div>
+	<div class="txt" id="form_txt"> 
+	
+    <div id="meldung"></div>
+    <h4>Feedback</h4>
+		<h4 style="font-weight:normal;">Wie beurteilen Sie...</h4>
+		<form name="f_form" id="feedback_form" action="https://apps.apfel.gold/siteguide20/send/feedback_daten.php" method="post" >
+		<input name="feedback_daten" type="hidden" value="">
+	
+		<div class="feedb_fr">
+			<div>Produkte/Systeme</div>
+		
+			<a class="feed" rel="produkte_systeme" id="sehrgut">sehrgut</a>
+			<a class="feed" rel="produkte_systeme" id="gut">gut</a>
+			<a class="feed" rel="produkte_systeme" id="maessig">mässig</a>
+			<a class="feed last" rel="produkte_systeme" id="schlecht">schlecht</a>
+			<div class="clr"></div>
+			
+		</div><!--feedb_fr -->
+		
+		
+		<div class="feedb_fr">
+			<div>Kundenservice</div>
+			
+			<a class="feed" rel="kundenservice" id="sehrgut">sehrgut</a>
+			<a class="feed" rel="kundenservice" id="gut">gut</a>
+			<a class="feed" rel="kundenservice" id="maessig">mässig</a>
+			<a class="feed last" rel="kundenservice" id="schlecht">schlecht</a>
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		
+		<div class="feedb_fr w50proz">
+			<div>Vermissen Sie Produkte/Services?</div>
+			
+			<a class="feed" rel="produkte_service" id="ja">Ja</a>
+			<a class="feed last" rel="produkte_service" id="nein">Nein</a>
+			
+			<div class="clr"></div>
+			</div><!--feedb_fr -->
+			<div id="p_s_eingabe" class="form_feld btop">
+			
+			<textarea name="vermisse_p_s" ></textarea>
+		</div>
+		
+		
+		<div class="feedb_fr">
+			<div>Beratung</div>
+			
+			<a class="feed" rel="beratung" id="sehrgut">sehrgut</a>
+			<a class="feed" rel="beratung" id="gut">gut</a>
+			<a class="feed" rel="beratung" id="maessig">mässig</a>
+			<a class="feed last" rel="beratung" id="schlecht">schlecht</a>
+			<div class="clr"></div>
+			</div><!--feedb_fr -->
+			
+			<div class="feedb_fr w50proz">
+			<div>Verbesserungsvorschläge</div>
+			
+			<a class="feed" rel="verb" id="ja">Ja</a>
+			<a class="feed last" rel="verb" id="nein">Nein</a>
+			
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		<div id="verbesser_eing" class="form_feld btop">
+			
+			<textarea name="verbesserungsvorschlaege" ></textarea>
+		</div>
+		
+		<div class="feedb_fr">
+			<div>Wie beurteilen Sie unsere APP?</div>
+			
+			<a class="feed" rel="app_beurteilung" id="sehrgut">sehrgut</a>
+			<a class="feed" rel="app_beurteilung" id="gut">gut</a>
+			<a class="feed" rel="app_beurteilung" id="maessig">mässig</a>
+			<a class="feed last" rel="app_beurteilung" id="schlecht">schlecht</a>
+			<div class="clr"></div>
+		
+		</div><!--feedb_fr -->
+	
+		<div class="form_feld btop mt20">
+			<div>Besonders gut gefallen hat mir:</div>
+			<textarea name="gut_gefallen" ></textarea>
+		</div>
+	
+		<div class="form_feld">
+			<div>Name:</div>
+			<input name="vn_name" type="text">
+		</div>
+		
+		<div class="form_feld">
+			<div>Email:*</div>
+			<input name="email" type="text">
+		</div>
+		
+
+		<div class="feedb_fr mt10">
+			<div>Wie alt sind Sie:</div>
+			
+			<a class="feed" rel="alter" id="20-30">20-30</a>
+			<a class="feed" rel="alter" id="30-40">30-40</a>
+			<a class="feed" rel="alter" id="40-50">40-50</a>
+			<a class="feed last" rel="alter" id="50+">50+</a>
+			<div class="clr"></div>
+		
+		</div><!--feedb_fr -->
+		
+		<div class="feedb_fr w50proz">
+			<div>Ihr Geschlecht:</div>
+			
+			<a class="feed" rel="geschlecht" id="Männlich">Männlich</a>
+			<a class="feed last" rel="geschlecht" id="Weiblich">Weiblich</a>
+			
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		<!--<input name="" type="submit" value="Senden"> -->
+
+
+         <button id="feedb_btn" name="" type="submit" value="">Senden</button>
+		</form>
+	
+	
+	</div>
+</div><!--content -->
+
+
+
+
+
+
+</section>
 
 <!--content -->
 <div class="menu"> 
@@ -63,46 +198,34 @@
 $(window).load(function() {
 pls_suche=false;
 calc=false;
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
 function kontakt_land_aus(rel){
-	$( "#ergebnisse" ).html('<br><br><br><br><br><br>');
-
-	
-	
-	
 	if(rel=='Deutschland'){
-$( ".zip_enter" ).fadeIn( 170, 'easeInQuart', function() {
-
-});			
+			$( ".zip_enter" ).slideDown( 370, 'easeInQuart', function() {});			
+	};	
+	if(rel=='Österreich/Schweiz'){
+		 $( ".zip_enter" ).slideUp( 370, 'easeInQuart', function() {});		
 	}
+$('#ergebnisse_out').height(0);
+setTimeout(function(){$( "#ergebnisse" ).html('')
+
+
+	
 	if(rel=='Österreich/Schweiz'){
 		zip_input_id.value='';
 		zip_btn_akt();
-			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
+		
 				 
-$( "#ergebnisse" ).html('<br><div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Zertifizierter Kanalsanierungsberater </p><p class="tel_nr" style="background-position: left 0px !important;"> <a href="tel:017610037379">+49(0)176 100 37379</a> </p><p class="fax_nr"> +49(0)2065 999-111 </p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
-});		
+			$( "#ergebnisse" ).html('<br><div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Zertifizierter Kanalsanierungsberater </p><p class="tel_nr" 		style="background-position: left 0px !important;"> <a href="tel:017610037379">+49(0)176 100 37379</a> </p><p class="fax_nr"> +49(0)2065 999-111 </p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
+	
 		
-	}	
+	};	
 		
 		
-		
+		;}, 500);
 	};	
 
 
@@ -121,11 +244,10 @@ function selekt_change() {
     if (land != land_tst) {
 
         land = land_tst;
-		
-        kontakt_land_aus(land_tst);
+	    kontakt_land_aus(land_tst);
 		men_display('block');
 		$( "select" ).blur();
-    }	
+    };	
 	
 	
 	
@@ -133,13 +255,13 @@ if(zip_input_id.value.length>1){
 pls_suche=true;	
 }else{
 pls_suche=false;	
-}
+};
 	
 
 
 	
 aktiv=window.setTimeout("selekt_change()", 100);
-}
+};
 selekt_change();
 
 
@@ -163,19 +285,24 @@ str='<div class="kont_links">'
 
 +'</div>'+platzhalter;
 return str;
-}
+};
 //$("#ergebnisse").html('begin: '+str+' / end');
 
-
+function ergebnisse_out_zeigen(){
+		$('html,body').animate({
+	  scrollTop: ($('#kontakt_sc').offset().top+50)
+        }, 600, 'swing', function() {
+			$('#ergebnisse_out').height($('#ergebnisse').height());
+		});	
+};
 
 function zip_btn_akt(){
 
+    // Animation complete.
+
+if(pls_suche){
 	
-	if(pls_suche){
-
-
 gesuchte_plz=zip_input_id.value.substring(0, 2);
-
 
 ausgabe_html='';
   for (var Eigenschaft in deutschland_plz){
@@ -184,42 +311,26 @@ ausgabe_html='';
 	for (var i = 0; i < laenge; i++) {
 
 		if(zustaendig_plz[Eigenschaft][i]==gesuchte_plz){
-		
-		 ausgabe_html+=ausgabe_str(Eigenschaft);
-			
-			
+		ausgabe_html+=ausgabe_str(Eigenschaft);
+		};
+	};
+	
+};
+
+		if(ausgabe_html.length!=''){
+			document.getElementById('ergebnisse').innerHTML=ausgabe_html;
+			ergebnisse_out_zeigen();
+			onReady();
+		}else{
+			document.getElementById('ergebnisse').innerHTML='0 Treffer <br>'+ausgabe_str('melanie_beckmann');		
+			ergebnisse_out_zeigen();
 		}
-		
-		
-	}
-	
-	
-  }
 
-if(ausgabe_html.length!=''){
-document.getElementById('ergebnisse').innerHTML=ausgabe_html;
-onReady();
-}else{
-	document.getElementById('ergebnisse').innerHTML='0 Treffer <br>'+ausgabe_str('melanie_beckmann');
-				$('html,body').animate({
-          scrollTop:200
-        }, 1000, 'swing', function() {
-
-	
-		
-		});	
-}
 	}else{
-		document.getElementById('ergebnisse').innerHTML='<div align="center">Bitte geben Sie mindestens die ersten zwei Ziffern Ihrer Postleitzahl ein.</div>'+platzhalter;	
-						$('html,body').animate({
-          scrollTop:100
-        }, 1000, 'swing', function() {
-
-		
-		
-		});	
-	}
-}
+	document.getElementById('ergebnisse').innerHTML='<div align="center">Bitte geben Sie mindestens die ersten zwei Ziffern Ihrer Postleitzahl ein.</div>'+platzhalter;	
+	ergebnisse_out_zeigen();	
+	}; /*pls_suche*/
+};/*zip_btn_akt*/
 
 
 
@@ -248,6 +359,24 @@ parent.seite_aktivieren('menu_zeigen');
 
 */
 
-</script>
+
+
+	
+
+		$(function(){
+			
+			$('#feedback_form').form({
+				
+				success:function(data){
+					
+		
+					$( "#meldung" ).html( data );
+					$( "#meldung" ).show();
+					$( "#form_txt" ).html( '<br><br><br>' );
+				}
+			});
+		});
+
+	</script> 
 </body>
 </html>

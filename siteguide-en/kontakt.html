@@ -8,16 +8,18 @@
 <script src="../js/jquery-ui-min.js" type="text/javascript"></script>
 <link href="../style/swipe.css" rel="stylesheet" type="text/css">
 <script src="../js/swipe.js" type="text/javascript"></script>
+  <script src="../js/jeasyui.js" type="text/javascript"></script>
 <script src="../cordova.js" type="text/javascript"></script>
 </head>
 <body class="kontakt">
 <a id="logo" href="index.html"></a>
 <a id="load_" class="loader_img"></a>
+
 <div id="content"> 
 	<div id="sl_frame"><script src="_slider.js" type="text/javascript"></script></div>
 </div>
 <script src="_kontakte.js" type="text/javascript"></script>
-<div class="txt">
+<div class="txt" id="kontakt_sc">
 	<h4>Contact</h4>
 	<p style="margin-top:0;">Here you can find your personal contact person for further inquiries.</p>
     <div id="anspr">   
@@ -50,16 +52,203 @@
 			<a id="zip_btn">OK</a></div>
 	</div>
 	<br>
-	<div id="ergebnisse"> <br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+<section id="ergebnisse_out">	
+<div id="ergebnisse" class="ergebnisse_kontakt"> 	
 	</div>
+    </section>
 </div>
 </div>
 <!--content -->
+<section class="feebback_b">
+			<script type="text/javascript">
+
+
+		$(function(){
+			
+			$('#feedback_form').form({
+				
+				success:function(data){
+					
+		
+					$( "#meldung" ).html( data );
+					$( "#meldung" ).show();
+					$( "#form_txt" ).html( '<br><br><br>' );
+				}
+			});
+		});
+
+	</script> 
+
+
+
+<div id="content_2">
+
+	
+    <div id="meldung" class="txt" ></div>
+	<div class="txt" id="form_txt"> 
+	
+    <div id="meldung"></div>
+    <h4>Feedback</h4>
+		<h4 style="font-weight:normal;">Please evaluate ...</h4>
+		<form name="f_form" id="feedback_form" action="https://apps.apfel.gold/siteguide20/send/feedback_daten.php" method="post" >
+		<input name="feedback_daten" type="hidden" value="">
+	
+		<div class="feedb_fr">
+			<div>Products/Systems</div>
+		
+			<a class="feed" rel="produkte_systeme" id="very good">very good</a>
+			<a class="feed" rel="produkte_systeme" id="good">good</a>
+			<a class="feed" rel="produkte_systeme" id="maessig">moderate</a>
+			<a class="feed last" rel="produkte_systeme" id="poor">poor</a>
+			<div class="clr"></div>
+			
+		</div><!--feedb_fr -->
+		
+		
+		<div class="feedb_fr">
+			<div>Customer Service</div>
+			
+			<a class="feed" rel="kundenservice" id="very good">very good</a>
+			<a class="feed" rel="kundenservice" id="good">good</a>
+			<a class="feed" rel="kundenservice" id="maessig">moderate</a>
+			<a class="feed last" rel="kundenservice" id="poor">poor</a>
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		
+		<div class="feedb_fr w50proz">
+			<div>Do you miss products/services</div>
+			
+			<a class="feed" rel="produkte_service" id="ja">yes</a>
+			<a class="feed last" rel="produkte_service" id="nein">no</a>
+			
+			<div class="clr"></div>
+			</div><!--feedb_fr -->
+			<div id="p_s_eingabe" class="form_feld btop">
+			
+			<textarea name="vermisse_p_s" ></textarea>
+		</div>
+		
+		
+		<div class="feedb_fr">
+			<div>Advisory service</div>
+			
+			<a class="feed" rel="beratung" id="very good">very good</a>
+			<a class="feed" rel="beratung" id="good">good</a>
+			<a class="feed" rel="beratung" id="maessig">moderate</a>
+			<a class="feed last" rel="beratung" id="poor">poor</a>
+			<div class="clr"></div>
+			</div><!--feedb_fr -->
+			
+			<div class="feedb_fr w50proz">
+			<div>Suggestions for improvement</div>
+			
+			<a class="feed" rel="verb" id="ja">yes</a>
+			<a class="feed last" rel="verb" id="nein">no</a>
+			
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		<div id="verbesser_eing" class="form_feld btop">
+			
+			<textarea name="verbesserungsvorschlaege" ></textarea>
+		</div>
+		
+		<div class="feedb_fr">
+			<div>How do you evaluate our APP?</div>
+			
+			<a class="feed" rel="app_beurteilung" id="very good">very good</a>
+			<a class="feed" rel="app_beurteilung" id="good">good</a>
+			<a class="feed" rel="app_beurteilung" id="maessig">moderate</a>
+			<a class="feed last" rel="app_beurteilung" id="poor">poor</a>
+			<div class="clr"></div>
+		
+		</div><!--feedb_fr -->
+	
+		<div class="form_feld btop mt20">
+			<div>I particularly liked:</div>
+			<textarea name="good_gefallen" ></textarea>
+		</div>
+	
+		<div class="form_feld">
+			<div>Name:</div>
+			<input name="vn_name" type="text">
+		</div>
+		
+		<div class="form_feld">
+			<div>Email:*</div>
+			<input name="email" type="text">
+		</div>
+		
+
+		<div class="feedb_fr mt10">
+			<div>How old are you:</div>
+			
+			<a class="feed" rel="alter" id="20-30">20-30</a>
+			<a class="feed" rel="alter" id="30-40">30-40</a>
+			<a class="feed" rel="alter" id="40-50">40-50</a>
+			<a class="feed last" rel="alter" id="50+">50+</a>
+			<div class="clr"></div>
+		
+		</div><!--feedb_fr -->
+		
+		<div class="feedb_fr w50proz">
+			<div>Your gender:</div>
+			
+			<a class="feed" rel="gepoor" id="Männlich">Male</a>
+			<a class="feed last" rel="gepoor" id="Weiblich">Female</a>
+			
+			<div class="clr"></div>
+		</div><!--feedb_fr -->
+		
+		<!--<input name="" type="submit" value="Senden"> -->
+
+
+         <button id="feedb_btn" name="" type="submit" value="">submit</button>
+		</form>
+	
+	
+	</div>
+</div><!--content -->
+
+
+<div class="menu"> 
+  <script>
+  activ=4;
+  </script> 
+  <script src="_menu.js"></script>
+
+</div>
+
+
+<script type="text/javascript">
+
+$(window).load(function() {
+
+calc=false;
+})
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section><!--feebback_b -->
+
+
+
 <div class="menu"> 
 	<script>activ=3;
   </script> 
@@ -75,18 +264,28 @@ pls_suche=false;
 calc=false;
 })
 
-
-
+$( "#sel" ).show();
+function ergebnisse_out_zeigen(){
+		$('html,body').animate({
+	  scrollTop: ($('#kontakt_sc').offset().top+50)
+        }, 600, 'swing', function() {
+			$('#ergebnisse_out').height($('#ergebnisse').height());
+		
+			  setTimeout(function(){$( "#sel" ).show();}, 500);
+		});	
+};
 function kontakt_land_aus(rel){
-	$( "#ergebnisse" ).html('<br><br><br><br><br><br>');
+	$( "#sel" ).hide();
 
-	
-	
+$('#ergebnisse_out').height(0);
+		  setTimeout(function(){
+			  $( "#ergebnisse" ).html('');
 	
 	if(rel=='Germany'){
 $( ".zip_enter" ).fadeIn( 170, 'easeInQuart', function() {
 
-});			
+});	
+		
 	}
 		if(rel=='Americas'){
 		zip_input_id.value='';
@@ -95,7 +294,7 @@ $( ".zip_enter" ).fadeIn( 170, 'easeInQuart', function() {
  			 
 $( "#ergebnisse" ).html('<!--<div class="kont_links"><p class="mt0"><span class="orange_txt">Tim Sparrow</span><br> Head of Sales Pipe Rehabilitation North America<br></p><p class="tel_nr"> <a href="tel:0018006262180">+1 800 626 2180 (toll-free)</a> </p><p class="mobile_nr"> <a href="tel:0016174555967">+1 (617) 455 5967</a> </p><p class="amail"> <a href="mailto:tim.sparrow@trelleborg.com">tim.sparrow@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts">   <img src="images/kontakt/Tim_Sparrow.jpg">         </div><div class="clr"></div><div class="kont_platz"></div>-->                                                                              <div class="kont_links"><p class="mt0"><span class="orange_txt">Mark Yanzo</span><br>North American Sales Manager – Pipe Rehabilitation <br></p><p class="tel_nr"> <a href="tel:0018006262180">+1 800 626 2180 (toll-free)</a> </p><p class="mobile_nr"> <a href="tel:0016036721352">+1 (603) 672 1352</a> </p><p class="amail"> <a href="mailto:mark.yanzo@trelleborg.com">mark.yanzo@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts">   <img src="images/kontakt/mark_yanzo.jpg">         </div><div class="clr"></div><div class="kont_platz"></div>');
 });		
-		
+		ergebnisse_out_zeigen();	
 	}
 	
 		if(rel=='Asia-Pacific'){
@@ -105,7 +304,7 @@ $( "#ergebnisse" ).html('<!--<div class="kont_links"><p class="mt0"><span class=
 			 
 $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Area Sales Manager Asia / Pacific / Middle East<br>Certified Consultant for Rehabilitation of Sewer Systems</p><p class="tel_nr"> <a href="tel:+6596575077">+65 965 750 77  </a>	</p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
 });		
-		
+		ergebnisse_out_zeigen();	
 	}
 			if(rel=='Australia'){
 		zip_input_id.value='';
@@ -114,7 +313,7 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="ora
 				 
 $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">SECA</span><br>Sewer Equipment Company  Australia</p><p class="">5/85 Alfred Road<br>Chipping Norton NSW 2170</p><p class="tel_nr"><a href="tel:0061297240433"> +61 2 9724 0433 </a> </p><p class="fax_nr"> +61 2 9724 0944</p></div><div class="kont_rechts"><img src="images/kontakt/australien.jpg"></div><div class="clr"></div><p class="web_a"> <a href="http://www.seca.com.au">www.seca.com.au</a></p><p class="amail"> <a href="mailto:mark@seca.com.au">mark@<span class="orange_txt">seca.com.au</span></a></p><div class="kont_platz"></div>');
 });		
-		
+		ergebnisse_out_zeigen();	
 	}
 
 			if(rel=='Europe'){
@@ -132,7 +331,7 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p><strong>Europe</strong></p><
 
 
 });		
-		
+	ergebnisse_out_zeigen();		
 	}
 		
 				if(rel=='Middle East'){
@@ -142,13 +341,13 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p><strong>Europe</strong></p><
 				 
 $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Area Sales Manager Asia / Pacific / Middle East<br>Certified Consultant for Rehabilitation of Sewer Systems</p><p class="tel_nr"><a href="tel:+6596575077">+65 965 750 77</a></p><p class="fax_nr"> +49(0)2065 999-111</p><p class="amail"> <a href="mailto:jörg.garbe@trelleborg.com">jörg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
 });		
-		
+	ergebnisse_out_zeigen();		
 	}
 		
 	
 	
 	
-	
+	}, 500);
 		
 	};	
 
@@ -243,23 +442,11 @@ document.getElementById('ergebnisse').innerHTML=ausgabe_html;
 onReady();
 }else{
 	document.getElementById('ergebnisse').innerHTML=''+ausgabe_str('frank_grygowski');
-				$('html,body').animate({
-          scrollTop:200
-        }, 1000, 'swing', function() {
 
-	
-		
-		});	
 }
 	}else{
 		document.getElementById('ergebnisse').innerHTML='<div align="center">Type your post code</div>'+platzhalter;	
-						$('html,body').animate({
-          scrollTop:100
-        }, 1000, 'swing', function() {
 
-		
-		
-		});	
 	}
 }
 

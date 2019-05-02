@@ -649,7 +649,7 @@ border: 1px solid #000 !important;
 }
 #eing_mth {
 }
-.berechnen_btn {
+.berechnen_btn, .btn_ps {
 	font-size: 18px;
 	font-weight: bold;
 	text-align: center;
@@ -675,7 +675,15 @@ button.berechnen_btn {
 	top: auto;
 }
 
+.btn_ps{
+	color:#fff;
+	
+}
 
+.btn_ps.a_hover{
+	background-color:#393939;
+	
+}
 
 #zurueck {
 	color: #fff;
@@ -921,7 +929,7 @@ input[type="submit"].input_focus {
 	margin-top: 3px;
 }
 .kont_links {
-	width: 80%
+	width: 79%
 }
 .kont_rechts {
 	width: 20%
@@ -1125,6 +1133,9 @@ input[type="submit"].input_focus {
 }
 .icon-fedback {
 	background-image: url(../images/icon/speechbubble.png);
+}
+.icon-profil {
+	background-image: url(../images/icon/profil.png);
 }
 .menu #m1 a {
 	background-repeat: no-repeat;
@@ -1817,8 +1828,36 @@ form[name="dp_bestellform"] button[type="submit"].active{
 }
 
 
+#calc_b .nur_calc_display{
+	display:block !important;
+}
+
+.ergebnisse_kontakt{
 
 
+	
+}
+#ergebnisse_out{
+	overflow:hidden;
+-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+	transition: all 500ms ease-in-out;
+	height:0;	
+	
+}
+    #ps_aktualisiert {
+	height: 25px;
+	position: absolute;
+	bottom: 70px;
+	width: 100%;
+	text-align: center;
+}
+
+.rechner_verlauf .menu,.user_profil .menu, .kontakt .menu{
+	display:block !important;
+}
  @media (max-width: 900px) {
 .lcr_b #eingaben_anz_tb td {
 	vertical-align: top !important;

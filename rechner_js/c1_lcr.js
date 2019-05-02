@@ -403,7 +403,7 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><tabl
 	document.getElementById('aa2').innerHTML='<nobr>'+document.getElementById('a_wert_2').innerHTML+'</nobr>';
 	
 	document.getElementById('aa3').innerHTML='<nobr>'+LCR_harz_array[index_dm_arr]['DN_'+ms_us]+' '+dk_mass+'</nobr>';	
-}else if("LCR-Liner (für LCR-S und LCR-B)"){
+}else if("LCR-Liner (für LCR-S und LCR-B)" || 'LCR-Liner (for LCR-S and LCR-B)'){
 
 	//harz_sys_f='Trelleborg Harz Beschleuniger / Trelleborg Harz Typ W / Trelleborg Harz Typ S';
 	harz_sys_f=document.getElementById('a_wert_2').innerHTML;
@@ -1166,7 +1166,7 @@ if(harz_sys_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_t
 	$("#berechnen").css({"color":'#999999'});
 }
 
-}else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)" || liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)"){
+}else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)" || liner_typ_tst=="LCR-Liner (for LCR-S und LCR-B)"){
 	
 	if(hausanschll_dmt_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen" && harz_sys_tst!="Bitte wählen" ){
 	berechnen_go=true;

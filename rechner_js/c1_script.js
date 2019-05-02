@@ -16,6 +16,8 @@ function c1_NachOben () {
 /*
 Verlauf----------------------------------------------------------------
 */
+
+
 function location_href(){ 
  l_href= window.location.href;
  tmp = new Array;
@@ -28,7 +30,7 @@ var aktuelles_obj= {};
   var d = new Date();
  l_href =location_href(); 
 
-  
+
 var j_obj=
   {
 date: d.getDate()+"."+(d.getMonth()+1)+"."+d.getFullYear(),
@@ -391,29 +393,32 @@ $(".content").css({"min-height":xHeight+150});
 }, 500);
 
 
-
 if(navigator.userAgent.indexOf("Firefox") != -1){
 document.getElementById('berechnen').onmousedown=ergebnisse_berechnen;
 }else{
 	document.getElementById('berechnen').ontouchstart=ergebnisse_berechnen;
 }
 
+
+	
 if(navigator.userAgent.indexOf("Firefox") != -1){
 	document.getElementById('zurueck').onmousedown=zurueck_eing;
 	document.getElementById('zuruck_z_eingabe').onmousedown=zurueck_eing;
 }else{
-document.getElementById('zurueck').ontouchstart=zurueck_eing;
+    document.getElementById('zurueck').ontouchstart=zurueck_eing;
 	document.getElementById('zuruck_z_eingabe').ontouchstart=zurueck_eing;
 }
 
 
+
 if (navigator.userAgent.indexOf("Firefox") != -1) {
     document.getElementById('komponenten_anfr').onmousedown = komponenten_anfr;
-
 } else {
     document.getElementById('komponenten_anfr').ontouchstart = komponenten_anfr;
    
 }
+
+
 
 
 
