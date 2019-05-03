@@ -171,11 +171,19 @@
 		<access origin="debug.phonegap.com" /> <!-- see: http://community.phonegap.com/nitobi/topics/error_whitelist_rejection -->
 		
 	<!-- PG Plugins-->
+	
+	
+		<platform name="android">
+			<resource-file src="google-services.json" target="google-services.json" />
+		</platform>
+		
+		
 		<preference name="android-build-tool" value="gradle" />
 		
 
 		<plugin name="cordova-plugin-inappbrowser" />
 		<plugin name="cordova-plugin-network-information" />
+		<plugin name="cordova-plugin-firebase-analytics" />
 		<plugin name="cordova-plugin-statusbar" />
 		<plugin name="cordova-plugin-device" />
 		<plugin name="cordova-plugin-whitelist" />

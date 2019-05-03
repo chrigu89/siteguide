@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "6224745733",
+    "firebase_url": "https://trelleborg-siteguide.firebaseio.com",
+    "project_id": "trelleborg-siteguide",
+    "storage_bucket": "trelleborg-siteguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6224745733:android:d7ac930ef60f0ac0",
+        "android_client_info": {
+          "package_name": "com.trelleborg.siteguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6224745733-14voj516gp2is7qusi3nno0vbu9319fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGUUqVTRd8nRw-8zenB1rT9L3MI6uoJ8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6224745733-14voj516gp2is7qusi3nno0vbu9319fu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
