@@ -75,7 +75,7 @@ $header .= "From: <".$sender.">". "\n";
 
 
 
-$empfaenger='cb@design-busse.de';
+$empfaenger='regine.becker@trelleborg.com';   
 
 if(@mail($empfaenger, $betreff, $nachricht,$header)){
 header("Access-Control-Allow-Origin: *");

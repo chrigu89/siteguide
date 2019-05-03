@@ -95,22 +95,36 @@ dm_sa_val=koma_ers(dm_sa_val);
 
 snl_sa_val=koma_ers(snl_sa_val);
 
+/*Harzfaktor----------------------------------------------
+----------------------------------------------------------
 
+Formel Berechnen
+V= pi*DN*Thickness*distance of liner  + (0.05* pi*DN*Thickness*distance of liner).
+----------------------------------------------------------
 
-if (masse == 'imperial' || masse == 'imperial') {
-
-
-
-//Harzfaktor----------------------------------------------------------
-
-ges_volumen=pi*(masse_umrechnen.in_zu_mm(dm_hk_val)/1000)*masse_umrechnen.in_zu_mm(dm_sa_val)*masse_umrechnen.ft_zu_m(snl_sa_val)*harzfaktor[liner];	
+	console.log('Durchmesser: dm_hk_val '+dm_hk_val);
+		console.log('Wandstärke: dm_sa_val '+dm_sa_val);
+		console.log('Länge: snl_sa_val '+snl_sa_val);
+		console.log('ges_volumen=(pi*(dm_hk_val/1000)*dm_sa_val*snl_sa_val)+(0.05* pi*dm_hk_val*dm_sa_val*snl_sa_val); ');
+*/
+if(liner_tst=="Trelleborg HybridLiner"){
+	if (masse == 'imperial' || masse == 'Imperial') {
+		dm_hk_val = masse_umrechnen.in_zu_mm(dm_hk_val);
+        dm_hk_val_durch1000=dm_hk_val/1000;
+		ges_volumen=(pi*dm_hk_val_durch1000*dm_sa_val*snl_sa_val)+(0.05* pi*dm_hk_val_durch1000*dm_sa_val*snl_sa_val);
+					
+	}else{
 	
+		dm_hk_val_durch1000=dm_hk_val/1000;
+		ges_volumen=(pi*dm_hk_val_durch1000*dm_sa_val*snl_sa_val)+(0.05* pi*dm_hk_val_durch1000*dm_sa_val*snl_sa_val);		
+	};	
 }else{
-
-ges_volumen=pi*(dm_hk_val/1000)*dm_sa_val*snl_sa_val*harzfaktor[liner];	
-
+	if (masse == 'imperial' || masse == 'Imperial') {
+			ges_volumen=pi*(masse_umrechnen.in_zu_mm(dm_hk_val)/1000)*masse_umrechnen.in_zu_mm(dm_sa_val)*masse_umrechnen.ft_zu_m(snl_sa_val)*harzfaktor[liner];	
+	}else{
+			ges_volumen=pi*(dm_hk_val/1000)*dm_sa_val*snl_sa_val*harzfaktor[liner];	
+	};
 };
-
 
 
 ges_gewicht=ges_volumen*dichtetabelle[hartzsys]['dichte_gem'];
@@ -125,7 +139,9 @@ vol_haerter=gew_haerter/dichtetabelle[hartzsys]['dichte_b'];
 
 
 
-if (masse == 'imperial' || masse == 'imperial') {
+if (masse == 'imperial' || masse == 'Imperial') {
+	
+	
 	document.getElementById('liter').innerHTML=masse_umrechnen.liter_zu_gallon(ges_volumen).toFixed(4);
 document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs(ges_gewicht).toFixed(4);
 
@@ -283,7 +299,7 @@ snl_sa_mass.innerHTML='m';
 
 $(".w30_gew,.w30_vol,.w30").css({'width': 33 });	
 		
-}else if(val=="imperial" || val=="imperial"){
+}else if(val=="imperial" || val=="Imperial"){
 		document.getElementById('a_wert').innerHTML=lang_einh_imperial;	
 dm_hk_mass.innerHTML='in';	
 dm_sa_mass.innerHTML='mm';
@@ -299,7 +315,7 @@ for (var i = 0; i <= 2; i++){
 	if(val=="Metrisch" || val=="metric"){
 document.getElementsByClassName('w30_gew')[i].innerHTML="Kg";	
 document.getElementsByClassName('w30_vol')[i].innerHTML="Liter";
-}else if(val=="imperial"){
+}else if(val=="imperial" || val=="Imperial"){
 document.getElementsByClassName('w30_gew')[i].innerHTML="lbs";	
 document.getElementsByClassName('w30_vol')[i].innerHTML="Gallonen"	
 }
@@ -400,6 +416,16 @@ alert_ausgeben('Trelleborg UltraFlex Liner can only be used with the Trelleborg 
 alert_ausgeben('Trelleborg UltraFlex Liner kann nur mit dem Trelleborg Epoxy HC120+ und einer Wandstärke von 4,5mm verwendet werden!');
 }	
 }
+function HybridLiner_alert(){
+hartzsys='120';
+
+if(en){
+alert_ausgeben('Trelleborg HybridLiner can only be used with the Trelleborg Epoxy HC120 and a wall thickness of 4.5mm!');
+} else {
+	//deutsch
+alert_ausgeben('Trelleborg HybridLiner kann nur mit dem Trelleborg Epoxy HC120 und einer Wandstärke von 4,5mm verwendet werden!');
+}	
+}
 function Hinzufuegen (neu_str) {
   NeuerEintrag = new Option(neu_str, neu_str, false, true);
   document.getElementById('sel1').options[document.getElementById('sel1').length] = NeuerEintrag;
@@ -446,11 +472,16 @@ if(liner_tst=="Trelleborg UltraFlex Liner"){
 	DPL_2_0_alert();
 		if(document.getElementById('sel').value=="Metrisch" || document.getElementById('sel').value=="metric"){
 			document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
-		}else if(document.getElementById('sel').value=="imperial" || document.getElementById('sel').value=="imperial"){
+		}else if(document.getElementById('sel').value=="imperial" || document.getElementById('sel').value=="Imperial"){
 			document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
 		}		
-}else{
-	
+}else if(liner_tst=="Trelleborg HybridLiner"){
+	HybridLiner_alert();
+		if(document.getElementById('sel').value=="Metrisch" || document.getElementById('sel').value=="metric"){
+			document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+		}else if(document.getElementById('sel').value=="imperial" || document.getElementById('sel').value=="Imperial"){
+			document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
+		}		
 }
 
 	liner=liner_tst;	
@@ -532,7 +563,9 @@ if(hartzsys!=hartzsys_tst){
 if(liner_tst=="Trelleborg UltraFlex Liner"){
 	DPL_2_0_alert();
 }
-
+if(liner_tst=="Trelleborg HybridLiner"){
+	HybridLiner_alert();
+}
 hartzsys=hartzsys_tst;
 harz_sys_val=hartzsys_tst;
 neues_harzsystem(hartzsys_tst);	
@@ -553,24 +586,36 @@ if(liner_tst=="Trelleborg UltraFlex Liner"){
 	}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
 		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
 	}	
-		document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+	  document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
 		
-if(hartzsys_tst!='Trelleborg Epoxy HC120+'){
+		if(hartzsys_tst!='Trelleborg Epoxy HC120+'){
 		
-        hartzsys_tst='Trelleborg Epoxy HC120+';
-		harz_sys_val=hartzsys_tst;
-		document.getElementById('a_wert_li').innerHTML=liner_tst;
+       	 	hartzsys_tst='Trelleborg Epoxy HC120+';
+			harz_sys_val=hartzsys_tst;
+			document.getElementById('a_wert_li').innerHTML=liner_tst;
 	
-		document.getElementById("sel1").selectedIndex = "5";
-		neues_harzsystem(hartzsys_tst);	
-
-		
-			
-	}
-
-	
+			document.getElementById("sel1").selectedIndex = "5";
+			neues_harzsystem(hartzsys_tst);			
+		}
 }
+if(liner_tst=="Trelleborg HybridLiner"){
+	if(document.getElementById('sel').value=="Metrisch"||document.getElementById('sel').value=="metric"){
+		document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+	}else if(document.getElementById('sel').value=="Imperial" || document.getElementById('sel').value=="imperial"){
+		document.getElementsByName('durchmesser_seitenanschluss')[0].value=masse_umrechnen.mm_zu_in(4.5);
+	}	
+	  document.getElementsByName('durchmesser_seitenanschluss')[0].value='4.5';
+		
+		if(hartzsys_tst!='Trelleborg Epoxy HC120'){
+		
+       	 	hartzsys_tst='Trelleborg Epoxy HC120';
+			harz_sys_val=hartzsys_tst;
+			document.getElementById('a_wert_li').innerHTML=liner_tst;
 	
+			document.getElementById("sel1").selectedIndex = "4";
+			neues_harzsystem(hartzsys_tst);			
+		}
+}	
 	
 i=i+1;
 durchmesser_hauptkanal_l=document.mth_liner_basic_calc.durchmesser_hauptkanal.value.length;
