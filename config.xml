@@ -181,9 +181,9 @@
 		<preference name="android-build-tool" value="gradle" />
 		
 		<!-- <plugin name="firebase-analytics-cordova" /> -->
-		<plugin name="cordova-plugin-google-services" />
-		<plugin name="cordova-support-google-services" />
-		<plugin name="cordova-plugin-firebase-analytics" />
+		<!-- <plugin name="cordova-plugin-google-services" /> -->
+		<!-- <plugin name="cordova-support-google-services" /> -->
+		<plugin name="cordova-plugin-firebase" spec="^2.0.0" />
 		
 		
 		<plugin name="cordova-plugin-inappbrowser" spec="*" />
