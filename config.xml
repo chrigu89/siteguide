@@ -185,7 +185,6 @@
 		<plugin name="cordova-plugin-network-information" />
 		<plugin name="cordova-support-google-services" />
 		<plugin name="cordova-plugin-firebase" />
-		<plugin name="cordova-plugin-firebase-analytics" />
 		<plugin name="cordova-plugin-statusbar" />
 		<plugin name="cordova-plugin-device" />
 		<plugin name="cordova-plugin-whitelist" />
