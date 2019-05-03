@@ -180,14 +180,16 @@
 		
 		<preference name="android-build-tool" value="gradle" />
 		
-
-		<plugin name="cordova-plugin-inappbrowser" />
-		<plugin name="cordova-plugin-network-information" />
 		<plugin name="cordova-support-google-services" />
-		<plugin name="cordova-plugin-firebase" />
-		<plugin name="cordova-plugin-statusbar" />
-		<plugin name="cordova-plugin-device" />
-		<plugin name="cordova-plugin-whitelist" />
+		<plugin name="cordova-plugin-firebase-analytics" />
+		
+		
+		<plugin name="cordova-plugin-inappbrowser" spec="*" />
+		<plugin name="cordova-plugin-network-information" spec="*" />
+		<plugin name="cordova-plugin-statusbar" spec="*" />
+		<plugin name="cordova-plugin-device" spec="*" />
+		<plugin name="cordova-plugin-whitelist" spec="*" />
+		
 		
 		
 	<!-- IOS -->
