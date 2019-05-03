@@ -180,6 +180,7 @@
 		
 		<preference name="android-build-tool" value="gradle" />
 		
+		<plugin name="cordova-android-play-services-gradle-release" />
 		<plugin name="cordova-support-google-services" />
 		<plugin name="cordova-plugin-firebase-analytics" />
 		
