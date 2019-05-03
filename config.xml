@@ -184,6 +184,7 @@
 		<!-- <plugin name="cordova-plugin-google-services" /> -->
 		<!-- <plugin name="cordova-support-google-services" /> -->
 		<plugin name="cordova-plugin-firebase" spec="^2.0.0" />
+		<plugin name="cordova-android-play-services-gradle-release" />
 		
 		
 		<plugin name="cordova-plugin-inappbrowser" spec="*" />
