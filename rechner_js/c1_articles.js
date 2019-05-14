@@ -178,7 +178,7 @@ hartz_systeme_mengen[dp_harze['HC120A'][dp_harze_index]][0]['art_nr']='231899';
 hartz_systeme_mengen['HC120B'] = new Array();
 hartz_systeme_mengen['HC120B'][0] = new Array();
 hartz_systeme_mengen['HC120B'][0]['beschr']=article_lang('EPROPOX HC120 B Härter: 4,95kg','EPROPOX HC120 B Hardener: 4,95kg');
-hartz_systeme_mengen['HC120B'][0]['gewicht']=2;
+hartz_systeme_mengen['HC120B'][0]['gewicht']=4.95;
 hartz_systeme_mengen['HC120B'][0]['art_nr']='231900';
 
 

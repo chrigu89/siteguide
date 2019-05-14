@@ -15,6 +15,9 @@ dm_hk_mass=document.getElementsByClassName('dm_hk')[0].getElementsByClassName('m
 dm_sa_mass=document.getElementsByClassName('dm_sa')[0].getElementsByClassName('mass')[0];
 snl_sa_mass=document.getElementsByClassName('snl_sa')[0].getElementsByClassName('mass')[0];
 
+
+
+
 liner_typ_val='';
 harz_sys_val='';
 
@@ -302,7 +305,7 @@ $(".w30_gew,.w30_vol,.w30").css({'width': 33 });
 }else if(val=="imperial" || val=="Imperial"){
 		document.getElementById('a_wert').innerHTML=lang_einh_imperial;	
 dm_hk_mass.innerHTML='in';	
-dm_sa_mass.innerHTML='mm';
+dm_sa_mass.innerHTML='in';
 snl_sa_mass.innerHTML='ft';
 
 

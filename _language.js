@@ -43,6 +43,7 @@ var sprache_global = {
 	'Wandstärke':'Wall thickness',
 	'Länge':'Length',
 	'Berechnen':'calculate',
+	'Sanierungslänge Seitenanschluss':'Rehabilitation length lateral pipe',
 	'Metrisch':'metric',
     'Imperial':'imperial',
 	'für Trelleborg MtH Liner':'for Trelleborg MtH Liner',
