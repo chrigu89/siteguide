@@ -449,15 +449,32 @@ drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältic
 document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
 		
 
+console.log('komp_b_liter: '+komp_b_liter);
+console.log('haerter_gew: '+haerter_gew);
+console.log('komp_a_liter: '+komp_a_liter);
+console.log('harz_sys_dichte: '+harz_sys_dichte);
+console.log('harz_gew: '+harz_gew);
+
+
 
 
 ausw_menge_hartz=Math.ceil(harz_gew/hartz_systeme_mengen[resign_type][0]['gewicht']);
 ausw_menge_haerter=Math.ceil(haerter_gew/hartz_systeme_mengen['haerter'][0]['gewicht']);
+
+
+
+resign_type_imperial_lbs='';
+hardener_type_imperial_lbs='';
+if(masse=='imperial'){	
+resign_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen[resign_type][0]['imperial_lbs']+')</span>';
+hardener_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen['haerter'][0]['imperial_lbs']+')</span>';
+}
+
 if(en){
 document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
                     +'<tr>'
 					+'<td align="left" >'+ausw_menge_hartz+' x Resin:</td>'
-					+'<td align="right" ><nobr>'+hartz_systeme_mengen[resign_type][0]['beschr']+'</nobr></td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[resign_type][0]['beschr']+resign_type_imperial_lbs+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td align="left">Item No.:</td>'
@@ -467,7 +484,7 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><tabl
 					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
 					+'</tr>'
 					+'<td align="left">'+ausw_menge_haerter+' x Harder:</td>'
-					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['beschr']+'</nobr></td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['beschr']+hardener_type_imperial_lbs+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td align="left">Item No.: </td>'

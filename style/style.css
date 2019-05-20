@@ -1858,6 +1858,12 @@ form[name="dp_bestellform"] button[type="submit"].active{
 .rechner_verlauf .menu,.user_profil .menu, .kontakt .menu{
 	display:block !important;
 }
+
+.produkt_imperial_lbs{
+	padding-left:5px;
+
+	
+}
  @media (max-width: 900px) {
 .lcr_b #eingaben_anz_tb td {
 	vertical-align: top !important;
@@ -1876,7 +1882,14 @@ form[name="dp_bestellform"] button[type="submit"].active{
 		white-space: pre-wrap;
 	}	 
  }
+  @media (max-width: 550px) {
+.produkt_imperial_lbs{
+	display:block;
+	padding:0;
 
+	
+}
+  }
  @media (max-width: 434px) {
 .calc_ausw {
 

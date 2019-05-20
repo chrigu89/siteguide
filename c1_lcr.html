@@ -131,7 +131,7 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
     <div class="txt" style="padding-top:20px;">
       <div id="eingaben_anz">
         <h2>
-          <bdo>Ihre Eingaben</bdo>:</h2>
+          <bdo>Ihre Eingaben</bdo></h2>
         <table id="eingaben_anz_tb" width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td><bdo>Linertyp</bdo>:</td>
@@ -158,7 +158,7 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
       </div>
       <div id="harz_total">
         <h2>
-          <bdo>Resultierendes Gesamtvolumen</bdo>:</h2>
+          <bdo>Resultierendes Gesamtvolumen</bdo></h2>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="left" valign="middle" width="50%" rowspan="2"><bdo>Harzgemisch Total</bdo>:</td>
@@ -171,46 +171,76 @@ verlauf_name='Trelleborg LCR Verfahren<span class="sma"> Stutzen- und Abzweigsan
       </div>
       <div id="harz_volumen">
         <h2>
-          <bdo>Volumen</bdo>:</h2>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <bdo>Volumen</bdo></h2>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="silicat">
           <tr>
-            <td align="left" valign="middle" class="pr_"><bdo>Komponente</bdo>
-              A <span id="harz_haerter_txt_a"></span>: </td>
-            <td align="left" valign="middle" ></td>
-            <td align="right" valign="middle" id=""><span id="harz_l"></span> <span class="w30_vol">Liter</span></td>
+          <td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
+            <td align="left" valign="middle"><bdo>Komponente</bdo> B  <br><span class="kompnente_a"></span> </td>
+            <td align="right" valign="middle" id=""><span class="harz_l"></span> <span class="w30_vol">Liter</span></td>
           </tr>
           <tr>
-            <td align="left" valign="middle" class="pr_"><bdo>Komponente</bdo>
-              B<span id="harz_haerter_txt_b"></span>: </td>
-            <td align="left" valign="middle"></td>
-            <td align="right" valign="middle" width="50%" id=""><span id="haerter_l"></span> <span class="w30_vol">Liter</span></td>
+          <td align="left" valign="middle" class="pr_"><bdo >Härter</bdo>: </td>
+            <td align="left" valign="middle"><bdo>Komponente</bdo> A<span id="harz_haerter_txt_b"></span><br>
+                        <span class="kompnente_b"><bdo>Wasserglas</bdo></span></td>
+            <td align="right" valign="middle" width="50%" id=""><span class="haerter_l"></span> <span class="w30_vol">Liter</span></td>
+          </tr>
+        </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="epoxy">
+          <tr>
+           <td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
+            <td align="left" valign="middle"><bdo>Komponente</bdo> A <span id="harz_haerter_txt_a"></span> </td>
+            
+            <td align="right" valign="middle" id=""><span class="harz_l"></span> <span class="w30_vol">Liter</span></td>
+          </tr>
+          <tr>
+        <td align="left" valign="middle" class="pr_"><bdo >Härter</bdo>: </td>
+            <td align="left" valign="middle" ><bdo>Komponente</bdo> B<span id="harz_haerter_txt_b"></span> </td>
+            
+            <td align="right" valign="middle" width="50%" id=""><span class="haerter_l"></span> <span class="w30_vol">Liter</span></td>
           </tr>
         </table>
       </div>
-      <div id="zuschnitte_anz">
-        <div class="berechnen_btn" id="komponenten_anfr">
-          <bdo>Komponenten anfragen</bdo>
-        </div>
-        <div id="zusch_d"> 
-                 		<div id="harz_gewicht">
+      	<div id="harz_gewicht">
 				<h2><bdo>Gewicht</bdo></h2>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="silicat">
+					<tr>
+						<td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
+						<td align="left" valign="middle" ><bdo>Komponente</bdo> B <br>
+                        <span class="kompnente_a"></span>
+                        </td>
+						<td align="right" valign="middle" id=""><span class="harz_gew"></span> <span class="w30_gew">Kg</span></td>
+					</tr>
+					<tr>
+						<td align="left" valign="middle" class="pr_"><bdo >Härter</bdo>: </td>
+						<td align="left" valign="middle"> <bdo>Komponente</bdo> A <br>
+                        <span class="kompnente_b"><bdo>Wasserglas</bdo></span>
+                        </td>
+						<td align="right" valign="middle" width="50%" id=""><span class="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
+					</tr>
+				</table>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="epoxy">
 					<tr>
 						<td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
 						<td align="left" valign="middle" ><bdo>Komponente</bdo> A <br>
                         <span class="kompnente_a"></span>
                         </td>
-						<td align="right" valign="middle" id=""><span id="harz_gew"></span> <span class="w30_gew">Kg</span></td>
+						<td align="right" valign="middle" id=""><span class="harz_gew"></span> <span class="w30_gew">Kg</span></td>
 					</tr>
 					<tr>
-						<td align="left" valign="middle" class="pr_"><bdo>Härter</bdo>: </td>
+						<td align="left" valign="middle" class="pr_"><bdo >Härter</bdo>: </td>
 						<td align="left" valign="middle"> <bdo>Komponente</bdo> B <br>
-                        <span class="kompnente_b"><bdo>Wasserglas</bdo></span>
+                        
                         </td>
-						<td align="right" valign="middle" width="50%" id=""><span id="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
+						<td align="right" valign="middle" width="50%" id=""><span class="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
 					</tr>
 				</table>
 			</div>
+      <div id="zuschnitte_anz">
+        <div class="berechnen_btn" id="komponenten_anfr">
+          <bdo>Komponenten anfragen</bdo>
+        </div>
+        <div id="zusch_d"> 
+                 	
           <div id="produkte_verwenden"></div>
           <!--Bestellformular -->
           
