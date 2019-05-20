@@ -90,7 +90,7 @@ var sprache_global = {
 	'Sanierungsl. Seitenanschluss':'Rehabilitation length LCP',
 	'Bitte beachten Sie das Datenblatt des verwendeten MtH-Liners sowie des verwendeten Harzsystems!':'Please read the technical data sheets for the MtH-liner and resin systems in use!',
 	'<br>Dies ist kein gültiger Wert! <br>Bitte geben Sie eine gültige Zahl ein.':'<br>This is not a valid value! <br>Please enter a valid number.',
-	'':'',
+	'Liter':'liter',
 	'':'',
 	'':'',
 	'':'',

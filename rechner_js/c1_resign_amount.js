@@ -152,8 +152,21 @@ document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs(ges_gewic
 document.getElementById('harz_l').innerHTML=masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(4);
 document.getElementById('haerter_l').innerHTML=masse_umrechnen.liter_zu_gallon((ges_volumen-vol_harz)).toFixed(4);
 
+
+
+
+/*
 document.getElementById('harz_gew').innerHTML=masse_umrechnen.kg_zu_lbs(gew_harz).toFixed(4);
 document.getElementById('haerter_gew').innerHTML=masse_umrechnen.kg_zu_lbs((ges_gewicht-gew_harz)).toFixed(4);
+*/
+
+
+$(".harz_gew_td").html(gew_harz.toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs(gew_harz).toFixed(2)+'lbs)');
+$(".haerter_gew_td").html((ges_gewicht-gew_harz).toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs((ges_gewicht-gew_harz)).toFixed(2)+'lbs)');
+
+
+
+
 
 document.getElementsByClassName('kompnente_a')[0].innerHTML=hartzsys+' A';
 document.getElementsByClassName('kompnente_a')[1].innerHTML=hartzsys+' A';
@@ -192,7 +205,7 @@ ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0][
 drum='';
 if(gew_harz >= 200 || gew_haerter >= 200){	
 
-drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältlich.')+'</div>';
 	
 }
 

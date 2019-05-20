@@ -131,7 +131,7 @@ ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0][
 drum='';
 if(gew_harz >= 200 || gew_haerter >= 200){	
 
-drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältlich.')+'</div>';
 	
 }
 resign_type_imperial_lbs='';
@@ -322,19 +322,17 @@ hartz_sys = document.getElementById('sel2').value;
 //hartzsys=document.getElementById('sel1').value;
 function selekt_change() {
 
-    masse_tst = document.getElementById('sel').value;
-    if (masse != masse_tst) {
-
-        masse = masse_tst;
-        neue_masse_ausgewaehlt(masse_tst);
-    }
-	    hartz_sys_tst = document.getElementById('sel2').value;
-	    if (hartz_sys != hartz_sys_tst) {
-
-        hartz_sys = hartz_sys_tst;
-       document.getElementById('a_wert_h').innerHTML = hartz_sys;
-harzsystem_name = hartz_sys
-    }
+	masse_tst = document.getElementById('sel').value;
+	if (masse != masse_tst) {
+		masse = masse_tst;
+		neue_masse_ausgewaehlt(masse_tst);
+	}
+	hartz_sys_tst = document.getElementById('sel2').value;
+	if (hartz_sys != hartz_sys_tst) {
+		hartz_sys = hartz_sys_tst;
+		document.getElementById('a_wert_h').innerHTML = hartz_sys;
+		harzsystem_name = hartz_sys
+	}
 
     i = i + 1;
     durchmesser_hauptkanal_l = document.mth_liner_basic_calc.durchmesser_hauptkanal.value.length;

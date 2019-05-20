@@ -46,16 +46,16 @@ verlauf_name='Trelleborg Kurzliner Verfahren<span class="sma">Kurzliner Reparatu
   <div class="werte_eingaben">
     <div class="txt mth_liner_basic_calc">
       <form name="dp_calc" action="" method="post" class="eingabe_form">
-        <div class="auswahl" id="mth_einheiten"> <span class="a_label">
-          <bdo>Einheit</bdo>
-          </span> <span id="a_wert">
+          <!--Select -->
+        <div class="auswahl" id="mth_einheiten"> <span id="a_label">Einheiten</span> <a class="alert_" rel="Sie haben die Wahl zwischen metrischen(mm, kg, Liter) Einheiten oder Imperialen(in, lbs, Gallonen)" data-en="You have the choice between metric (mm, kg, liter) or imperial units (in, pounds, gallons)"></a> <span id="a_wert">
           <bdo>Metrisch</bdo>
           </span>
-          <select id="sel" name="einheiten"  tabindex="1" disabled>
+          <select id="sel" name="einheiten"  tabindex="1">
             <option value="Metrisch">Metrisch</option>
             <option value="imperial">Imperial</option>
           </select>
         </div>
+        <!--Select --> 
         <div class="auswahl" id="harz_sys_fest"> <span class="a_label">Harzsystem</span> <a class="alert_" rel="Dieses Harzsystem ist vorgegeben."  data-en="This resin system is given." ></a> <span id="a_wert_2_f">Type W01 / W1 / S</span> </div>
         <div class="auswahl" id="harz_sys"> <span class="a_label">
           <bdo>Harzsystem</bdo>
@@ -81,7 +81,7 @@ verlauf_name='Trelleborg Kurzliner Verfahren<span class="sma">Kurzliner Reparatu
         <div class="eing dm_rohr">
           <div class="e_label">
             <bdo>Rohrdurchmesser</bdo>
-            <a class="alert_" rel="Bitte geben Sie den Durchmesser der zu reparierenden Abwasserleitung in mm ein. Der Durchmesser kann zwischen 100mm und 1400mm sein." data-en="Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (56in)."></a> </div>
+            <a class="alert_" rel="Bitte geben Sie den Durchmesser der zu reparierenden Abwasserleitung ein. Der Durchmesser kann zwischen 100mm (4in) und 1400mm (55in) sein." data-en="Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (55in)."></a> </div>
           <div class="eing_dp">
             <input id="durchmesser_rohr" name="durchmesser_rohr" type="text" tabindex="3">
             <span  class="mass">mm</span></div>
@@ -193,14 +193,14 @@ verlauf_name='Trelleborg Kurzliner Verfahren<span class="sma">Kurzliner Reparatu
                   <span class="kompnente_a">
                   <bdo>Wasserglas</bdo>
                   </span></td>
-                <td align="right" valign="middle" id=""><span id="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
+                <td align="right" valign="middle" class="haerter_gew_td"><span id="haerter_gew"></span> <span class="w30_gew">Kg</span></td>
               </tr>
               <tr>
                 <td align="left" valign="middle" class="pr_"><bdo>Harz</bdo>: </td>
                 <td align="left" valign="middle"><bdo>Komponente</bdo>
                   B <br>
                   <span class="kompnente_b"></span></td>
-                <td align="right" valign="middle" width="50%" id=""><span id="harz_gew"></span> <span class="w30_gew">Kg</span></td>
+                <td align="right" valign="middle" width="50%" class="harz_gew_td"><span id="harz_gew"></span> <span class="w30_gew">Kg</span></td>
               </tr>
             </table>
           </div>

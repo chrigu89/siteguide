@@ -251,6 +251,20 @@ zusatzl_erklaerung_td=zusatzl_erklaerung_td1400;
 	reperatur_lange_valdurch_1000=reperatur_lange_val/1000;
 	
 	
+if(masse=="Metrisch" || masse=="metric"){
+
+	dm_rohr_val_anz=dm_rohr_val+' mm';
+	reperatur_lange_valdurch_1000_anz=reperatur_lange_valdurch_1000+' ft';
+		reperatur_lange_valdurch_1000_anz=parseFloat(koma_ers(zahl_pruefen('reperatur_l')))+' m';
+	
+}else if(masse=="imperial" || masse=="Imperial"){
+	
+	
+	dm_rohr_val_anz= parseFloat(koma_ers(zahl_pruefen('durchmesser_rohr')))+' in';
+	//reperatur_lange_valdurch_1000_anz=masse_umrechnen.m_zu_ft(reperatur_lange_valdurch_1000)+' ft';
+	
+	reperatur_lange_valdurch_1000_anz=parseFloat(koma_ers(zahl_pruefen('reperatur_l')))+' ft';
+}
 	
 if(en){
 		document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
@@ -259,11 +273,11 @@ if(en){
 					+'</tr>'
 					+'<tr>'
 					+'<td>Pipe diameter: </td>'
-					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val+' mm</nobr></td>'
+					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td>Repair length: </td>'
-					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000+' m</nobr></td>'
+					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'</tr>'
@@ -278,11 +292,11 @@ document.getElementById('eingaben_anz_tb').innerHTML ='<tr>'
 					+'</tr>'
 					+'<tr>'
 					+'<td>Rohrdurchmesser: </td>'
-					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val+' mm</nobr></td>'
+					+'<td align="right" id="aa2"><nobr>'+dm_rohr_val_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td>Reparaturlänge: </td>'
-					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000+' m</nobr></td>'
+					+'<td align="right"><nobr>'+reperatur_lange_valdurch_1000_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'</tr>'
@@ -330,13 +344,22 @@ c1_console_log('gesamtflaeche:'+(gesamtflaeche));
 */
 reperatur_lange_val_meter_z=(reperatur_lange_val_meter/2);
 
-
+if(masse=="Metrisch" || masse=="metric"){
+cutting_size_anz=((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m';
+blank_size_anz=(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m';	
+}else if(masse=="imperial" || masse=="Imperial"){
+	
+cutting_size_anz=masse_umrechnen.m_zu_ft(((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01)).toFixed(2)+' ft x '+ masse_umrechnen.m_zu_ft(dm_rohr_umfang).toFixed(2)+' ft';
+blank_size_anz=masse_umrechnen.m_zu_ft((parseFloat(reperatur_lange_val_meter_z)*2)).toFixed(2)+' ft x '+ masse_umrechnen.m_zu_ft(dm_rohr_umfang).toFixed(2)+' ft';		
+	
+}
+	
 
 if(en){
 	
 	 st_r1='<tr>'
 					+'<td align="left">Cutting size <br>Fiber Glass Mat:</td>'
-					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
+					+'<td align="right"><nobr>'+cutting_size_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>';
 					st_r2='';
@@ -344,7 +367,7 @@ if(en){
 					if(parseFloat(zusatzlagen_val)>0){
 			
 					st_r2='<td align="left">Blank size <br> per additional layer: </td>';
-					st_r2+='<td align="right"><nobr>'+(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
+					st_r2+='<td align="right"><nobr>'+blank_size_anz+'</nobr></td>'
 					+'</tr>';
 					}
 					
@@ -365,7 +388,7 @@ if(en){
 	//deutsch
                     st_r1='<tr>'
 					+'<td align="left">Zuschnittsgröße:</td>'
-					+'<td align="right"><nobr>'+((parseFloat(reperatur_lange_val_meter)*mattenfaktor)+0.01).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
+					+'<td align="right"><nobr>'+cutting_size_anz+'</nobr></td>'
 					+'</tr>'
 					+'<tr>';
 					st_r2='';
@@ -373,7 +396,7 @@ if(en){
 					if(parseFloat(zusatzlagen_val)>0){
 					st_r2='<td align="left">Zuschnittsgröße <br>pro Zusatzlage: </td>';
 					
-					st_r2+='<td align="right"><nobr>'+(parseFloat(reperatur_lange_val_meter_z)*2).toFixed(2)+' m x '+ dm_rohr_umfang.toFixed(2)+' m</nobr></td>'
+					st_r2+='<td align="right"><nobr>'+blank_size_anz+'</nobr></td>'
 					+'</tr>';
 					}
 					
@@ -411,11 +434,41 @@ if(en){
 			komp_a_liter = (komp_b_liter*2).toFixed(2);
 			ges_liter = (parseFloat(komp_a_liter)+parseFloat(komp_b_liter));	
 			
-			 document.getElementById('liter').innerHTML =ges_liter.toFixed(2);
-			 document.getElementById('gewicht').innerHTML =ges_liter.toFixed(2);
 			
-			 document.getElementById('harz_l').innerHTML =komp_a_liter;
-			 document.getElementById('haerter_l').innerHTML =komp_b_liter;
+				if(masse=="Metrisch" || masse=="metric"){
+					document.getElementById('liter').innerHTML =ges_liter.toFixed(2);
+				
+					document.getElementById('harz_l').innerHTML =komp_a_liter;
+					document.getElementById('haerter_l').innerHTML =komp_b_liter;
+					$(".w30_vol, .w30_gew, .w30 ").css({'width':'33px'});
+					if(en){
+					$(".w30_vol").html('liter');
+					$(".w30_gew").html('kg');	
+					}else{
+					$(".w30_vol").html('Liter');	
+					$(".w30_gew").html('kg');	
+					}
+
+				}else if(masse=="imperial" || masse=="Imperial"){
+	
+	                document.getElementById('liter').innerHTML =masse_umrechnen.liter_zu_gallon(ges_liter).toFixed(2);
+			
+					document.getElementById('harz_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_a_liter).toFixed(2);
+					document.getElementById('haerter_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_b_liter).toFixed(2);
+					
+					$(".w30_vol, .w30_gew, .w30 ").css({'width':'68px'});
+					
+					if(en){
+					$(".w30_vol").html('gallon');
+					$(".w30_gew").html('lbs');
+					}else{
+						$(".w30_vol").html('Gallonen');
+						$(".w30_gew").html('lbs');
+						
+					}
+					
+				}
+	
 		
 		
 		resign_type=$("#sel_5 option:selected").text();
@@ -436,17 +489,39 @@ if(en){
 
 haerter_gew= komp_b_liter * 1.54;
 harz_gew=komp_a_liter*harz_sys_dichte;
+drum='';
+	if(masse=="Metrisch" || masse=="metric"){
 document.getElementById('haerter_gew').innerHTML=haerter_gew.toFixed(2);
 document.getElementById('harz_gew').innerHTML=  harz_gew.toFixed(2);
-drum='';
+
 if(harz_gew >= 200 || haerter_gew >= 200){	
 
-drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg ist auch Fassware erhältich.')+'</div>';
+drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg (440lbs) ist auch Fassware erhältlich.')+'</div>';
 	
 }
 
+	}else if(masse=="imperial" || masse=="Imperial"){
 
-document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
+
+$(".haerter_gew_td").html(haerter_gew+'kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
+$(".harz_gew_td").html(harz_gew+'kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');	
+
+
+	if(harz_gew >= 200 || haerter_gew >= 200){	
+
+drum='<div>'+innerHTML_lang('With over 200kg (440lbs) also Fassware is available.')+'</div>';
+	
+}	
+	}
+
+
+
+			if(masse=="Metrisch" || masse=="metric"){
+				document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
+			}else if(masse=="imperial" || masse=="Imperial"){
+				document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs((haerter_gew+harz_gew)).toFixed(2);	
+			}
+
 		
 
 console.log('komp_b_liter: '+komp_b_liter);
@@ -465,7 +540,7 @@ ausw_menge_haerter=Math.ceil(haerter_gew/hartz_systeme_mengen['haerter'][0]['gew
 
 resign_type_imperial_lbs='';
 hardener_type_imperial_lbs='';
-if(masse=='imperial'){	
+if(masse=='imperial'|| en){	
 resign_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen[resign_type][0]['imperial_lbs']+')</span>';
 hardener_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen['haerter'][0]['imperial_lbs']+')</span>';
 }
@@ -499,7 +574,7 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Products</h2><tabl
 document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><table width="100%" border="0" cellspacing="0" cellpadding="0">'
                     +'<tr>'
 					+'<td align="left" >'+ausw_menge_hartz+' x Harz</td>'
-					+'<td align="right" ><nobr>'+hartz_systeme_mengen[resign_type][0]['beschr']+'</nobr></td>'
+					+'<td align="right" ><nobr>'+hartz_systeme_mengen[resign_type][0]['beschr']+resign_type_imperial_lbs+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td align="left">Art. Nr. </td>'
@@ -509,7 +584,7 @@ document.getElementById('produkte_verwenden').innerHTML ='<h2>Produkte</h2><tabl
 					+'<table width="100%" border="0" cellspacing="0" cellpadding="0">'
 					+'</tr>'
 					+'<td align="left">'+ausw_menge_haerter+' x Härter</td>'
-					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['beschr']+'</nobr></td>'
+					+'<td align="right"><nobr>'+hartz_systeme_mengen['haerter'][0]['beschr']+hardener_type_imperial_lbs+'</nobr></td>'
 					+'</tr>'
 					+'<tr>'
 					+'<td align="left">Art. Nr. </td>'
@@ -561,10 +636,32 @@ function zusatzl_erklaerung(zusatzl_erklaerung1400,zusatzl_erklaerung1050){
 
  
 }
+masse=document.getElementById('sel').value;
+function neue_masse_ausgewaehlt(val){
+
+	if(val=="Metrisch" || val=="metric"){
+	
+		document.getElementById('a_wert').innerHTML=lang_einh_metrisch;
+		//$(".dm_rohr .mass").css({"width":'33px'});
+		$(".dm_rohr .mass").html('mm');
+		$(".reperatur_laenge .mass").html('m');
+		
+	}else if(val=="imperial" || val=="Imperial"){
+		document.getElementById('a_wert').innerHTML=lang_einh_imperial;
+
+		//$(".dm_rohr .mass").css({"width":'33px'});
+		$(".dm_rohr .mass").html('in');	
+		$(".reperatur_laenge .mass").html('ft');
+	}
+	}
 
 //---------------------------------------------------------------------------------------------
 function selekt_change() {
-
+	masse_tst = document.getElementById('sel').value;
+	if (masse != masse_tst) {
+		masse = masse_tst;
+		neue_masse_ausgewaehlt(masse_tst);
+	}
 
 harz_sys_tst=document.getElementById('sel_5').value;
 hartzsys = harz_sys_tst;
@@ -666,8 +763,21 @@ zusatzl_erklaerung(zusatzl_erklaerung1400,zusatzl_erklaerung1050);
 dm_rohr_val_tst=parseFloat(koma_ers(zahl_pruefen('durchmesser_rohr')));
 if((dm_rohr_val!=dm_rohr_val_tst)){	
 zusatzlagen_set_selection=true;
-dm_rohr_val = dm_rohr_val_tst;
 
+
+
+
+if(masse=="imperial" || masse=="Imperial"){
+//console.log('dm_rohr_val_tst: '+dm_rohr_val_tst );
+	//console.log('dm_rohr_val: '+dm_rohr_val );
+
+	dm_rohr_val_tst=masse_umrechnen.in_zu_mm(dm_rohr_val_tst);
+dm_rohr_val = dm_rohr_val_tst;
+		
+}else{
+dm_rohr_val = dm_rohr_val_tst;	
+	
+}
 
 if((dm_rohr_val_tst>=100 && dm_rohr_val_tst<=1400)){
 onoff_rd=true;	
@@ -682,12 +792,29 @@ nutzl_schild();
 
 
 
+
 }
 reperatur_lange_val_tst=parseFloat(koma_ers(zahl_pruefen('reperatur_l')));
+
+
+if(masse=="imperial" || masse=="Imperial"){
+	
+	if(reperatur_lange_val !=  masse_umrechnen.ft_zu_m(reperatur_lange_val_tst)*1000){	
+//zusatzlagen_set_selection=true;
+reperatur_lange_val = masse_umrechnen.ft_zu_m(reperatur_lange_val_tst)*1000;
+	//console.log('masse_umrechnen.ft_zu_m(reperatur_lange_val_tst)*1000: '+masse_umrechnen.ft_zu_m(reperatur_lange_val_tst)*1000 );
+	//console.log('reperatur_lange_val: '+reperatur_lange_val );
+}
+	
+}else{
+	
+	
 if(reperatur_lange_val!=reperatur_lange_val_tst*1000){	
 //zusatzlagen_set_selection=true;
 reperatur_lange_val = reperatur_lange_val_tst*1000;
 
+}
+	
 }
 
 zusatzlagen_l_val_tst=parseFloat(koma_ers(zahl_pruefen('zusatzlagen_l')));
@@ -698,18 +825,18 @@ zusatzlagen_l_val = zusatzlagen_l_val_tst;
 //id="zusatzlagen_laenge_label">Länge der Zusatzlagen (Optional)
 if(dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
 	if(en){
-	  alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm and 1400mm.' );
+	  alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (55in).' );
 } else {
 	//deutsch
-  alert_ausgeben('Der Durchmesser überschreitet 1400mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
+  alert_ausgeben('Der Durchmesser überschreitet 1400mm. Der Durchmesser kann zwischen 100mm (4in) und 1400mm (55in) sein.' );
 }
   document.getElementById('durchmesser_rohr').focus();	
 }else if(dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
 if(en){
-		 alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm and 1400mm.' );
+		 alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (55in).' );
 } else {
 	//deutsch
-	 alert_ausgeben('Der Durchmesser ist kleiner als 100mm. Der Durchmesser kann zwischen 100mm und 1400mm sein.' );
+	 alert_ausgeben('Der Durchmesser ist kleiner als 100mm. Der Durchmesser kann zwischen 100mm (4in) und 1400mm (55in) sein.' );
 	 
 }
 	   document.getElementById('durchmesser_rohr').focus();

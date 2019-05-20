@@ -195,7 +195,7 @@ dk_mass='mm';
 ms_us='';
 index_dm_arr=0;
 index_dm_arr=document.getElementById('sel_3').value;
-if(masse=='imperial'){	
+if(masse=='imperial' || masse=="Imperial"){	
 ms_us='_us';
 dk_mass='in';
 index_dm_arr*=25;
@@ -303,13 +303,19 @@ ges_gewicht=(ges_volumen*dichtetabelle[hartzsys]['dichte_gem']).toFixed(2);
 gew_harz=(ges_gewicht/(dichtetabelle[hartzsys]['anteil_a_gew']+dichtetabelle[hartzsys]['anteil_b_gew'])*dichtetabelle[hartzsys]['anteil_a_gew']).toFixed(2);
 gew_haerter=(ges_gewicht/(dichtetabelle[hartzsys]['anteil_a_gew']+dichtetabelle[hartzsys]['anteil_b_gew'])*dichtetabelle[hartzsys]['anteil_b_gew']).toFixed(2);
 
+if(masse=='imperial' || masse=="Imperial"){
 
-document.getElementById('gewicht').innerHTML = ges_gewicht;
+	document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs(ges_gewicht).toFixed(3);	
 
+$(".haerter_gew_td").html(gew_haerter+'kg<br>('+masse_umrechnen.kg_zu_lbs(gew_haerter).toFixed(2)+'lbs)');
+$(".harz_gew_td").html(gew_harz+'kg<br>('+masse_umrechnen.kg_zu_lbs(gew_harz).toFixed(2)+'lbs)');		
+}else{
+
+document.getElementById('gewicht').innerHTML = ges_gewicht;	
+	
 $(".harz_gew").html(gew_harz);
-
 $(".haerter_gew").html(gew_haerter);	
-
+}
 ausw_menge_hartz=Math.ceil(gew_harz/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
 ausw_menge_haerter=Math.ceil(gew_haerter/hartz_systeme_mengen[hardener_type][0]['gewicht']);
 
@@ -326,10 +332,25 @@ komp_b_liter=LCR_harz_array[index_dm_arr]['Komponente_B_Liter'];
 
 haerter_gew= komp_b_liter * 1.54;
 harz_gew=komp_a_liter*harz_sys_dichte;
-$(".haerter_gew").html(haerter_gew.toFixed(2));
+
+
+
+if(masse=='imperial' || masse=="Imperial"){
+	
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');		
+	
+
+	document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs((haerter_gew+harz_gew)).toFixed(3);
+	
+}else{
+	$(".haerter_gew").html(haerter_gew.toFixed(2));
 $(".harz_gew").html(harz_gew.toFixed(2));
 
-document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
+
+document.getElementById('gewicht').innerHTML = (haerter_gew+harz_gew).toFixed(2);	
+	
+}
 	
 
 ausw_menge_hartz=Math.ceil(harz_gew/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
@@ -533,15 +554,36 @@ hartzsys=document.getElementById('a_wert_2').innerHTML;
 
 
 
-console.log('/ dichtetabelle_i1: '+dichtetabelle_i1);
-console.log('dichtetabelle: '+dichtetabelle[dichtetabelle_i1]['harz_sys_dichte'] + '/ hartzsys: '+dichtetabelle_i1);
+
 
 
 haerter_gew= LCR_harz_array[index_dm_arr]['Komponente_B_Liter'] * 1.54;
 harz_gew=LCR_harz_array[index_dm_arr]['Komponente_A_Liter']*dichtetabelle[dichtetabelle_i1]['harz_sys_dichte'];
+
+
+if(masse=='imperial' || masse=="Imperial"){
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');	
+}else{
 $(".haerter_gew").html(haerter_gew.toFixed(2));
 $(".harz_gew").html(harz_gew.toFixed(2));
-document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);		
+	
+}
+
+
+
+	
+
+if(masse=='imperial' || masse=="Imperial"){
+
+document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs((haerter_gew+harz_gew)).toFixed(3);	
+	
+}else{
+
+document.getElementById('gewicht').innerHTML=(haerter_gew+harz_gew).toFixed(2);	
+	
+}
+
 
 ausw_menge_hartz=Math.ceil(harz_gew/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
 ausw_menge_haerter=Math.ceil(haerter_gew/hartz_systeme_mengen['haerter'][0]['gewicht']);	
@@ -577,7 +619,7 @@ console.log('harz_sys_dichte: '+harz_sys_dichte);
 
 resign_type_imperial_lbs='';
 hardener_type_imperial_lbs='';
-if(masse=='imperial'){	
+if(masse=='imperial' || masse=="Imperial"){	
 resign_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['imperial_lbs']+')</span>';
 hardener_type_imperial_lbs='<span class="produkt_imperial_lbs">('+hartz_systeme_mengen[hardener_type][0]['imperial_lbs']+')</span>';
 }
@@ -642,7 +684,18 @@ $(".silicat").show();
 	
 }
 
-
+if(masse=='imperial' || masse=="Imperial"){
+	
+	console.log('lbs');
+$("#gewicht_td .w30_gew").html('lbs');
+$(".w30_vol").html('US.fl.oz.');
+	$(".w30_vol, .w30_gew, .w30").css({"width":'48px'});
+}else{
+		console.log('kg');
+	$("#gewicht_td .w30_gew").html('kg');
+$(".w30_vol").html(innerHTML_lang('Liter'));
+$(".w30_vol, .w30_gew, .w30").css({"width":'33px'});	
+}
 
 
  berechnen_animation();
@@ -736,21 +789,7 @@ $("w30_vol").css({'width': 33 });
 
 }
 
-for (var i = 0; i <= 2; i++){
-	//ausgabe.innerHTML =' '+i;
-	if(val=="Metrisch"){
-		$(".w30_vol, .w30_gew, .w30").css({"width":'33px'});	
-document.getElementsByClassName('w30_vol')[i].innerHTML="Liter";
-}else if(val=="imperial"){
-	$(".w30_vol, .w30_gew, .w30").css({"width":'48px'});	
 
-
-
-document.getElementsByClassName('w30_vol')[i].innerHTML="US.fl.oz."	
-}
-
-
-}
 
 }
 
