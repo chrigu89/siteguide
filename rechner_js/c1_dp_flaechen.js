@@ -451,10 +451,10 @@ if(en){
 
 				}else if(masse=="imperial" || masse=="Imperial"){
 	
-	                document.getElementById('liter').innerHTML =masse_umrechnen.liter_zu_gallon(ges_liter).toFixed(2);
+	                document.getElementById('liter').innerHTML =masse_umrechnen.liter_zu_gallon(ges_liter).toFixed(4);
 			
-					document.getElementById('harz_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_a_liter).toFixed(2);
-					document.getElementById('haerter_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_b_liter).toFixed(2);
+					document.getElementById('harz_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_a_liter).toFixed(4);
+					document.getElementById('haerter_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_b_liter).toFixed(4);
 					
 					$(".w30_vol, .w30_gew, .w30 ").css({'width':'68px'});
 					
@@ -503,8 +503,8 @@ drum='<div>'+innerHTML_lang('Bei Abnahme über 200kg (440lbs) ist auch Fassware 
 	}else if(masse=="imperial" || masse=="Imperial"){
 
 
-$(".haerter_gew_td").html(haerter_gew+'kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
-$(".harz_gew_td").html(harz_gew+'kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');	
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');	
 
 
 	if(harz_gew >= 200 || haerter_gew >= 200){	

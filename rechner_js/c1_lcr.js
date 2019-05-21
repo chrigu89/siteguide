@@ -307,8 +307,8 @@ if(masse=='imperial' || masse=="Imperial"){
 
 	document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs(ges_gewicht).toFixed(3);	
 
-$(".haerter_gew_td").html(gew_haerter+'kg<br>('+masse_umrechnen.kg_zu_lbs(gew_haerter).toFixed(2)+'lbs)');
-$(".harz_gew_td").html(gew_harz+'kg<br>('+masse_umrechnen.kg_zu_lbs(gew_harz).toFixed(2)+'lbs)');		
+$(".haerter_gew_td").html(gew_haerter+' kg<br>('+masse_umrechnen.kg_zu_lbs(gew_haerter).toFixed(2)+' lbs)');
+$(".harz_gew_td").html(gew_harz+' kg<br>('+masse_umrechnen.kg_zu_lbs(gew_harz).toFixed(2)+' lbs)');		
 }else{
 
 document.getElementById('gewicht').innerHTML = ges_gewicht;	
@@ -337,8 +337,8 @@ harz_gew=komp_a_liter*harz_sys_dichte;
 
 if(masse=='imperial' || masse=="Imperial"){
 	
-$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
-$(".harz_gew_td").html(harz_gew.toFixed(2)+'kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');		
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');		
 	
 
 	document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs((haerter_gew+harz_gew)).toFixed(3);
@@ -562,8 +562,8 @@ harz_gew=LCR_harz_array[index_dm_arr]['Komponente_A_Liter']*dichtetabelle[dichte
 
 
 if(masse=='imperial' || masse=="Imperial"){
-$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+'lbs)');
-$(".harz_gew_td").html(harz_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+'lbs)');	
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');	
 }else{
 $(".haerter_gew").html(haerter_gew.toFixed(2));
 $(".harz_gew").html(harz_gew.toFixed(2));

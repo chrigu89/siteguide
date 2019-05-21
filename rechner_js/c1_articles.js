@@ -183,7 +183,7 @@ hartz_systeme_mengen[dp_harze['HC120A'][dp_harze_index]][0]['imperial_lbs']='33,
 
 hartz_systeme_mengen['HC120B'] = new Array();
 hartz_systeme_mengen['HC120B'][0] = new Array();
-hartz_systeme_mengen['HC120B'][0]['beschr']=article_lang('EPROPOX HC120 B Härter: 4,95kg','EPROPOX HC120 B Hardener: 4,95kg <br>(10,91lbs)');
+hartz_systeme_mengen['HC120B'][0]['beschr']=article_lang('EPROPOX HC120 B Härter: 4,95kg','EPROPOX HC120 B Hardener: 4,95kg');
 hartz_systeme_mengen['HC120B'][0]['gewicht']=4.95;
 hartz_systeme_mengen['HC120B'][0]['art_nr']='231900';
 hartz_systeme_mengen['HC120B'][0]['imperial_lbs']='10,91lbs';
@@ -224,14 +224,14 @@ hartz_systeme_mengen['HC120Bp'][1]['imperial_lbs']='440,93lbs';
 /*HC2640-------------------------------------------------------*/
 hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]] = new Array();
 hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]][0] = new Array();
-hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]][0]['beschr']=article_lang('EPROPOX HC120 A Harz: 6kg','EPROPOX HC120 A Resin: 6kg <br>(13,23lbs)');
+hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]][0]['beschr']=article_lang('EPROPOX HC120 A Harz: 6kg','EPROPOX HC120 A Resin: 6kg');
 hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]][0]['gewicht']=6;
 hartz_systeme_mengen[dp_harze['HC2640A'][dp_harze_index]][0]['art_nr']='232256';
 
 
 hartz_systeme_mengen['HC2640B'] = new Array();
 hartz_systeme_mengen['HC2640B'][0] = new Array();
-hartz_systeme_mengen['HC2640B'][0]['beschr']=article_lang('HC120B Härter: 2kg', 'HC120B B Hardener: 2kg <br>(4,41lbs)');
+hartz_systeme_mengen['HC2640B'][0]['beschr']=article_lang('HC120B Härter: 2kg', 'HC120B B Hardener: 2kg');
 hartz_systeme_mengen['HC2640B'][0]['gewicht']=2;
 hartz_systeme_mengen['HC2640B'][0]['art_nr']='231953';
 
