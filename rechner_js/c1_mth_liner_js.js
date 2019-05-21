@@ -75,11 +75,11 @@ function erg_berechnet() {
 	$(".kompnente_a").html(harzsystem_name+ ' A');
 $(".kompnente_b").html(harzsystem_name+ ' B');
     
-        document.getElementById('liter').innerHTML = masse_umrechnen.liter_zu_gallon(ges_volumen).toFixed(4);
+        document.getElementById('liter').innerHTML = masse_umrechnen.liter_zu_gallon(ges_volumen).toFixed(2);
         document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs(ges_gewicht).toFixed(2);
 
-        document.getElementById('harz_l').innerHTML = masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(4);
-        document.getElementById('haerter_l').innerHTML = masse_umrechnen.liter_zu_gallon((ges_volumen - vol_harz)).toFixed(4);
+        document.getElementById('harz_l').innerHTML = masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(2);
+        document.getElementById('haerter_l').innerHTML = masse_umrechnen.liter_zu_gallon((ges_volumen - vol_harz)).toFixed(2);
 
       
 		

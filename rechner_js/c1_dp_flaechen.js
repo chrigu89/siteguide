@@ -451,12 +451,12 @@ if(en){
 
 				}else if(masse=="imperial" || masse=="Imperial"){
 	
-	                document.getElementById('liter').innerHTML =masse_umrechnen.liter_zu_gallon(ges_liter).toFixed(4);
+	                document.getElementById('liter').innerHTML =masse_umrechnen.liter_zu_gallon(ges_liter).toFixed(2);
 			
-					document.getElementById('harz_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_a_liter).toFixed(4);
-					document.getElementById('haerter_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_b_liter).toFixed(4);
+					document.getElementById('harz_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_a_liter).toFixed(2);
+					document.getElementById('haerter_l').innerHTML =masse_umrechnen.liter_zu_gallon(komp_b_liter).toFixed(2);
 					
-					$(".w30_vol, .w30_gew, .w30 ").css({'width':'68px'});
+					$(".w30_vol, .w30_gew, .w30 ").css({'width':'auto'});
 					
 					if(en){
 					$(".w30_vol").html('gallon');
@@ -654,7 +654,7 @@ function neue_masse_ausgewaehlt(val){
 		$(".reperatur_laenge .mass").html('ft');
 	}
 	}
-
+inp_focus_d_r =false;
 //---------------------------------------------------------------------------------------------
 function selekt_change() {
 	masse_tst = document.getElementById('sel').value;
@@ -823,23 +823,38 @@ if(zusatzlagen_l_val!=zusatzlagen_l_val_tst){
 zusatzlagen_l_val = zusatzlagen_l_val_tst;
 }
 //id="zusatzlagen_laenge_label">Länge der Zusatzlagen (Optional)
-if(dm_rohr_val>1400 && !inp_focus && dm_rohr_val!=0){
+
+if($('#durchmesser_rohr').hasClass('input_focus')){
+	
+   inp_focus_d_r =true;
+	
+}else{
+	
+	inp_focus_d_r =false;	
+	
+}
+if(dm_rohr_val>1400 && !inp_focus_d_r && dm_rohr_val!=0){
 	if(en){
 	  alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (55in).' );
 } else {
 	//deutsch
   alert_ausgeben('Der Durchmesser überschreitet 1400mm. Der Durchmesser kann zwischen 100mm (4in) und 1400mm (55in) sein.' );
 }
-  document.getElementById('durchmesser_rohr').focus();	
-}else if(dm_rohr_val<100 && !inp_focus && dm_rohr_val!=0){
+$('#durchmesser_rohr').val('');
+ $('#durchmesser_rohr').focus();
+  inp_focus_d_r =true;	
+}else if(dm_rohr_val<100 && !inp_focus_d_r && dm_rohr_val!=0){
 if(en){
 		 alert_ausgeben('Enter the diameter of the pipe to be repaired. Between 100mm (4in) and 1400mm (55in).' );
 } else {
 	//deutsch
 	 alert_ausgeben('Der Durchmesser ist kleiner als 100mm. Der Durchmesser kann zwischen 100mm (4in) und 1400mm (55in) sein.' );
 	 
-}
-	   document.getElementById('durchmesser_rohr').focus();
+} 
+$('#durchmesser_rohr').val('');
+$('#durchmesser_rohr').focus();
+	
+	   inp_focus_d_r =true;
 }
 
 

@@ -145,12 +145,12 @@ vol_haerter=gew_haerter/dichtetabelle[hartzsys]['dichte_b'];
 if (masse == 'imperial' || masse == 'Imperial') {
 	
 	
-	document.getElementById('liter').innerHTML=masse_umrechnen.liter_zu_gallon(ges_volumen).toFixed(4);
+	document.getElementById('liter').innerHTML=masse_umrechnen.liter_zu_gallon(ges_volumen).toFixed(2);
 document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs(ges_gewicht).toFixed(4);
 
 
-document.getElementById('harz_l').innerHTML=masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(4);
-document.getElementById('haerter_l').innerHTML=masse_umrechnen.liter_zu_gallon((ges_volumen-vol_harz)).toFixed(4);
+document.getElementById('harz_l').innerHTML=masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(2);
+document.getElementById('haerter_l').innerHTML=masse_umrechnen.liter_zu_gallon((ges_volumen-vol_harz)).toFixed(2);
 
 
 
@@ -327,7 +327,7 @@ dm_sa_mass.innerHTML='in';
 snl_sa_mass.innerHTML='ft';
 
 
-$(".w30_gew,.w30_vol,.w30").css({'width': 70 });
+$(".w30_gew,.w30_vol,.w30").css({'width': 'auto' });
 			
 }
 

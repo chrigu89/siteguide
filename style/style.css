@@ -1889,6 +1889,7 @@ form[name="dp_bestellform"] button[type="submit"].active{
 
 	
 }
+
   }
  @media (max-width: 434px) {
 .calc_ausw {
@@ -1903,7 +1904,9 @@ form[name="dp_bestellform"] button[type="submit"].active{
 	
 	font-size: 12px;
 }
-
+.w30_vol, .w30_gew{
+	width:44px !important;
+  }
 
 
  }

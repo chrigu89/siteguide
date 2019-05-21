@@ -689,7 +689,7 @@ if(masse=='imperial' || masse=="Imperial"){
 	console.log('lbs');
 $("#gewicht_td .w30_gew").html('lbs');
 $(".w30_vol").html('US.fl.oz.');
-	$(".w30_vol, .w30_gew, .w30").css({"width":'48px'});
+	$(".w30_vol, .w30_gew, .w30").css({"width":'auto'});
 }else{
 		console.log('kg');
 	$("#gewicht_td .w30_gew").html('kg');
