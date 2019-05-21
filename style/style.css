@@ -1165,6 +1165,21 @@ a.pdf {
 a.doc {
 	background-image: url(../images/icon/doc.png);
 }
+
+a.pdf.new_liner  {
+
+	background-size: 30px 30px;
+
+	display: block;
+
+	margin-bottom: 10px;
+	padding-bottom: 8px;
+	padding-left: 48px;
+	padding-top: 4px;
+
+	font-size: 12px;
+}
+
 #p_s_eingabe {
 	display: none;
 }
