@@ -97,7 +97,7 @@ Array.prototype.copy = function () {
   NeuerEintrag = new Option(val_, val_, false, true);
   if(val_ == Bitte_wählen_str){
 	
-	 NeuerEintrag = new Option( val_, "Bitte wählen", false, true); 
+	 NeuerEintrag = new Option( val_, Bitte_wählen_str, false, true); 
 	  
   }else{
 	  
@@ -122,7 +122,7 @@ function CheckAuswahl (nr_,id_) {
 /*
 duchm_dm_hinzufuegen (430);
  ClearOptions('sel_3'); 
- "Bitte wählen" 
+ Bitte_wählen_str 
   */
   function auw_LCR_B(){
 	  
@@ -163,7 +163,7 @@ duchm_dm_hinzufuegen (430);
 	 	 duchm_dm_hinzufuegen (250,'sel_3');
 		  	
 			 }else if(masse=="imperial"){
-	duchm_dm_hinzufuegen ("Bitte wählen",'sel_3'); 
+	duchm_dm_hinzufuegen (Bitte_wählen_str,'sel_3'); 
 	duchm_dm_hinzufuegen (4,'sel_3');
 	 duchm_dm_hinzufuegen (5,'sel_3');
 	 duchm_dm_hinzufuegen (6,'sel_3');
@@ -562,8 +562,8 @@ harz_gew=LCR_harz_array[index_dm_arr]['Komponente_A_Liter']*dichtetabelle[dichte
 
 
 if(masse=='imperial' || masse=="Imperial"){
-$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
-$(".harz_gew_td").html(harz_gew.toFixed(2)+'<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');	
+$(".haerter_gew_td").html(haerter_gew.toFixed(2)+'kg <br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
+$(".harz_gew_td").html(harz_gew.toFixed(2)+'kg <br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');	
 }else{
 $(".haerter_gew").html(haerter_gew.toFixed(2));
 $(".harz_gew").html(harz_gew.toFixed(2));
@@ -1091,7 +1091,18 @@ if(masse!=masse_tst){
 	masse=masse_tst;
 neue_masse_ausgewaehlt(masse_tst);	
 }
+if(en){
+	
+	if(document.getElementById('sel_1').value == "Bitte wählen" ){
+		liner_typ_tst=Bitte_wählen_str;	
+	}else{
+		liner_typ_tst=document.getElementById('sel_1').value;
+	}
+}else{
 liner_typ_tst=document.getElementById('sel_1').value;
+
+}
+
 if(liner_typ!=liner_typ_tst){
 		if(liner_typ_tst=="LCR-B (Hutmanschetten)" || liner_typ_tst=="LCR-B (hat profiles)"){
 		
@@ -1197,7 +1208,7 @@ dichtetabelle_i1='Trelleborg Harz Beschleuniger';
 	
 			resign_type='FC30A';
 	hardener_type='FC30B';
-	}else if(harz_sys=="Bitte wählen"){
+	}else if(harz_sys==Bitte_wählen_str){
 		
 		
 	}
@@ -1230,7 +1241,7 @@ i=i+1;
 
 if(liner_typ_tst=="LCR-B (Hutmanschetten)"||liner_typ_tst=="LCR-S (Hutmanschetten)" || liner_typ_tst=="LCR-B (hat profiles)"||liner_typ_tst=="LCR-S (hat profiles)"){
 
-if(harz_sys_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen" && reha_length!="Bitte wählen"){
+if(harz_sys_tst!=Bitte_wählen_str && liner_typ_tst!=Bitte_wählen_str && duchm_dm_tst!=Bitte_wählen_str && reha_length!=Bitte_wählen_str){
 	berechnen_go=true;
 	$("#berechnen").css({"color":'#ffffff'});	
 }else{
@@ -1241,7 +1252,7 @@ if(harz_sys_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_t
 
 }else if(liner_typ_tst=="LCR-Liner (für LCR-S und LCR-B)" || liner_typ_tst=="LCR-Liner (for LCR-S and LCR-B)"){
 	
-	if(hausanschll_dmt_tst!="Bitte wählen" && liner_typ_tst!="Bitte wählen" && duchm_dm_tst!="Bitte wählen" && harz_sys_tst!="Bitte wählen" ){
+	if(hausanschll_dmt_tst!=Bitte_wählen_str && liner_typ_tst!=Bitte_wählen_str && duchm_dm_tst!=Bitte_wählen_str && harz_sys_tst!=Bitte_wählen_str ){
 	berechnen_go=true;
 	$("#berechnen").css({"color":'#ffffff'});	
 }else{

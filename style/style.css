@@ -1906,15 +1906,7 @@ form[name="dp_bestellform"] button[type="submit"].active{
 }
 
   }
- @media (max-width: 434px) {
-.calc_ausw {
-
-	font-size: 14px;
-
-}
-
- }
- @media (max-width: 400px) {
+   @media (max-width: 500px) {
 #calc_b .werte_ergebnisse table td {
 	
 	font-size: 12px;
@@ -1923,6 +1915,15 @@ form[name="dp_bestellform"] button[type="submit"].active{
 	width:44px !important;
   }
 
+
+ }
+
+ @media (max-width: 434px) {
+.calc_ausw {
+
+	font-size: 14px;
+
+}
 
  }
 
