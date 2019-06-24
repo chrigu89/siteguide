@@ -169,7 +169,7 @@ duchm_dm_hinzufuegen (430);
 	 duchm_dm_hinzufuegen (6,'sel_3');
 	 duchm_dm_hinzufuegen (8,'sel_3');
 	 duchm_dm_hinzufuegen (9,'sel_3');
-	 	 duchm_dm_hinzufuegen (10,'sel_3'); 
+	 duchm_dm_hinzufuegen (10,'sel_3'); 
 			 }
 		 	 CheckAuswahl(0,'sel_3'); 
 			 
@@ -278,12 +278,12 @@ console.log('index_dm_arr / '+index_dm_arr+' / liter / '+LCR_harz_array[index_dm
 document.getElementById('liter').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'+ms_us].toFixed(2);
 //document.getElementById('gewicht').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];
 
-$(".harz_l").html(LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us].toFixed(2));
+$(".haerter_l").html(LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us].toFixed(2)+'');
 //document.getElementById('harz_l').innerHTML=LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us].toFixed(2);
 //document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];
 
 
-$(".haerter_l").html(LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2));
+$(".harz_l").html(LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2));
 
 //document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2);
 //document.getElementById('haerter_gew').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];	
@@ -313,7 +313,7 @@ $(".harz_gew_td").html(gew_harz+' kg<br>('+masse_umrechnen.kg_zu_lbs(gew_harz).t
 
 document.getElementById('gewicht').innerHTML = ges_gewicht;	
 	
-$(".harz_gew").html(gew_harz);
+$(".harz_gew").html(gew_harz );
 $(".haerter_gew").html(gew_haerter);	
 }
 ausw_menge_hartz=Math.ceil(gew_harz/hartz_systeme_mengen[dp_harze[resign_type][dp_harze_index]][0]['gewicht']);
@@ -337,15 +337,15 @@ harz_gew=komp_a_liter*harz_sys_dichte;
 
 if(masse=='imperial' || masse=="Imperial"){
 	
-$(".haerter_gew_td").html(haerter_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
-$(".harz_gew_td").html(harz_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');		
+$(".harz_gew_td").html(haerter_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(haerter_gew).toFixed(2)+' lbs)');
+$(".haerter_gew_td").html(harz_gew.toFixed(2)+' kg<br>('+masse_umrechnen.kg_zu_lbs(harz_gew).toFixed(2)+' lbs)');		
 	
 
 	document.getElementById('gewicht').innerHTML = masse_umrechnen.kg_zu_lbs((haerter_gew+harz_gew)).toFixed(3);
 	
 }else{
-	$(".haerter_gew").html(haerter_gew.toFixed(2));
-$(".harz_gew").html(harz_gew.toFixed(2));
+	$(".harz_gew").html(haerter_gew.toFixed(2));
+$(".haerter_gew").html(harz_gew.toFixed(2));
 
 
 document.getElementById('gewicht').innerHTML = (haerter_gew+harz_gew).toFixed(2);	
@@ -541,11 +541,11 @@ switch (hausanschl__) {
 document.getElementById('liter').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'+ms_us];
 //document.getElementById('gewicht').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];
 
-$(".harz_l").html(LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us].toFixed(2));
+$(".haerter_l").html(LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us].toFixed(2));
 //document.getElementById('harz_l').innerHTML=LCR_harz_array[index_dm_arr]['Komponente_A_Liter'+ms_us];
 //document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];
 
-$(".haerter_l").html(LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2));
+$(".harz_l").html(LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us].toFixed(2));
 
 //document.getElementById('haerter_l').innerHTML=LCR_harz_array[index_dm_arr]['Komponente_B_Liter'+ms_us];
 //document.getElementById('haerter_gew').innerHTML=LCR_harz_array[index_dm_arr]['Harzsystem_Liter'];	
@@ -557,8 +557,8 @@ hartzsys=document.getElementById('a_wert_2').innerHTML;
 
 
 
-haerter_gew= LCR_harz_array[index_dm_arr]['Komponente_B_Liter'] * 1.54;
-harz_gew=LCR_harz_array[index_dm_arr]['Komponente_A_Liter']*dichtetabelle[dichtetabelle_i1]['harz_sys_dichte'];
+harz_gew= LCR_harz_array[index_dm_arr]['Komponente_B_Liter'] * 1.54;
+haerter_gew=LCR_harz_array[index_dm_arr]['Komponente_A_Liter']*dichtetabelle[dichtetabelle_i1]['harz_sys_dichte'];
 
 
 if(masse=='imperial' || masse=="Imperial"){
