@@ -263,7 +263,7 @@ function neue_masse_ausgewaehlt(val) {
             document.getElementsByClassName('w30_vol')[i].innerHTML = "Liter";
         } else if (val == "imperial") {
             document.getElementsByClassName('w30_gew')[i].innerHTML = "lbs";
-            document.getElementsByClassName('w30_vol')[i].innerHTML = "gallon"
+            document.getElementsByClassName('w30_vol')[i].innerHTML = "gallons"
         }
 
 

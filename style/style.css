@@ -739,7 +739,7 @@ button.berechnen_btn {
 }
 .w30_vol, .w30_gew, .w30 {
 	display: inline-block;
-	width: 33px;
+	width: 50px;
 	text-align: left;
 }
 .w30.Metrisch {

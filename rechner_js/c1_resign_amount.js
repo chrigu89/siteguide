@@ -123,7 +123,9 @@ if(liner_tst=="Trelleborg HybridLiner"){
 	};	
 }else{
 	if (masse == 'imperial' || masse == 'Imperial') {
-			ges_volumen=pi*(masse_umrechnen.in_zu_mm(dm_hk_val)/1000)*masse_umrechnen.in_zu_mm(dm_sa_val)*masse_umrechnen.ft_zu_m(snl_sa_val)*harzfaktor[liner];	
+			ges_volumen=pi*(dm_hk_val/1000)*masse_umrechnen.in_zu_mm(dm_sa_val)*masse_umrechnen.ft_zu_m(snl_sa_val)*harzfaktor[liner];	
+			
+			
 	}else{
 			ges_volumen=pi*(dm_hk_val/1000)*dm_sa_val*snl_sa_val*harzfaktor[liner];	
 	};
@@ -152,7 +154,14 @@ document.getElementById('gewicht').innerHTML=masse_umrechnen.kg_zu_lbs(ges_gewic
 document.getElementById('harz_l').innerHTML=masse_umrechnen.liter_zu_gallon(vol_harz).toFixed(2);
 document.getElementById('haerter_l').innerHTML=masse_umrechnen.liter_zu_gallon((ges_volumen-vol_harz)).toFixed(2);
 
-
+	if(en){
+					$(".w30_vol").html('gallons');
+					$(".w30_gew").html('lbs');
+					}else{
+						$(".w30_vol").html('Gallonen');
+						$(".w30_gew").html('lbs');
+						
+					}
 
 
 /*
