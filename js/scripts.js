@@ -197,6 +197,21 @@ $( "#ergebnisse" ).html('<br><div class="kont_links"><p class="mt0"><span class=
 		
 	};	
 	
+	    function feedb_btn() {
+		
+console.log('hhhhhhhhhhhhh feedb_btn');
+        var feedb_d = '';
+        for (var Eigenschaft in feedback_fragen) {
+            feedb_d += Eigenschaft + ":" + feedback_fragen[Eigenschaft] + '!*!';
+
+
+
+        }
+
+        document.f_form.feedback_daten.value = feedb_d;
+      //  document.f_form.submit();
+    };
+	
 	function neu_seite(url){
 /*
 	 $( "#load_" ).fadeIn( 300, 'easeOutQuart', function() {

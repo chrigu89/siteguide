@@ -75,14 +75,15 @@ $header .= "From: <".$sender.">". "\n";
 
 
 
-$empfaenger='cb@design-busse.de';
+//$empfaenger='cb@design-busse.de';
+
+$empfaenger='jm@design-busse.de';
 
 if(@mail($empfaenger, $betreff, $nachricht,$header)){
 echo '<h4>Vielen Dank für Ihr Feedback!</h4>';	
 //header("Location: kontakt-danke.php");
 }else{
-echo '<h4>Fehler beim Senden!</h4> <p>Gegebenenfalls besteht keine Internetverbindung. <br />Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</p>
-';
+echo '<h4>Fehler beim Senden!</h4> <p>Gegebenenfalls besteht keine Internetverbindung. <br />Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</p>';
 
 }
 

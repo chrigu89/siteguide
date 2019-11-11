@@ -57,6 +57,9 @@
     <div id="meldung"></div>
     <h4>Feedback</h4>
 		<h4 style="font-weight:normal;">Wie beurteilen Sie...</h4>
+        
+        <!--action="https://apps.apfel.gold/siteguide20/send/feedback_daten.php" -->
+        
 		<form name="f_form" id="feedback_form" action="https://apps.apfel.gold/siteguide20/send/feedback_daten.php" method="post" >
 		<input name="feedback_daten" type="hidden" value="">
 	
@@ -364,12 +367,16 @@ parent.seite_aktivieren('menu_zeigen');
 	
 
 		$(function(){
-			
+	
+	$( ".feed" ).mousedown(function() {
+  feedb_btn();
+});
+	
+	
 			$('#feedback_form').form({
-				
+			
 				success:function(data){
-					
-		
+				console.log('zzzzzzzzzzzzzzzz')
 					$( "#meldung" ).html( data );
 					$( "#meldung" ).show();
 					$( "#form_txt" ).html( '<br><br><br>' );

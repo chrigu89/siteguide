@@ -27,7 +27,6 @@
 				<div class="auswahl" id="mth_einheiten"> <span class="a_label"></span>  <span id="a_wert">Please Select</span>
 <select id="sel" name="einheiten"  tabindex="1">
 <option value="Please Select">Please Select</option>
-<option value="Americas">Americas</option>
 <option value="Asia-Pacific">Asia-Pacific</option>
 <option value="Australia">Australia</option>
 <option value="Europe">Europe</option>
@@ -64,7 +63,9 @@
 
 
 		$(function(){
-			
+				$( ".feed" ).mousedown(function() {
+  feedb_btn();
+});
 			$('#feedback_form').form({
 				
 				success:function(data){
@@ -287,22 +288,19 @@ $( ".zip_enter" ).fadeIn( 170, 'easeInQuart', function() {
 });	
 		
 	}
-		if(rel=='Americas'){
-		zip_input_id.value='';
-		zip_btn_akt();
-			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
- 			 
-$( "#ergebnisse" ).html('<!--<div class="kont_links"><p class="mt0"><span class="orange_txt">Tim Sparrow</span><br> Head of Sales Pipe Rehabilitation North America<br></p><p class="tel_nr"> <a href="tel:0018006262180">+1 800 626 2180 (toll-free)</a> </p><p class="mobile_nr"> <a href="tel:0016174555967">+1 (617) 455 5967</a> </p><p class="amail"> <a href="mailto:tim.sparrow@trelleborg.com">tim.sparrow@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts">   <img src="images/kontakt/Tim_Sparrow.jpg">         </div><div class="clr"></div><div class="kont_platz"></div>-->                                                                              <div class="kont_links"><p class="mt0"><span class="orange_txt">Mark Yanzo</span><br>North American Sales Manager – Pipe Rehabilitation <br></p><p class="tel_nr"> <a href="tel:0018006262180">+1 800 626 2180 (toll-free)</a> </p><p class="mobile_nr"> <a href="tel:0016036721352">+1 (603) 672 1352</a> </p><p class="amail"> <a href="mailto:mark.yanzo@trelleborg.com">mark.yanzo@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts">   <img src="images/kontakt/mark_yanzo.jpg">         </div><div class="clr"></div><div class="kont_platz"></div>');
-});		
-		ergebnisse_out_zeigen();	
-	}
+	
+joerg_garbe_apac='<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span> <br>Sales Manager <span lang="EN-US">APAC </span><br><span lang="EN-US">Certified Consultant for Rehabilitation of Sewer Systems</span></p><p class="tel_nr"> <a href="tel:+4917610037379"><span lang="EN-US">+49 176 10037379</span></a></p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>';	
+joerg_garbe_EMEA ='<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span> <br>Sales Manager <span lang="EN-US">EMEA </span><br><span lang="EN-US">Certified Consultant for Rehabilitation of Sewer Systems</span></p><p class="tel_nr"> <a href="tel:+4917610037379"><span lang="EN-US">+49 176 10037379</span></a></p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>';		
+	
+	
+
 	
 		if(rel=='Asia-Pacific'){
 		zip_input_id.value='';
 		zip_btn_akt();
 			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
 			 
-$( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Area Sales Manager Asia / Pacific / Middle East<br>Certified Consultant for Rehabilitation of Sewer Systems</p><p class="tel_nr"> <a href="tel:+6596575077">+65 965 750 77  </a>	</p><p class="amail"> <a href="mailto:jorg.garbe@trelleborg.com">jorg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
+$( "#ergebnisse" ).html(joerg_garbe_apac);
 });		
 		ergebnisse_out_zeigen();	
 	}
@@ -311,7 +309,7 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="ora
 		zip_btn_akt();
 			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
 				 
-$( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">SECA</span><br>Sewer Equipment Company  Australia</p><p class="">5/85 Alfred Road<br>Chipping Norton NSW 2170</p><p class="tel_nr"><a href="tel:0061297240433"> +61 2 9724 0433 </a> </p><p class="fax_nr"> +61 2 9724 0944</p></div><div class="kont_rechts"><img src="images/kontakt/australien.jpg"></div><div class="clr"></div><p class="web_a"> <a href="http://www.seca.com.au">www.seca.com.au</a></p><p class="amail"> <a href="mailto:mark@seca.com.au">mark@<span class="orange_txt">seca.com.au</span></a></p><div class="kont_platz"></div>');
+$( "#ergebnisse" ).html(joerg_garbe_apac+'<div class="kont_links"><p class="mt0"><span class="orange_txt">SECA</span><br>Sewer Equipment Company  Australia</p><p class="">5/85 Alfred Road<br>Chipping Norton NSW 2170</p><p class="tel_nr"><a href="tel:0061297240433"> +61 2 9724 0433 </a> </p><p class="fax_nr"> +61 2 9724 0944</p></div><div class="kont_rechts"><img src="images/kontakt/australien.jpg"></div><div class="clr"></div><p class="web_a"> <a href="http://www.seca.com.au">www.seca.com.au</a></p><p class="amail"> <a href="mailto:mark@seca.com.au">mark@<span class="orange_txt">seca.com.au</span></a></p><div class="kont_platz"></div>');
 });		
 		ergebnisse_out_zeigen();	
 	}
@@ -321,11 +319,9 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="ora
 		zip_btn_akt();
 			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
 				 
-$( "#ergebnisse" ).html('<div class="kont_links"><p><strong>Europe</strong></p><p class="mt0"><span class="orange_txt">Jörg Garbe </span><br>Area Sales Manager Europe<br></p><p class="mobile_nr"> <a href="tel:+4917610037379 ">+49 (0)176 1003 7379 </a> </p><p class="fax_nr"> +49(0)2065 999-111</p><p class="amail"> <a href="mailto:jörg.garbe@trelleborg.com">jörg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts">  <img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>'
-+'<div class="kont_links"><p class="mt0"><span class="orange_txt">Customer Service Team: </span><br><p class="tel_nr"> <a href="tel:00492065999200"> +49 2065 999 200</a> </p></div><div class="kont_rechts">         </div><div class="clr"></div><div class="kont_platz"></div>'
+$( "#ergebnisse" ).html(joerg_garbe_EMEA);
 
 
-);
 
 
 
@@ -338,8 +334,7 @@ $( "#ergebnisse" ).html('<div class="kont_links"><p><strong>Europe</strong></p><
 		zip_input_id.value='';
 		zip_btn_akt();
 			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
-				 
-$( "#ergebnisse" ).html('<div class="kont_links"><p class="mt0"><span class="orange_txt">Jörg Garbe</span><br>Area Sales Manager Asia / Pacific / Middle East<br>Certified Consultant for Rehabilitation of Sewer Systems</p><p class="tel_nr"><a href="tel:+6596575077">+65 965 750 77</a></p><p class="fax_nr"> +49(0)2065 999-111</p><p class="amail"> <a href="mailto:jörg.garbe@trelleborg.com">jörg.garbe@<span class="orange_txt">trelleborg.com</span></a></p></div><div class="kont_rechts"><img src="images/kontakt/de/JG_6x8_4c-web.jpg"></div><div class="clr"></div><div class="kont_platz"></div>');
+	$( "#ergebnisse" ).html(joerg_garbe_EMEA);			 
 });		
 	ergebnisse_out_zeigen();		
 	}
