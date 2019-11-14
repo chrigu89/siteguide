@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.1.2"
-		android-versionCode = "21122"
-		ios-CFBundleVersion = "2.1.2">
+		version   = "2.1.3"
+		android-versionCode = "21133"
+		ios-CFBundleVersion = "2.1.3">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>21122</string>
+		<string>21133</string>
 	</edit-config>
 
 		
@@ -136,6 +136,7 @@
 			<icon src="gfx/icons/ios/Icon-App-835x835@2x.png" width="167" height="167" />
 			<icon src="gfx/icons/ios/Icon-App-29x29@3x.png" width="87" height="87" />
 			<icon src="gfx/icons/ios/Icon-App-40x40@3x.png" width="120" height="120" />
+			<icon src="gfx/icons/ios/Icon-App-1024x1024.png" width="1024" height="1024" />
 		</platform>
 
 
