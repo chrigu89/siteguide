@@ -71,7 +71,7 @@
 
 
 	<!-- GENERAL -->
-		<preference name="phonegap-version" value="cli-7.0.1" /> 
+		<preference name="phonegap-version" value="cli-7.1.0" /> 
 		<preference name="orientation" value="default" /><!-- landscape, portrait, default (both) -->
 		<preference name="fullscreen" value="false" /><!-- true, false, supported for iOS6 and Android -->
 
@@ -136,9 +136,9 @@
 			<icon src="gfx/icons/ios/Icon-App-835x835@2x.png" width="167" height="167" />
 			<icon src="gfx/icons/ios/Icon-App-29x29@3x.png" width="87" height="87" />
 			<icon src="gfx/icons/ios/Icon-App-40x40@3x.png" width="120" height="120" />
-			<icon src="gfx/icons/ios/Icon-App-1024x1024.png" width="1024" height="1024" />
 		</platform>
 
+		<icon src="gfx/icons/ios/Icon-App-1024x1024.png" width="1024" height="1024" />
 
 		
 	
