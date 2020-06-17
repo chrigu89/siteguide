@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.2.3.8"
-		android-versionCode = "22038"
-		ios-CFBundleVersion = "2.2.3.8">
+		version   = "2.2.3.9"
+		android-versionCode = "22039"
+		ios-CFBundleVersion = "2.2.3.9">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>22038</string>
+		<string>22039</string>
 	</edit-config>
 
 		

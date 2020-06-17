@@ -76,7 +76,7 @@ function pdf(url) {
 			var file = showLink.replace("file://", "");
 			alert(file);
 			cordova.plugins.fileOpener2.open(
-				file,
+				showLink,
 				'application/pdf', {
 					error: function(errorObj) {
 						if(errorObj.status == 9) {
