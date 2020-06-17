@@ -39,11 +39,12 @@ function pdf(url) {
 		}
 		
 		url = 'https://apps.apfel.gold/siteguide20/' + url;		
-		alert(url);
+		alert('docs');
 	
 		var ref = window.open("https://docs.google.com/gview?embedded=true&url=" + "https://apps.apfel.gold/siteguide20/" + url, '_blank', 'location=yes,enableViewPortScale=yes');
+		// alert(url);
 		
-		var ref = window.open(url, '_system', 'location=yes,enableViewPortScale=yes');
+		// var ref = window.open(url, '_system', 'location=yes,enableViewPortScale=yes');
 	} else {
 		var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
 	}
