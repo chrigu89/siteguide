@@ -67,12 +67,12 @@ function pdf(url) {
 
         
 		alert("Der Download wird gestartet - bitte einen Moment Geduld");
-		downloadFile(url);
+		// downloadFile(url);
 		/* 
 		
 		FUNZT MIT CACHE FILES
 		
-			
+		*/
 			var showLink = cordova.file.externalCacheDirectory + url;
 			var file = showLink.replace("file://", "");
 			alert(file);
@@ -89,9 +89,6 @@ function pdf(url) {
 					success: function() { }
 				}
 			); 
-			
-		*/
-		
 		
 
         var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
@@ -104,7 +101,7 @@ function pdf(url) {
 
 function downloadFile(url){
 	
-	alert("downloadFile");
+	alert(url);
 	window.requestFileSystem(
 		LocalFileSystem.TEMPORARY, 0,
 		function onFileSystemSuccess(fileSystem) {
