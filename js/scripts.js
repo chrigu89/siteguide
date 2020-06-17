@@ -33,13 +33,17 @@ function external(url) {
 }
 
 function pdf(url) {
+	alert(navigator.userAgent.match(/(Android)/));
 	if (navigator.userAgent.match(/(Android)/)) {
 		if((url.substr(0, 2)) == "..") {
 			url = url.substr(3, 1000);
 		}
-	alert(url);
+		alert(url);
 		url = 'https://apps.apfel.gold/siteguide20/' + url;		
-	alert(url);
+		alert(url);
+	
+		// var ref = window.open("https://docs.google.com/gview?embedded=true&url=" + "https://apps.apfel.gold/siteguide20/" + url, '_blank', 'location=yes,enableViewPortScale=yes');
+		
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
 	} else {
 		var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
