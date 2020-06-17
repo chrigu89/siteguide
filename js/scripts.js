@@ -66,7 +66,7 @@ function pdf(url) {
         }
 
         
-		alert("Der Download wird gestartet - bitte einen Moment Geduld");
+		// alert("Der Download wird gestartet - bitte einen Moment Geduld");
 		// downloadFile(url);
 		/* 
 		
@@ -86,7 +86,10 @@ function pdf(url) {
 							alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
 						}
 					},
-					success: function() { }
+					success: function() {
+						alert('success');
+						
+					}
 				}
 			); 
 		
