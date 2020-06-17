@@ -9,10 +9,9 @@ if (document.location.protocol == "file:") {
 }
 		
 function onDeviceReady() {
-	alert('onDeviceReady');
     navigator.splashscreen.hide();
 
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);  // TEMPORARY oder PERSISTENT
+	window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, onFileSystemSuccess, onFail);  // TEMPORARY oder PERSISTENT
 
 
 }
