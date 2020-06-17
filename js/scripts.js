@@ -37,7 +37,9 @@ function pdf(url) {
 		if((url.substr(0, 2)) == "..") {
 			url = url.substr(3, 1000);
 		}
+	alert(url);
 		url = 'https://apps.apfel.gold/siteguide20/' + url;		
+	alert(url);
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
 	} else {
 		var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
