@@ -1,163 +1,217 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-		navigator.splashscreen.hide();
+    navigator.splashscreen.hide();
 
 
 }
+
 function koma_ers(wert) {
-		if(wert.indexOf(', ')>=0){
-	var tmp = new Array();
-		tmp=wert.split(', ');	
-		wert=tmp.join('.')
-	}
-	if(wert.indexOf(',')>=0){
-	var tmp = new Array();
-		tmp=wert.split(',');	
-		wert=tmp.join('.')
-	}
-	
-	return wert;
+    if (wert.indexOf(', ') >= 0) {
+        var tmp = new Array();
+        tmp = wert.split(', ');
+        wert = tmp.join('.')
+    }
+    if (wert.indexOf(',') >= 0) {
+        var tmp = new Array();
+        tmp = wert.split(',');
+        wert = tmp.join('.')
+    }
+
+    return wert;
 }
-	function getUrlVars() {
+
+function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         vars[key] = value;
     });
     return vars;
 }
- 
-function external(url) {	
-	console.log('onclick_external');
-	alert('onclick_external');
-    var ref = window.open(url, '_system', 'location=yes,enableViewPortScale=yes');
+
+function external(url) {
+    console.log('onclick_external');
+    var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
 }
 
 function pdf(url) {
-	if (navigator.userAgent.match(/(Android)/)) {
-		if((url.substr(0, 2)) == "..") {
-			url = url.substr(3, 1000);
-		}
+    if (navigator.userAgent.match(/(Android)/)) {
+        if ((url.substr(0, 2)) == "..") {
+            url = url.substr(3, 1000);
+        }
+
+        
+		alert("Der Download wird gestartet - bitte einen Moment Geduld");
+		downloadFile(url);
+		/* 
 		
-		url = 'https://apps.apfel.gold/siteguide20/' + url;		
-		alert('docs');
-	
-		alert(url);
+		FUNZT MIT CACHE FILES
 		
-		var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
-	} else {
-		var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
-	}
-	
+			
+			var showLink = cordova.file.externalCacheDirectory + url;
+			var file = showLink.replace("file://", "");
+			alert(file);
+			cordova.plugins.fileOpener2.open(
+				file,
+				'application/pdf', {
+					error: function(errorObj) {
+						if(errorObj.status == 9) {
+							alert('Sorry - Sie besitzen kein Programm, um PDF Dateien anzusehen.');
+						} else {
+							alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
+						}
+					},
+					success: function() { }
+				}
+			); 
+			
+		*/
+		
+		
+
+        var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
+    } else {
+        var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
+    }
+
 }
+
+
+function downloadFile(url){
+	window.requestFileSystem(
+		LocalFileSystem.TEMPORARY, 0,
+		function onFileSystemSuccess(fileSystem) {
+		fileSystem.root.getFile(
+			'index.html', {create: true, exclusive: false},
+			function gotFileEntry(fileEntry){
+				var sPath = fileEntry.toURL().replace("index.html","");
+				var fileTransfer = new FileTransfer();
+				fileEntry.remove();
+				fileTransfer.download(
+					"https://apps.apfel.gold/siteguide20/" + url,
+					sPath  + url,
+					function(theFile) {
+						showLink = theFile.toURI();
+						cordova.plugins.fileOpener2.open(
+							showLink,
+							'application/pdf', {
+								error: function(errorObj) {
+									if(errorObj.status == 9) {
+										alert('Sorry - Sie besitzen kein Programm, um PDF Dateien anzusehen.');
+									} else {
+										alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
+									}
+								},
+								success: function() { }
+							}
+						);
+					},
+					function(error) {
+						alert("Der Download ist fehlgeschlagen. Bitte überprüfe deine Internetverbindung.");
+					}
+				);
+			},
+		onFail);
+	},
+	onFail);
+}
+
+
 
 
 function verlaufStorage_getItem(name_) {
-	
-var t= window.sessionStorage.getItem(name_);
-	console.log(name_+' / '+ t)
-return t;	
+
+    var t = window.sessionStorage.getItem(name_);
+    console.log(name_ + ' / ' + t)
+    return t;
 }
-function verlaufStorage_setItem(name_, val ) {
-	console.log(name_+' / '+ val)
-	window.sessionStorage.getItem(name_, val);
-	var t= window.sessionStorage.getItem(name_);
-	console.log(name_+' /get/ '+ t)
-	
+
+function verlaufStorage_setItem(name_, val) {
+    console.log(name_ + ' / ' + val)
+    window.sessionStorage.getItem(name_, val);
+    var t = window.sessionStorage.getItem(name_);
+    console.log(name_ + ' /get/ ' + t)
+
 }
-/*Wenn die DropDowns Beim Firefox nicht funktionieren muss dieser Code deaktiviert werden
-function disableselect(e){
-    return false
-}
-function reEnable(){
-    return true
-}
-document.onselectstart=new Function ("return false")
-if (window.sidebar){
-    document.ontouchstart=disableselect
-	document.ontouchmove=disableselect
-	document.ontouchend=disableselect
-    document.onmousedown=disableselect
- }
- masse_umrechnen
--------------------------------------------------------------------------------------*/
+
+
 var masse_umrechnen = {
 
-    mm_zu_in: function (val) {
+    mm_zu_in: function(val) {
 
         re = 25.4;
         val = val / re;
         return val;
     },
-    m_zu_ft: function (val) {
+    m_zu_ft: function(val) {
         val = val / 0.30480;
         return val;
     },
-    liter_zu_gallon: function (val) {
+    liter_zu_gallon: function(val) {
         val = val / 3.785;
         return val;
     },
-    kg_zu_lbs: function (val) {
-       val = val * 2.20462262;
-		
+    kg_zu_lbs: function(val) {
+        val = val * 2.20462262;
+
 
         return val;
     },
 
 
-    in_zu_mm: function (val) {
+    in_zu_mm: function(val) {
         re = 25.4;
         val = val * re;
         return val;
     },
-    ft_zu_m: function (val) {
+    ft_zu_m: function(val) {
         val = val * 0.30480;
         return val;
     },
-    gallon_zu_liter: function (val) {
+    gallon_zu_liter: function(val) {
         val = val * 3.785;
         return val;
     },
-    lbs_zu_kg: function (val) {
+    lbs_zu_kg: function(val) {
         val = val / 0.45359237;
         return val;
     }
 }
 
-$(window).load(function() {
 
-/*
-ausgabe=document.getElementById('tra');
-ausgabe.innerHTML ='AUSGABE OK';
-	neue_masse_ausgewaehlt("Metrisch");	
-*/	
-})
-
-function NachOben () {
-  var y = 0;
-  var x = 0;
-  if (window.pageYOffset) {
-    y = window.pageYOffset;
-  } else if (document.body && document.body.scrollTop) {
-    y = document.body.scrollTop;
-  }
-  if (y > 0) {
-    window.scrollBy(-0, -10);
-    setTimeout("NachOben()", 5);
-  }
+function NachOben() {
+    var y = 0;
+    var x = 0;
+    if (window.pageYOffset) {
+        y = window.pageYOffset;
+    } else if (document.body && document.body.scrollTop) {
+        y = document.body.scrollTop;
+    }
+    if (y > 0) {
+        window.scrollBy(-0, -10);
+        setTimeout("NachOben()", 5);
+    }
 }
 
 $(window).ready(function() {
 
-$(".menu").css({"opacity":1});
-$("#content").css({"opacity":1});
-$(".content").css({"opacity":1});
-$(".txt").css({"opacity":1});
+    $(".menu").css({
+        "opacity": 1
+    });
+    $("#content").css({
+        "opacity": 1
+    });
+    $(".content").css({
+        "opacity": 1
+    });
+    $(".txt").css({
+        "opacity": 1
+    });
 
 
-$( "#load_" ).delay(350).fadeOut( 300, 'easeInQuart', function() {
-$( '#load_' ).removeClass( "loader_img" );
-});
+    $("#load_").delay(350).fadeOut(300, 'easeInQuart', function() {
+        $('#load_').removeClass("loader_img");
+    });
 
 
 
@@ -165,481 +219,399 @@ $( '#load_' ).removeClass( "loader_img" );
 
 
 
+function kontakt_land(rel) {
+    $("#ergebnisse").html('');
+
+    if (rel == 'de') {
+        $(".zip_enter").fadeIn(170, 'easeInQuart', function() {
+
+        });
+    }
+    if (rel == 'os') {
+        zip_input_id.value = '';
+        zip_btn_akt();
+        $(".zip_enter").fadeOut(170, 'easeInQuart', function() {
+
+            $("#ergebnisse").html('<br><div class="kont_links"><p class="mt0"><span class="orange_txt">Frank Grygowski</span><br>Dr.-Alfred Herrhausen-Allee 36<br>D- 47228 Duisburg</p><p class="tel_nr"> <a href="tel:017610037380">+49(0)176 100 37380</a> </p><p class="fax_nr"> +49(0)2065 999-111</p></div><div class="kont_rechts"><img src="images/kontakt/de/FG_4c-web_6x8.jpg"></div><div class="clr"></div><p class="amail"> <a href="mailto:frank.grygowski@trelleborg.com">frank.grygowski@<span class="orange_txt">trelleborg.com</span></a></p><div class="kont_platz"></div>');
+        });
+
+    }
+
+};
+
+function feedb_btn() {
+
+    var feedb_d = '';
+    for (var Eigenschaft in feedback_fragen) {
+        feedb_d += Eigenschaft + ":" + feedback_fragen[Eigenschaft] + '!*!';
 
 
-/**
-			$('#content').animate({
-          opacity:1
-        }, 500, 'swing', function() {
 
-			
-		
-		});	
-				$('.txt').animate({
-          opacity:1
-        }, 500, 'swing', function() {
+    }
 
-			
-		
-		});	
-	*/
-function kontakt_land(rel){
-	$( "#ergebnisse" ).html('');
-	
-	if(rel=='de'){
-$( ".zip_enter" ).fadeIn( 170, 'easeInQuart', function() {
+    document.f_form.feedback_daten.value = feedb_d;
+    //  document.f_form.submit();
+};
 
-});			
-	}
-	if(rel=='os'){
-		zip_input_id.value='';
-		zip_btn_akt();
-			 $( ".zip_enter" ).fadeOut( 170, 'easeInQuart', function() {
-				 
-$( "#ergebnisse" ).html('<br><div class="kont_links"><p class="mt0"><span class="orange_txt">Frank Grygowski</span><br>Dr.-Alfred Herrhausen-Allee 36<br>D- 47228 Duisburg</p><p class="tel_nr"> <a href="tel:017610037380">+49(0)176 100 37380</a> </p><p class="fax_nr"> +49(0)2065 999-111</p></div><div class="kont_rechts"><img src="images/kontakt/de/FG_4c-web_6x8.jpg"></div><div class="clr"></div><p class="amail"> <a href="mailto:frank.grygowski@trelleborg.com">frank.grygowski@<span class="orange_txt">trelleborg.com</span></a></p><div class="kont_platz"></div>');
-});		
-		
-	}	
-		
-	};	
-	
-	    function feedb_btn() {
-		
-console.log('hhhhhhhhhhhhh feedb_btn');
-        var feedb_d = '';
-        for (var Eigenschaft in feedback_fragen) {
-            feedb_d += Eigenschaft + ":" + feedback_fragen[Eigenschaft] + '!*!';
+function neu_seite(url) {
 
+    $('body').animate({
+        opacity: 0
+    }, 300, 'easeInQuart', function() {
+
+        window.location.href = url;
+
+    });
+
+}
+
+
+
+
+function men_display(nb) {
+
+    $(".menu").css({
+        'display': nb
+    });
+}
+
+feedback_fragen = new Object();
+
+
+function feedb_ausgabe() {
+
+
+
+
+}
+
+
+
+//LinkToutch--------------------------------------------------------------------------------------------
+bewegung = false;
+tatsch = false;
+var LinkToutch = {
+
+    elements: ['a'],
+    setup: function() {
+
+        for (j = 0; j < LinkToutch.elements.length + 1; j++) {
+
+
+            for (i = 0; i < document.getElementsByTagName(LinkToutch.elements[j]).length; i++) {
+
+                var el = document.getElementsByTagName(LinkToutch.elements[j])[i];
+                //console.log('setup '+el);
+                if (navigator.userAgent.indexOf("Firefox") != -1) {
+                    el.onmousedown = LinkToutch.touchstart;
+                    el.onmouseup = LinkToutch.touchend;
+                    el.onmousemove = LinkToutch.touchmove;
+                } else {
+                    el.ontouchstart = LinkToutch.touchstart;
+                    el.ontouchend = LinkToutch.touchend;
+                    el.ontouchmove = LinkToutch.touchmove;
+                }
+            }
+        }
+    },
+    feedback: function(f_id, f_rel) {
+
+        $('.feed[rel="' + f_rel + '"]').removeClass("f_active");
+        $('.feed[rel="' + f_rel + '"][id="' + f_id + '"]').addClass("f_active");
+
+
+        //'+f_id+'
+
+        feedback_fragen[f_rel] = f_id;
+        /*
+          for (var Eigenschaft in feedback_fragen)
+            document.write("<dd>" + Eigenschaft + ": " + feedback_fragen[Eigenschaft] + "<\/dd>");
+        */
+
+
+
+        if (f_rel == 'option_kundennummer') {
+
+            if (f_id == 'ja') {
+
+                $('#adresse_dp_bestellform').slideUp(300, 'easeInQuart', function() {
+                    $('#kundennummer_dp_bestellform').slideDown(300, 'easeInQuart', function() {
+                        kn_auswahl = 'ja';
+                        gesamtpruefung();
+                    });
+                });
+
+
+            } else {
+                $('#kundennummer_dp_bestellform').slideUp(300, 'easeInQuart', function() {
+                    $('#adresse_dp_bestellform').slideDown(300, 'easeInQuart', function() {
+                        kn_auswahl = 'nein';
+                        gesamtpruefung();
+                    });
+                });
+            }
 
 
         }
 
-        document.f_form.feedback_daten.value = feedb_d;
-      //  document.f_form.submit();
-    };
-	
-	function neu_seite(url){
-/*
-	 $( "#load_" ).fadeIn( 300, 'easeOutQuart', function() {
-	window.location.href=url;
-});
-
-*/
-
-				$('body').animate({
-          opacity:0
-        }, 300, 'easeInQuart', function() {
-
-			window.location.href=url;	
-		
-		});	
-		
-	}
-	
-	
 
 
 
+        if (f_rel == 'produkte_service') {
 
-function men_display(nb){
+            if (f_id == 'ja') {
+                $('#p_s_eingabe').slideDown(300, 'easeInQuart', function() {
 
-	$(".menu").css({'display': nb });	
-}
-		var onReady = function(){
-	
-	
-}
-	
+                });
+            } else {
+                $('#p_s_eingabe').slideUp(300, 'easeInQuart', function() {
 
-	
-	
-feedback_fragen = new Object();
+                });
+            }
+        }
+        if (f_rel == 'verb') {
+
+            if (f_id == 'ja') {
+                $('#verbesser_eing').slideDown(300, 'easeInQuart', function() {
+
+                });
+            } else {
+                $('#verbesser_eing').slideUp(300, 'easeInQuart', function() {
+
+                });
+            }
+        }
+
+    },
+    formssenden: function(f_name) {
+        var arr = new Array();
+        arr = f_name.split('#');
+        //document.getElementsByName(arr[1])[0].submit();		
+    },
+    alert_ausgeben: function(alert_txt) {
+        $('#load_').addClass("overlay");
+        $('#load_').addClass("alr");
+        $("#alert_txt").html(alert_txt);
 
 
-	  	function feedb_ausgabe(){
-	
+        toprt = xHeight / 2;
+        toprt = toprt - ($("#alert_fens").height() / 2);
+        $("#alert_fens").css({
+            'top': toprt + 'px'
+        });
 
+        $("#load_").fadeIn(170, 'easeInQuart', function() {
 
+        });
 
-}
-	
-	
+        $("#alert_fens").delay(70).fadeIn(170, 'easeInQuart', function() {
 
-	
-	
-	
-	
-	
-	
+        });
+    },
+    alert_schliessen: function() {
+        $("#load_").fadeOut(100, 'easeInQuart', function() {
 
-	
-	
-	
-	
-	
-	
-	
-	//LinkToutch--------------------------------------------------------------------------------------------
-	bewegung=false;
-	tatsch=false;
-	var LinkToutch = {
+        });
 
-	elements : ['a'],
-	setup : function(){
-		
-	for(j=0;j<LinkToutch.elements.length+1;j++){	
-	
-	
-	for(i=0;i<document.getElementsByTagName(LinkToutch.elements[j]).length;i++){
-	
-	var el = document.getElementsByTagName(LinkToutch.elements[j])[i];
-	//console.log('setup '+el);
-	if(navigator.userAgent.indexOf("Firefox") != -1){
-	el.onmousedown = LinkToutch.touchstart;
-	el.onmouseup = LinkToutch.touchend; 
-	el.onmousemove = LinkToutch.touchmove;	
-	}else{
-	el.ontouchstart = LinkToutch.touchstart;
-	el.ontouchend = LinkToutch.touchend; 
-	el.ontouchmove = LinkToutch.touchmove;
-	}
-	}
-	}
-	},
-		feedback : function(f_id,f_rel){
-		
-		$( '.feed[rel="'+f_rel+'"]' ).removeClass( "f_active" );
-		$( '.feed[rel="'+f_rel+'"][id="'+f_id+'"]' ).addClass( "f_active" );
-		
-		
-			//'+f_id+'
-			
-feedback_fragen[f_rel] = f_id;
-/*
-  for (var Eigenschaft in feedback_fragen)
-    document.write("<dd>" + Eigenschaft + ": " + feedback_fragen[Eigenschaft] + "<\/dd>");
-*/
+        $("#alert_fens").delay(50).fadeOut(100, 'easeInQuart', function() {
+            $('#load_').removeClass("overlay");
+            $('#load_').removeClass("alr");
+        });
+    },
+    touchstart: function() {
 
 
 
-if(f_rel=='option_kundennummer'){
+        $(this).addClass("a_hover");
 
-if(f_id=='ja'){
-	
-			 $( '#adresse_dp_bestellform' ).slideUp( 300, 'easeInQuart', function() {
-		 $( '#kundennummer_dp_bestellform' ).slideDown( 300, 'easeInQuart', function() {
-kn_auswahl=	'ja';
-gesamtpruefung();
-});
-});	
-	
+        bewegung = false;
 
-}else{
-			 $( '#kundennummer_dp_bestellform' ).slideUp( 300, 'easeInQuart', function() {
-		 $( '#adresse_dp_bestellform' ).slideDown( 300, 'easeInQuart', function() {
-kn_auswahl=	'nein';
-gesamtpruefung();
-});
-});	
-}
+    },
+    touchmove: function(event) {
+        //event.preventDefault();
 
 
-}
+        bewegung = true;
+
+        $(".a_hover").removeClass("a_hover");
+
+    },
+
+    touchend: function() {
 
 
 
+        $(this).removeClass("a_hover");
+
+
+        if (!bewegung) {
+            if (this.id == 'alert_btn') {
+                //window.location.href=this.rel;
+                LinkToutch.alert_schliessen();
+            } else if (this.className.indexOf("ansp") >= 0) {
+                kontakt_land(this.rel);
+
+
+            } else if (this.className.indexOf("feed") >= 0) {
+                //window.location.href=this.rel;
+                LinkToutch.feedback(this.id, this.rel);
+
+            } else if (this.id.indexOf('#') >= 0) {
+                LinkToutch.formssenden(this.id);
+            } else if (this.id == 'zip_btn') {
+                //id muss  alert_ sein rel ist der alert text
+                zip_btn_akt();
+            } else if (this.className.indexOf('alert_') >= 0) {
+                //id muss  alert_ sein rel ist der alert text
+
+                if (en) {
+                    LinkToutch.alert_ausgeben(this.getAttribute("data-en"));
+                } else {
+                    LinkToutch.alert_ausgeben(this.rel)
+
+                }
+            } else if (this.id == 'profil_save') {
+                kontaktdaten_speichern();
+                $("#ps_aktualisiert").fadeIn(200, function() {
+                    $("#ps_aktualisiert").delay(3000).fadeOut(300, function() {});
+                });
 
 
 
+            } else {
+                //window.location.href=this.id;
 
-if(f_rel=='produkte_service'){
+                if (this.id != 'load_' && this.id != 'alert_btn' && this.href == '') {
+                    //parent.link_aufrufen(this.id,this.rel);
+                    //window.location.href=this.rel;
+                    if (this.className.indexOf('onclick_external') >= 0) {
 
-if(f_id=='ja'){
-		 $( '#p_s_eingabe' ).slideDown( 300, 'easeInQuart', function() {
+                        external(this.rel);
+                    } else if (this.className.indexOf('onclick_pdf') >= 0) {
+                        pdf(this.rel);
+                    } else if (this.rel.indexOf('history_back') >= 0) {
+                        this.getAttribute('data-alternativlink');
+                        if (window.sessionStorage.getItem('letzte_seite') != null) {
+                            neu_seite(window.sessionStorage.getItem('letzte_seite'));
 
-});
-}else{
-		 $( '#p_s_eingabe' ).slideUp( 300, 'easeInQuart', function() {
+                        } else if (this.getAttribute('data-alternativlink') != null) {
+                            neu_seite(this.getAttribute('data-alternativlink'));
+                        } else {
+                            if (en) {
+                                neu_seite('index.html');
+                            } else {
+                                //deutsch
+                                neu_seite('home.html');
+                            }
 
-});	
-}
-}
-if(f_rel=='verb'){
+                        }
 
-if(f_id=='ja'){
-		 $( '#verbesser_eing' ).slideDown( 300, 'easeInQuart', function() {
+                    } else {
 
-});
-}else{
-		 $( '#verbesser_eing' ).slideUp( 300, 'easeInQuart', function() {
+                        window.sessionStorage.setItem('letzte_seite', window.location.href)
+                        neu_seite(this.rel);
+                    }
+                } else {
 
-});	
-}
-}
-
-		},
-	formssenden : function(f_name){
-		var arr = new Array();
-		arr=f_name.split('#');
-		//document.getElementsByName(arr[1])[0].submit();		
-	},
-		alert_ausgeben : function(alert_txt){
-	$( '#load_' ).addClass( "overlay" );
-	$( '#load_' ).addClass( "alr" );
-	 $( "#alert_txt" ).html(alert_txt);
-
-	
-	 toprt=xHeight/2;
-	 toprt=toprt-($( "#alert_fens" ).height()/2);
-	 $( "#alert_fens" ).css({'top':toprt+'px'});
-	
-	 $( "#load_" ).fadeIn( 170, 'easeInQuart', function() {
-
-});
-	
-		 $( "#alert_fens" ).delay(70).fadeIn( 170, 'easeInQuart', function() {
-
-});	
-	},
-	alert_schliessen : function(){
-		 $( "#load_" ).fadeOut( 100, 'easeInQuart', function() {
-
-});
-	
-		 $( "#alert_fens" ).delay(50).fadeOut( 100, 'easeInQuart', function() {
-$( '#load_' ).removeClass( "overlay" );
-	$( '#load_' ).removeClass( "alr" );
-});		
-	},
-	touchstart : function(){
-	
-
-
-	$( this ).addClass( "a_hover" );
-
-	bewegung=false;	
-	
-	},
-	touchmove :function(event){
-		//event.preventDefault();
-
-	
-	bewegung=true;	
-
-	$( ".a_hover" ).removeClass( "a_hover" );
-	
-	},
-	
-	touchend : function(){
-
-	
-
-		$( this ).removeClass( "a_hover" );
-
-		
-if(!bewegung ){
-		if(this.id=='alert_btn') {
-			//window.location.href=this.rel;
-					LinkToutch.alert_schliessen();
-		}else if(this.className.indexOf("ansp")>=0) {
-			kontakt_land(this.rel);
-			
-			
-		}else if(this.className.indexOf("feed")>=0) {
-			//window.location.href=this.rel;
-					LinkToutch.feedback	(this.id,this.rel);
-		
-		}else if(this.id.indexOf('#')>=0){
-		LinkToutch.formssenden(this.id);
-	    }else if(this.id=='zip_btn'){
-	//id muss  alert_ sein rel ist der alert text
-			zip_btn_akt();
-		}else if(this.className.indexOf('alert_')>=0){
-	//id muss  alert_ sein rel ist der alert text
-
-			if(en){
-				LinkToutch.alert_ausgeben(this.getAttribute("data-en"));
-			}else{
-				LinkToutch.alert_ausgeben(this.rel)	
-		
-			}
-		} else if(this.id=='profil_save'){
-			kontaktdaten_speichern();
-		  $( "#ps_aktualisiert" ).fadeIn( 200, function() {
-   $( "#ps_aktualisiert" ).delay(3000).fadeOut( 300, function() {});
-  });
-		
-	
-			
-		}else{
-//window.location.href=this.id;
-
-			if(this.id!='load_'&&this.id!='alert_btn'&&this.href==''){
-	//parent.link_aufrufen(this.id,this.rel);
-	//window.location.href=this.rel;
-				if (this.className.indexOf('onclick_external') >= 0 ){
-
-                       external(this.rel);
-				} else if (this.className.indexOf('onclick_pdf') >= 0 ){
-                       pdf(this.rel);
-				} else if (this.rel.indexOf('history_back') >= 0 ){
-					this.getAttribute('data-alternativlink');
-					if(window.sessionStorage.getItem('letzte_seite')!=null){
-			  			neu_seite(window.sessionStorage.getItem('letzte_seite'));
-			 
-					}else if(this.getAttribute('data-alternativlink')!=null){
-						neu_seite(this.getAttribute('data-alternativlink'));
-					}else {
-						if(en){
-							neu_seite('index.html');
-						} else {
-							//deutsch
-							neu_seite('home.html');
-						}	
-			
-					}
-                 
-				} else {
-		
-				window.sessionStorage.setItem('letzte_seite',window.location.href)
-				neu_seite(this.rel);
-				}
-			}else{
-	
-	//window.location.href=this.rel;
-	//neu_seite(this.rel);
-			}
-		}
-	}
-	}
+                    //window.location.href=this.rel;
+                    //neu_seite(this.rel);
+                }
+            }
+        }
+    }
 }
 
-	
-/*	
-
-Seiten aufrufen in anderem iframe und übergang
-<a id="calculator"  rel="calculator.html">Oben: calculator.html</a>
-
-<br>
-Seiten aufrufen in selben iframe ohne übergang
-<a rel="calculator.html">Unten: calculator.html</a>	
-*/	
-	
-//LinkToutch--------------------------------------------------------------------------------------------
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
-function lt_setup(){
-	
-	
-	LinkToutch.setup();
-	
-	
-	xWidth = null;
-		if(xWidth == null) {
-			if(window.innerWidth != null)
-			  xWidth = window.innerWidth;
-
-		}
-
-		xHeight = window.innerHeight;
-		$(".content").css({"min-height":xHeight+20});
-$( 'input' ).focus(function() {
-	
 
 
-	if(calc){
-		
-		$( this ).parent( ".eing_mth" ).addClass( "input_focus" );
-		
-		}else{men_display('none');
-		$( this ).addClass( "input_focus" );
-	}
+function lt_setup() {
+
+
+    LinkToutch.setup();
+
+
+    xWidth = null;
+    if (xWidth == null) {
+        if (window.innerWidth != null)
+            xWidth = window.innerWidth;
+
+    }
+
+    xHeight = window.innerHeight;
+    $(".content").css({
+        "min-height": xHeight + 20
+    });
+    $('input').focus(function() {
 
 
 
-});		
-		
-$( "textarea, input" ).focus(function() {
-	men_display('none');
-	$( this ).addClass( "input_focus" );
+        if (calc) {
 
-	
-});	
+            $(this).parent(".eing_mth").addClass("input_focus");
 
-	
-
-
-$( "select" ).focus(function() {
-
-men_display('none');
+        } else {
+            men_display('none');
+            $(this).addClass("input_focus");
+        }
 
 
 
-});	
+    });
 
-	
-	
-$( "input" ).blur(function() {
-	men_display('block');
+    $("textarea, input").focus(function() {
+        men_display('none');
+        $(this).addClass("input_focus");
 
-	$( '.input_focus' ).removeClass( "input_focus" );
 
-});		
-$( "textarea" ).blur(function() {
-	men_display('block');
-	$( '.input_focus' ).removeClass( "input_focus" );
-});		
-	
-$( "select" ).blur(function() {
-	men_display('block');
-	$( '.input_focus' ).removeClass( "input_focus" );
-});		
-	
-	}
+    });
 
 
 
 
+    $("select").focus(function() {
+
+        men_display('none');
 
 
-	
-$(document).ready(onReady);
 
-	$(document).ready(function() {
-	lt_setup();
+    });
+
+
+
+    $("input").blur(function() {
+        men_display('block');
+
+        $('.input_focus').removeClass("input_focus");
+
+    });
+    $("textarea").blur(function() {
+        men_display('block');
+        $('.input_focus').removeClass("input_focus");
+    });
+
+    $("select").blur(function() {
+        men_display('block');
+        $('.input_focus').removeClass("input_focus");
+    });
+
+}
+
+
+
+$(document).ready(function() {
+    lt_setup();
 
 });
 
-		 function alert_ausgeben(alert_txt){
+function alert_ausgeben(alert_txt) {
 
-	$( '#load_' ).addClass( "overlay" );
-	$( '#load_' ).addClass( "alr" );
-	 $( "#alert_txt" ).html(alert_txt)
-	 $( "#load_" ).fadeIn( 170, 'easeInQuart', function() {
+    $('#load_').addClass("overlay");
+    $('#load_').addClass("alr");
+    $("#alert_txt").html(alert_txt)
+    $("#load_").fadeIn(170, 'easeInQuart', function() {
 
-});
-	
-		 $( "#alert_fens" ).delay(70).fadeIn( 170, 'easeInQuart', function() {
+    });
 
-});	
+    $("#alert_fens").delay(70).fadeIn(170, 'easeInQuart', function() {
+
+    });
 }
