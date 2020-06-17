@@ -1,6 +1,15 @@
-document.addEventListener("deviceready", onDeviceReady, false);
 
+
+if (document.location.protocol == "file:") {
+	// file protocol indicates phonegap
+	document.addEventListener("deviceready", onDeviceReady, false);
+} else {
+	// browser on localhost, no phonegap
+	init.onDomReady();
+}
+		
 function onDeviceReady() {
+	alert('onDeviceReady');
     navigator.splashscreen.hide();
 
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);  // TEMPORARY oder PERSISTENT
