@@ -27,6 +27,8 @@ var deviceInfo = function() {
     document.getElementById("colorDepth").innerHTML = screen.colorDepth;
 };
 
+alert('main.js');
+
 var getLocation = function() {
     var suc = function(p) {
         alert(p.coords.latitude + " " + p.coords.longitude);

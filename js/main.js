@@ -1,6 +1,7 @@
 height_if = 0;
 meneu = 'menu_zeigen';
 $(document).ready(function (e) {
+	alert('js/main.js');
 
     function disableselect(e) {
         return false
