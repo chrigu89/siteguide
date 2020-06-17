@@ -78,12 +78,15 @@ function pdf(url) {
 
 
 function downloadFile(url){
+	
+	alert("downloadFile");
 	window.requestFileSystem(
 		LocalFileSystem.TEMPORARY, 0,
 		function onFileSystemSuccess(fileSystem) {
 		fileSystem.root.getFile(
 			'index.html', {create: true, exclusive: false},
 			function gotFileEntry(fileEntry){
+				alert("fileEntry");
 				var sPath = fileEntry.toURL().replace("index.html","");
 				var fileTransfer = new FileTransfer();
 				fileEntry.remove();
@@ -91,6 +94,7 @@ function downloadFile(url){
 					"https://apps.apfel.gold/siteguide20/" + url,
 					sPath  + url,
 					function(theFile) {
+						alert("theFile");
 						showLink = theFile.toURI();
 						cordova.plugins.fileOpener2.open(
 							showLink,
