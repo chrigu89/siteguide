@@ -3,8 +3,24 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     navigator.splashscreen.hide();
 
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, onFail);  // TEMPORARY oder PERSISTENT
+
 
 }
+
+
+
+function onFail(error){
+	alert(error.code);
+}
+
+
+
+function onFileSystemSuccess(msg){
+	alert('onFileSystemSuccess');
+	alert(msg);
+}
+
 
 function koma_ers(wert) {
     if (wert.indexOf(', ') >= 0) {
