@@ -63,7 +63,9 @@ function pdf(url) {
         if ((url.substr(0, 2)) == "..") {
             url = url.substr(3, 1000);
         }
-
+		url = 'http://apps.apfel.gold/siteguide20/' + url;       
+		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
+		alert('Android: '+url )
         
 		// alert("Der Download wird gestartet - bitte einen Moment Geduld");
 		// downloadFile(url);
@@ -71,7 +73,7 @@ function pdf(url) {
 		
 		FUNZT MIT CACHE FILES
 		
-		*/
+		
 			var showLink = cordova.file.externalCacheDirectory + url;
 			var file = showLink.replace("file://", "");
 			alert(file);
@@ -91,9 +93,9 @@ function pdf(url) {
 					}
 				}
 			); 
-		
+		*/
 
-        var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
+        // var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     } else {
         var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     }
