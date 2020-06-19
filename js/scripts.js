@@ -11,8 +11,6 @@ if (document.location.protocol == "file:") {
 function onDeviceReady() {
     navigator.splashscreen.hide();
 
-	window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, onFileSystemSuccess, onFail);  // TEMPORARY oder PERSISTENT
-
 
 }
 
@@ -63,91 +61,14 @@ function pdf(url) {
         if ((url.substr(0, 2)) == "..") {
             url = url.substr(3, 1000);
         }
-		url = 'http://apps.apfel.gold/siteguide20/' + url;       
-		alert('Android: '+url )
+		url = 'http://apps.apfel.gold/siteguide20/' + url;    
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
         
-		// alert("Der Download wird gestartet - bitte einen Moment Geduld");
-		// downloadFile(url);
-		/* 
-		
-		FUNZT MIT CACHE FILES
-		
-		
-			var showLink = cordova.file.externalCacheDirectory + url;
-			var file = showLink.replace("file://", "");
-			alert(file);
-			cordova.plugins.fileOpener2.open(
-				showLink,
-				'application/pdf', {
-					error: function(errorObj) {
-						if(errorObj.status == 9) {
-							alert('Sorry - Sie besitzen kein Programm, um PDF Dateien anzusehen.');
-						} else {
-							alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
-						}
-					},
-					success: function() {
-						alert('success');
-						
-					}
-				}
-			); 
-		*/
-
-        var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     } else {
         var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     }
 
 }
-
-
-function downloadFile(url){
-	
-	alert(url);
-	window.requestFileSystem(
-		LocalFileSystem.TEMPORARY, 0,
-		function onFileSystemSuccess(fileSystem) {
-		fileSystem.root.getFile(
-			'index.html', {create: true, exclusive: false},
-			function gotFileEntry(fileEntry){
-				alert("fileEntry");
-				var sPath = fileEntry.toURL().replace("index.html","");
-				var fileTransfer = new FileTransfer();
-				fileEntry.remove();
-				fileTransfer.download(
-					"https://apps.apfel.gold/siteguide20/" + url,
-					sPath  + url,
-					function(theFile) {
-						alert("theFile");
-						showLink = theFile.toURI();
-						cordova.plugins.fileOpener2.open(
-							showLink,
-							'application/pdf', {
-								error: function(errorObj) {
-									if(errorObj.status == 9) {
-										alert('Sorry - Sie besitzen kein Programm, um PDF Dateien anzusehen.');
-									} else {
-										alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
-									}
-								},
-								success: function() { }
-							}
-						);
-					},
-					function(error) {
-						alert("Der Download ist fehlgeschlagen. Bitte überprüfe deine Internetverbindung.");
-					}
-				);
-			},
-		onFail);
-	},
-	onFail);
-}
-
-
-
 
 function verlaufStorage_getItem(name_) {
 
