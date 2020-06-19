@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.2.3.15"
-		android-versionCode = "22315"
-		ios-CFBundleVersion = "2.2.3.15">
+		version   = "2.2.3.16"
+		android-versionCode = "22316"
+		ios-CFBundleVersion = "2.2.3.16">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>22315</string>
+		<string>22316</string>
 	</edit-config>
 
 		
@@ -178,12 +178,7 @@
 			<resource-file src="google-services.json" target="google-services.json" />
 		</platform>
 		
-		<platform name="android">
-		  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-			  <application android:usesCleartextTraffic="true" />
-		  </edit-config>
-		</platform>
-				
+		
 		
 		<preference name="android-build-tool" value="gradle" />
 		
@@ -198,6 +193,7 @@
 		<plugin name="cordova-plugin-whitelist" spec="*" />
 		<plugin name="cordova-plugin-file" spec="*" />
 		<plugin name="cordova-plugin-file-opener2" spec="*" />
+		<plugin name="cordova-plugin-cleartext" spec="*" />
 		
 		
 		
