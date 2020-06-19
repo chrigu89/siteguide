@@ -158,20 +158,12 @@
 	<!-- allow XHR access to external sites -->
 		<preference name="permissions" value="none"/>
 		
-		
-		<config-file target="AndroidManifest.xml" parent="/manifest">
-			<uses-permission android:name="android.permission.INTERNET" />
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
-			<application android:usesCleartextTraffic="true" />
-		</config-file>
-
-		
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
 		
 		<access origin="http://*" />
 		<access origin="https://*" />
+		<allow-navigation href="*" />
 		<access origin="debug.phonegap.com" /> <!-- see: http://community.phonegap.com/nitobi/topics/error_whitelist_rejection -->
 		
 	<!-- PG Plugins-->
@@ -208,6 +200,13 @@
 	
 	
 
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+		</config-file>
+		
 
 	<!-- ANDROID -->	
 		<gap:config-file platform="android" parent="/manifest">
