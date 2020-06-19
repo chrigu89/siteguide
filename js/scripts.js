@@ -65,7 +65,6 @@ function pdf(url) {
         }
 		url = 'http://apps.apfel.gold/siteguide20/' + url;       
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
-		alert('Android: '+url )
         
 		// alert("Der Download wird gestartet - bitte einen Moment Geduld");
 		// downloadFile(url);
