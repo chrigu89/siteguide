@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.2.3.11"
-		android-versionCode = "22311"
-		ios-CFBundleVersion = "2.2.3.11">
+		version   = "2.2.3.12"
+		android-versionCode = "22312"
+		ios-CFBundleVersion = "2.2.3.12">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>22311</string>
+		<string>22312</string>
 	</edit-config>
 
 		
@@ -150,20 +150,25 @@
 			<icon src="gfx/icons/android/icon-96-xhdpi.png" gap:qualifier="xhdpi" width="96" height="96"/>
 			<icon src="gfx/icons/android/icon-144-xxhdpi.png" gap:qualifier="xxhdpi" width="144" height="144"/>
 			<icon src="gfx/icons/android/icon-192-xxxhdpi.png" gap:qualifier="xxxhdpi" width="192" height="192"/>
-			
-
 		</platform>
 
 
 	<!-- allow XHR access to external sites -->
 		<preference name="permissions" value="none"/>
 		
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />   
+		</config-file>
+
+		
 		<allow-navigation href="*" />
 		<allow-intent href="*" />
 		
 		<access origin="http://*" />
 		<access origin="https://*" />
-		<allow-navigation href="*" />
 		<access origin="debug.phonegap.com" /> <!-- see: http://community.phonegap.com/nitobi/topics/error_whitelist_rejection -->
 		
 	<!-- PG Plugins-->
@@ -200,13 +205,6 @@
 	
 	
 
-		
-		<config-file target="AndroidManifest.xml" parent="/manifest">
-			<uses-permission android:name="android.permission.INTERNET" />
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
-		</config-file>
-		
 
 	<!-- ANDROID -->	
 		<gap:config-file platform="android" parent="/manifest">
