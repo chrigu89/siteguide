@@ -17,6 +17,9 @@
 	<description>Trelleborg Pipeseals SiteGuide</description>
 	<author href="https://apfel.gold" email="christian.busse@apfel.gold">Christian Busse</author>
 
+  <plugin name="cordova-plugin-inappbrowser" source="npm" version="1.0.1" />
+
+
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
 		 
