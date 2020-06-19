@@ -63,7 +63,8 @@ function pdf(url) {
         if ((url.substr(0, 2)) == "..") {
             url = url.substr(3, 1000);
         }
-		url = 'https://apps.apfel.gold/siteguide20/' + url;       
+		url = 'http://apps.apfel.gold/siteguide20/' + url;       
+		alert('Android: '+url )
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
         
 		// alert("Der Download wird gestartet - bitte einen Moment Geduld");
@@ -94,7 +95,7 @@ function pdf(url) {
 			); 
 		*/
 
-        // var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
+        var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     } else {
         var ref = window.open(url, '_blank', 'location=yes,enableViewPortScale=yes');
     }
