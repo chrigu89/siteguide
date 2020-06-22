@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.2.3.18"
-		android-versionCode = "22318"
-		ios-CFBundleVersion = "2.2.3.18">
+		version   = "2.2.3.19"
+		android-versionCode = "22319"
+		ios-CFBundleVersion = "2.2.3.19">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>22318</string>
+		<string>22319</string>
 	</edit-config>
 
 		
@@ -188,7 +188,7 @@
 		<!-- <plugin name="cordova-android-play-services-gradle-release" /> -->
 		
 		
-		<plugin name="cordova-plugin-inappbrowser" source="npm" version="1.0.1" />
+		<plugin name="cordova-plugin-inappbrowser" source="npm" version="3.1.0" />
 		
 		<plugin name="cordova-plugin-network-information" spec="*" />
 		<plugin name="cordova-plugin-statusbar" spec="*" />
