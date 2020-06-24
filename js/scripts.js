@@ -58,11 +58,17 @@ function external(url) {
 
 function pdf(url) {
 
-	if ((url.substr(0, 2)) == "..") {
-		url = url.substr(3, 1000);
+	if (navigator.userAgent.match(/(Android)/)) {
+		if ((url.substr(0, 2)) == "..") {
+			url = url.substr(3, 1000);
+		}
+		url = 'http://apps.apfel.gold/siteguide20/' + url;    
+		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
+	
+	} else {
+		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
+		
 	}
-	url = 'http://apps.apfel.gold/siteguide20/' + url;    
-	var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
 }
 
 function verlaufStorage_getItem(name_) {
