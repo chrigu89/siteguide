@@ -5,11 +5,11 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.trelleborg.siteguide"
-		version   = "2.2.3.23"
-		android-versionCode = "22323"
-		ios-CFBundleVersion = "2.2.3.23">
+		version   = "2.2.3.24"
+		android-versionCode = "22324"
+		ios-CFBundleVersion = "2.2.3.24">
 	<edit-config target="CFBundleShortVersionString" file="*-Info.plist" mode="overwrite">
-		<string>22323</string>
+		<string>22324</string>
 	</edit-config>
 
 		
@@ -81,7 +81,7 @@
 	<!-- iOS ONLY-->
 		<preference name="target-device" value="universal" /> <!-- universal (default), handheld, tablet -->
 		<preference name="prerendered-icon" value="true" /><!-- default:false, if true, iOS will not add it's gloss to app icon -->
-		<!-- <preference name="ios-statusbarstyle" value="black-opaque" />  default, black-opaque or black-translucent (doesn't quite work, see docs) -->
+		<preference name="ios-statusbarstyle" value="black-opaque" />  <!-- default, black-opaque or black-translucent (doesn't quite work, see docs) -->
 		<preference name="detect-data-types" value="true" /><!-- default:true, whether tel-numbers or dates should be turned to links by the system -->
 		<preference name="exit-on-suspend" value="false" />
 		<preference name="deployment-target" value="8.0" />
