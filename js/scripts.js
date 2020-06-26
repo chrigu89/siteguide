@@ -58,11 +58,11 @@ function external(url) {
 
 function pdf(url) {
 
+	url = 'https://apps.apfel.gold/siteguide20/' + url;   
 	if (navigator.userAgent.match(/(Android)/)) {
 		if ((url.substr(0, 2)) == "..") {
 			url = url.substr(3, 1000);
-		}
-		url = 'http://apps.apfel.gold/siteguide20/' + url;    
+		} 
 		var ref = window.open(url, '_system', 'location=no,enableViewPortScale=yes');
 	
 	} else {
